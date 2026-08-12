@@ -41,6 +41,11 @@ function localState() {
 function hasProgress(state) {
   return state.xp > 0 || Object.keys(state.progress || {}).length > 0 || Object.keys(state.quests || {}).length > 0;
 }
+function stableStringify(value) {
+  if (Array.isArray(value)) return `[${value.map(stableStringify).join(',')}]`;
+  if (value && typeof value === 'object') return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${stableStringify(value[key])}`).join(',')}}`;
+  return JSON.stringify(value);
+}
 function applyState(state) {
   applyingCloud = true;
   localStorage.setItem('hanstep-progress', JSON.stringify(state.progress || {}));
@@ -86,9 +91,12 @@ async function loadOrSeedCloud() {
   const rows = await cloudRequest(`/rest/v1/hanstep_progress?user_id=eq.${session.user.id}&select=state`);
   if (rows.length && hasProgress(rows[0].state || {})) {
     const cloudState = rows[0].state;
-    if (JSON.stringify(cloudState) !== JSON.stringify(localState())) {
+    if (stableStringify(cloudState) !== stableStringify(localState())) {
       applyState(cloudState);
-      location.reload();
+      if (!sessionStorage.getItem('malbit-cloud-applied')) {
+        sessionStorage.setItem('malbit-cloud-applied', '1');
+        location.reload();
+      }
     }
     return;
   }
