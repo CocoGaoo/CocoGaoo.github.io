@@ -1,13 +1,72 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>韩步 · 延世韩国语 1 系统学习</title><meta name="description" content="间隔复习、词汇拆解、句型规律与 TOPIK 4 学习路线"><link rel="icon" href="favicon.svg"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="mission.css"><link rel="stylesheet" href="auth.css"><meta property="og:image" content="https://cocogaoo.github.io/og.jpg"></head><body><main>
-<header class="topbar"><a class="brand" href="#top"><span>한</span> 韩步</a><nav><a href="#learn">今日学习</a><a href="#mission">沉浸任务</a><a href="#patterns">句型规律</a><a href="#plan">备考路线</a></nav><div class="top-actions"><button class="account-button" id="accountButton" type="button">登录同步</button><div class="streak" id="status">Lv.1 · 0 XP</div></div></header>
-<section class="hero" id="top"><div class="hero-copy"><p class="eyebrow">延世韩国语 1 · TOPIK 4 远征</p><h1>不是死记，<br><em>找到韩语的规律。</em></h1><p class="lead">从《延世韩国语 1》第一单元起步，用 8 个月冲刺 TOPIK 4。每天 45–70 分钟，把单词、句型、听读和输出练成完整链路。</p><a class="primary" href="#learn">开始今天的学习 <span>→</span></a><p class="micro">无需登录 · 进度保存在当前设备</p></div><div class="hero-board"><div class="board-head"><span>오늘의 학습</span><b id="progressText">0%</b></div><div class="ring" id="ring"><div><strong id="mastered">0</strong><small>已掌握</small></div></div><div class="today-note"><span>오늘</span><div><b id="due">今天优先巩固薄弱词</b><small>记不住不是失败，是复习时间到了</small></div></div><div class="mini-stats"><div><b>24</b><span>起步词卡</span></div><div><b>6</b><span>核心句型</span></div><div><b>60</b><span>分钟/天</span></div></div></div></section>
-<section class="learn-section" id="learn"><div class="section-title"><div><p class="eyebrow">MEMORY LAB · 记忆实验室</p><h2>今天先学一点，记得更久。</h2></div><button class="text-button" id="reset">重置进度</button></div><div class="tabs"><button class="active">单词卡</button></div><div class="study-grid"><button class="flashcard" id="card"><span class="tag" id="tag">问候</span><strong id="ko">안녕하세요</strong><span class="sound" id="hint">◖ 点击查看记忆线索</span><small id="count">1 / 24</small></button><div class="rating-panel"><p>看完答案后，你记得怎么样？</p><div class="ratings"><button data-rate="0"><i>×</i><span>忘记了</span><small>马上再来</small></button><button data-rate="1"><i>~</i><span>有点模糊</span><small>今天再见</small></button><button data-rate="2"><i>✓</i><span>想起来了</span><small>明天复习</small></button><button data-rate="3"><i>★</i><span>很熟练</span><small>过几天见</small></button></div><div class="memory-tip"><b>记忆规律 01</b><p>先猜，再翻面。努力回忆一次，比重复看五遍更容易留下痕迹。</p></div></div></div></section>
-<section class="mission-section" id="mission"><div class="mission-top"><div><p class="eyebrow">TODAY'S QUEST · 今日沉浸任务</p><h2>今天不是“学过”，<br>而是完成一次韩语闭环。</h2></div><div class="level-card"><span>TOPIK 4 远征</span><strong id="level">Lv.1</strong><div><i id="xpbar"></i></div><small id="xptext">0 / 200 XP 距离下一级</small></div></div><div class="quest-grid" id="quests"></div><div class="immersion-rule"><b>沉浸规则</b><p>开始任务后，把手机切到勿扰。每完成一项就打勾；不要追求“看懂”，要追求“不看也能说出来”。</p><span id="stars">0 / 5 ★</span></div></section>
-<section class="patterns-section" id="patterns"><div class="section-title light"><div><p class="eyebrow">PATTERN MAP · 句型地图</p><h2>把语法变成可复用的积木。</h2></div></div><div class="pattern-grid"><article><span>01</span><h3>N은/는 N이에요/예요</h3><b>N 是 N</b><p>有收音用 이에요；无收音用 예요。은/는 标记当前话题。</p><blockquote>저는 중국 사람이에요.</blockquote><small>학생이에요 / 의사예요</small></article><article><span>02</span><h3>N이/가 있어요</h3><b>有 N / N 在</b><p>有收音用 이；无收音用 가。있어요 表示存在。</p><blockquote>책이 있어요.</blockquote><small>없어요 是反义：책이 없어요</small></article><article><span>03</span><h3>N을/를 V</h3><b>动作对象是 N</b><p>有收音用 을；无收音用 를。把它想成动作箭头。</p><blockquote>한국어를 공부해요.</blockquote><small>책을 읽어요 / 커피를 마셔요</small></article><article><span>04</span><h3>N이/가 아니에요</h3><b>不是 N</b><p>把 아니에요 作为一个整体记。</p><blockquote>저는 의사가 아니에요.</blockquote><small>학생이에요 ↔ 학생이 아니에요</small></article><article><span>05</span><h3>N도</h3><b>N 也……</b><p>도 直接替换主题、主语或宾语助词。</p><blockquote>저도 학생이에요.</blockquote><small>相同情况的追加</small></article><article><span>06</span><h3>N의 N</h3><b>N 的 N</b><p>의 表示所属；저의 常缩成 제。</p><blockquote>이것은 제 책이에요.</blockquote><small>저의→제 / 나의→내</small></article></div></section>
-<section class="plan-section" id="plan"><div class="section-title"><div><p class="eyebrow">TOPIK 4 ROADMAP</p><h2>按阶段走，不再东学一点西学一点。</h2></div></div><div class="exam-banner"><div><p>目标考试</p><strong>2027.04</strong></div><div><p>当前起点</p><strong>延世 1 · 第一单元后</strong></div><div><p>目标等级</p><strong>TOPIK 4</strong></div><div><p>建议投入</p><strong>每周 7–9 小时</strong></div></div><div class="roadmap"><article class="now"><span>08–09月</span><h3>地基期</h3><p>完成延世 1；掌握基础助词、敬语体和 800–1,000 词。</p><b>你在这里</b></article><article><span>10–12月</span><h3>扩张期</h3><p>推进延世 2–3；词汇到 2,500，开始短文听读和日记。</p><b>阶段测验</b></article><article><span>01–02月</span><h3>TOPIK 转型期</h3><p>系统训练阅读、听力题型；每周一套分项。</p><b>题型训练</b></article><article><span>03–04月</span><h3>冲刺期</h3><p>完整模考、错题循环和时间分配。</p><b>每周模考</b></article></div></section><footer><a class="brand" href="#top"><span>한</span> 韩步</a><p>천천히, 하지만 꾸준히 · 慢一点，但别停下。</p></footer></main>
-<div class="auth-backdrop" id="authBackdrop" hidden><section class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="auth-close" id="authClose" aria-label="关闭">×</button><p class="eyebrow">HANSTEP CLOUD · 学习云同步</p><h2 id="authTitle">登录韩步</h2><p class="auth-intro">手机号只是你的登录账号，不会发送短信。首次使用请选择“创建账号”。</p><form id="authForm"><label>手机号码<input id="phoneInput" inputmode="tel" autocomplete="username" placeholder="例如 13800138000" required></label><label>密码<input id="passwordInput" type="password" autocomplete="current-password" minlength="6" placeholder="至少 6 位" required></label><button class="auth-submit" type="submit">登录并同步</button><button class="auth-secondary" id="signupButton" type="button">第一次使用，创建账号</button></form><p class="auth-message" id="authMessage"></p><div class="signed-panel" id="signedPanel" hidden><strong id="signedPhone"></strong><span>学习进度已开启云同步</span><button class="auth-secondary" id="logoutButton" type="button">退出登录</button></div></section></div>
-<script>
-const cards=[['안녕하세요','您好 / 你好','안녕（安宁）+ 하세요（请这样做）→ 祝你安宁','선생님, 안녕하세요?','问候'],['감사합니다','谢谢','감사（感谢）+ 합니다（正式陈述）','도와주셔서 감사합니다.','问候'],['학생','学生','汉字词：学生，发音和中文含义可成组记','저는 학생이에요.','身份'],['선생님','老师','선생（先生）+ 님（尊称）','선생님은 한국 사람이에요.','身份'],['친구','朋友','汉字词：亲旧，指亲近的老相识','이 사람은 제 친구예요.','人物'],['학교','学校','汉字词：学校；학 常和学习相关','학교에 갑니다.','地点'],['책','书','单音节固有词，和 책상（书桌）结对记','이것은 한국어 책이에요.','物品'],['한국어','韩语','한국（韩国）+ 어（语言）','한국어를 공부합니다.','学习'],['이름','名字','和 이름이 뭐예요? 整句一起记','이름이 뭐예요?','介绍'],['나라','国家','和 어느 나라（哪个国家）成组记','어느 나라 사람이에요?','介绍'],['사람','人','中国人=중국 사람；韩国人=한국 사람','저는 중국 사람이에요.','身份'],['회사원','公司职员','회사（公司）+ 원（人员）','제 친구는 회사원이에요.','职业'],['의사','医生','汉字词：医师；无收音，后接 예요','민수 씨는 의사예요.','职业'],['네','是 / 好的','应答词；口语中常听起来接近 데','네, 맞아요.','应答'],['아니요','不 / 不是','与 네 成对记','아니요, 학생이 아니에요.','应答'],['어느','哪个','必须放在名词前：어느 나라','어느 학교에 다녀요?','疑问'],['뭐','什么','무엇 的口语缩略','이것은 뭐예요?','疑问'],['저','我（谦称）','正式场合用 저；熟人间用 나','저는 고채미예요.','人物'],['제','我的（谦称）','저의 的缩略','제 이름은 코코예요.','人物'],['맞아요','对 / 没错','맞다 + 아요','네, 맞아요.','应答'],['공부하다','学习','공부 + 하다','매일 한국어를 공부해요.','动作'],['읽다','读','常读作 [익따]，先记声音','책을 읽어요.','动作'],['듣다','听','和 읽다 成对记','한국 노래를 들어요.','动作'],['말하다','说','말 + 하다 → 说话','한국어로 말해요.','动作']];
-const qs=[['review','① 唤醒记忆','复习 20 个到期词，先回忆再翻面','15 分钟'],['input','② 可理解输入','听初级对话 3 遍：盲听、看稿、跟读','15 分钟'],['pattern','③ 句型替换','用今天的句型替换 5 组内容','12 分钟'],['output','④ 主动输出','不看答案，说或写 5 句自我介绍','10 分钟'],['mistake','⑤ 错误归档','记录 3 个错因','8 分钟']];let idx=0,flip=false,scores=JSON.parse(localStorage.getItem('hanstep-progress')||'{}'),xp=Number(localStorage.getItem('hanstep-xp')||0),done=JSON.parse(localStorage.getItem('hanstep-quests')||'{}');
-function save(){localStorage.setItem('hanstep-progress',JSON.stringify(scores));localStorage.setItem('hanstep-xp',xp);localStorage.setItem('hanstep-quests',JSON.stringify(done));render()};function render(){let c=cards[idx];document.querySelector('#tag').textContent=flip?'拆开记':c[4];document.querySelector('#ko').textContent=flip?c[1]:c[0];document.querySelector('#hint').textContent=flip?c[2]:'◖ 点击查看记忆线索';document.querySelector('#count').textContent=(idx+1)+' / '+cards.length;let m=Object.values(scores).filter(v=>v>=3).length,p=Math.round(m/cards.length*100);document.querySelector('#mastered').textContent=m;document.querySelector('#progressText').textContent=p+'%';document.querySelector('#ring').style.setProperty('--progress',p*3.6+'deg');document.querySelector('#status').textContent='Lv.'+(Math.floor(xp/200)+1)+' · '+xp+' XP';document.querySelector('#level').textContent='Lv.'+(Math.floor(xp/200)+1);document.querySelector('#xptext').textContent=(xp%200)+' / 200 XP 距离下一级';document.querySelector('#xpbar').style.width=((xp%200)/2)+'%';document.querySelector('#quests').innerHTML=qs.map(q=>`<button data-q="${q[0]}" class="${done[q[0]]?'done':''}"><span class="check">${done[q[0]]?'✓':''}</span><div><h3>${q[1]}</h3><p>${q[2]}</p><small>${q[3]} · +20 XP</small></div></button>`).join('');document.querySelector('#stars').textContent=Object.values(done).filter(Boolean).length+' / 5 ★';document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{let k=b.dataset.q;if(!done[k])xp+=20;done[k]=!done[k];save()})}document.querySelector('#card').onclick=()=>{flip=!flip;render()};document.querySelectorAll('[data-rate]').forEach(b=>b.onclick=()=>{let v=Number(b.dataset.rate);scores[cards[idx][0]]=v;xp+=(v+1)*3;idx=(idx+1)%cards.length;flip=false;save()});document.querySelector('#reset').onclick=()=>{if(confirm('确定重置学习进度吗？')){scores={};xp=0;done={};save()}};render();
-</script><script src="sync.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#b7c9bd">
+  <title>语光 Malbit · 韩语沉浸学习</title>
+  <meta name="description" content="从延世韩国语 1 到 TOPIK 4：单词、听力、口语、句型与复习计划">
+  <link rel="icon" href="favicon.svg">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+<button class="mobile-menu" id="menuButton" aria-label="打开导航">☰</button>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="#home" data-view-link="home"><span>빛</span><div><b>语光</b><small>말빛 · MALBIT</small></div></a>
+  <nav>
+    <button class="active" data-view-link="home"><i>⌂</i><span>今日首页</span></button>
+    <button data-view-link="learn"><i>字</i><span>单词记忆</span></button>
+    <button data-view-link="listen"><i>耳</i><span>听力实验室</span></button>
+    <button data-view-link="speak"><i>声</i><span>口语跟读</span></button>
+    <button data-view-link="patterns"><i>句</i><span>句型地图</span></button>
+    <button data-view-link="plan"><i>路</i><span>TOPIK 路线</span></button>
+  </nav>
+  <div class="sidebar-foot">
+    <button class="account-button" id="accountButton">登录同步</button>
+    <p id="syncLabel">本机模式 · 登录后多端同步</p>
+  </div>
+</aside>
+
+<main class="workspace">
+  <section class="view active" id="home">
+    <header class="page-head"><div><p class="eyebrow">안녕하세요 · 今天也来点亮一点</p><h1>你的韩语，<em>正在发光。</em></h1></div><div class="level-pill" id="status">Lv.1 · 0 XP</div></header>
+    <div class="dashboard-grid">
+      <article class="today-card"><span class="soft-label">TODAY · 今日闭环</span><h2>不只“看懂”，<br>今天要听见、说出。</h2><div class="quest-list" id="quests"></div><div class="today-bottom"><span id="stars">0 / 5 完成</span><button data-go="learn">开始学习 →</button></div></article>
+      <article class="progress-card"><div class="ring" id="ring"><div><strong id="mastered">0</strong><small>已掌握词</small></div></div><p id="progressText">24 个起步词 · 0%</p><div class="tiny-grid"><div><b id="listenCount">0</b><span>听力练习</span></div><div><b id="speakCount">0</b><span>口语练习</span></div><div><b>2027.04</b><span>TOPIK 目标</span></div></div></article>
+      <article class="memory-card"><span class="soft-label">MEMORY NOTE · 记忆处方</span><h3>忘记，不代表记性差。</h3><p>大脑需要在“快要忘记”的时候再次提取。今天的内容会混合单词、声音和句子，让同一个记忆留下三条线索。</p><div class="memory-chain"><span>看见</span><i>→</i><span>听见</span><i>→</i><span>说出</span><i>→</i><span>用上</span></div></article>
+    </div>
+  </section>
+
+  <section class="view" id="learn">
+    <header class="page-head"><div><p class="eyebrow">WORD GARDEN · 单词花园</p><h1>先猜，再翻面。</h1></div><button class="ghost" id="reset">重置进度</button></header>
+    <div class="study-layout"><button class="flashcard" id="card"><span class="card-tag" id="tag">问候</span><strong id="ko">안녕하세요</strong><span id="hint">点击查看记忆线索</span><small id="count">1 / 24</small></button><div class="rate-box"><h2>这次想起来了吗？</h2><p>诚实选择，大脑会自动安排下次复习。</p><div class="ratings"><button data-rate="0"><b>×</b>忘记了<small>马上再来</small></button><button data-rate="1"><b>~</b>有点模糊<small>今天再见</small></button><button data-rate="2"><b>✓</b>想起来了<small>明天复习</small></button><button data-rate="3"><b>★</b>很熟练<small>几天后见</small></button></div><div class="tip"><b>记忆规律</b><span>一个词不要孤立背：读音 + 画面 + 例句，至少连接两条线索。</span></div></div></div>
+  </section>
+
+  <section class="view" id="listen">
+    <header class="page-head"><div><p class="eyebrow">LISTENING LAB · 听力实验室</p><h1>先用耳朵，<em>别急着看。</em></h1></div></header>
+    <div class="lab-grid"><article class="audio-stage"><span class="round-no" id="listenNo">01</span><p>闭眼听 2 遍，再写下你听到的内容。</p><button class="play-main" id="playNormal">▶ 播放韩语</button><div class="speed-row"><button id="playSlow">0.72× 慢速</button><button id="revealListen">显示原文</button></div><div class="listen-answer" id="listenAnswer" hidden><strong id="listenKorean"></strong><span id="listenMeaning"></span></div></article><article class="dictation"><span class="soft-label">DICTATION · 听写</span><h2>你听到了什么？</h2><textarea id="dictationInput" placeholder="在这里输入韩语，空格和标点不影响判断"></textarea><button class="solid" id="checkDictation">检查答案</button><p class="feedback" id="dictationFeedback"></p><button class="next-link" id="nextListen">下一句 →</button></article></div>
+  </section>
+
+  <section class="view" id="speak">
+    <header class="page-head"><div><p class="eyebrow">SHADOWING ROOM · 口语跟读</p><h1>听一句，<em>跟一句。</em></h1></div></header>
+    <div class="speaking-stage"><span class="scene-tag" id="speakScene">初次见面</span><h2 id="speakKorean">안녕하세요. 저는 코코예요.</h2><p id="speakMeaning">你好，我是 Coco。</p><div class="speak-actions"><button id="modelVoice">◉ 听示范</button><button class="record" id="recordVoice">● 开始跟读</button></div><div class="wave" id="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p class="feedback" id="speechFeedback">建议：先听两遍，再模仿节奏，不要逐字蹦出来。</p><div class="self-check"><span>说完后自评：</span><button data-speech-rate="1">还不顺</button><button data-speech-rate="2">能说出</button><button data-speech-rate="3">很自然</button></div><button class="next-link" id="nextSpeak">换一句 →</button></div>
+  </section>
+
+  <section class="view" id="patterns">
+    <header class="page-head"><div><p class="eyebrow">PATTERN MAP · 句型地图</p><h1>把语法变成<em>积木。</em></h1></div></header>
+    <div class="pattern-grid" id="patternGrid"></div>
+  </section>
+
+  <section class="view" id="plan">
+    <header class="page-head"><div><p class="eyebrow">TOPIK 4 · 远征路线</p><h1>按阶段走，<em>不再乱学。</em></h1></div></header>
+    <div class="target-banner"><div><small>目标考试</small><b>2027 年 4 月</b></div><div><small>当前起点</small><b>延世 1 · 第一单元</b></div><div><small>每周投入</small><b>7–9 小时</b></div></div>
+    <div class="roadmap"><article class="now"><span>现在–09月</span><h2>01 地基期</h2><p>完成延世 1，建立 800–1,000 词和基础听说反射。</p><b>你在这里</b></article><article><span>10–12月</span><h2>02 扩张期</h2><p>推进延世 2–3，词汇达到 2,500，开始短文听读。</p></article><article><span>01–02月</span><h2>03 题型期</h2><p>系统训练 TOPIK 阅读与听力，每周完成一套分项。</p></article><article><span>03–04月</span><h2>04 冲刺期</h2><p>完整模考、错题循环、时间管理与薄弱项补强。</p></article></div>
+  </section>
+</main>
+
+<div class="auth-backdrop" id="authBackdrop" hidden><section class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="auth-close" id="authClose" aria-label="关闭">×</button><p class="eyebrow">MALBIT CLOUD · 学习云同步</p><h2 id="authTitle">登录语光</h2><p class="auth-intro">手机号只是登录账号，不会发送短信。首次使用请选择“创建账号”。</p><form id="authForm"><label>手机号码<input id="phoneInput" inputmode="tel" autocomplete="username" placeholder="例如 13800138000" required></label><label>密码<input id="passwordInput" type="password" autocomplete="current-password" minlength="6" placeholder="至少 6 位" required></label><button class="auth-submit" type="submit">登录并同步</button><button class="auth-secondary" id="signupButton" type="button">第一次使用，创建账号</button></form><p class="auth-message" id="authMessage"></p><div class="signed-panel" id="signedPanel" hidden><strong id="signedPhone"></strong><span>学习进度已开启云同步</span><button class="auth-secondary" id="logoutButton" type="button">退出登录</button></div></section></div>
+
+<script src="app.js"></script><script src="sync.js"></script>
+</body></html>

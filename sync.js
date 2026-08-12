@@ -6,7 +6,7 @@ const backdrop = document.querySelector('#authBackdrop');
 const authForm = document.querySelector('#authForm');
 const signedPanel = document.querySelector('#signedPanel');
 const authMessage = document.querySelector('#authMessage');
-const syncLabel = document.querySelector('.micro');
+const syncLabel = document.querySelector('#syncLabel');
 let session = readSession();
 let syncTimer;
 let applyingCloud = false;
@@ -85,8 +85,11 @@ async function cloudRequest(path, options = {}) {
 async function loadOrSeedCloud() {
   const rows = await cloudRequest(`/rest/v1/hanstep_progress?user_id=eq.${session.user.id}&select=state`);
   if (rows.length && hasProgress(rows[0].state || {})) {
-    applyState(rows[0].state);
-    location.reload();
+    const cloudState = rows[0].state;
+    if (JSON.stringify(cloudState) !== JSON.stringify(localState())) {
+      applyState(cloudState);
+      location.reload();
+    }
     return;
   }
   await uploadState();
@@ -136,8 +139,6 @@ document.querySelector('#logoutButton').onclick = () => {
   setAuthMessage('已退出。本机仍保留当前学习进度。');
   updateAccountUI();
 };
-document.querySelector('#learn').addEventListener('click', scheduleSync);
-document.querySelector('#mission').addEventListener('click', scheduleSync);
-document.querySelector('#reset').addEventListener('click', scheduleSync);
+['#learn','#listen','#speak','#home','#reset'].forEach(selector => document.querySelector(selector)?.addEventListener('click', scheduleSync));
 updateAccountUI();
 if (session?.access_token) loadOrSeedCloud().catch(() => { syncLabel.textContent = '同步暂时失败 · 本机进度仍已保存'; });
