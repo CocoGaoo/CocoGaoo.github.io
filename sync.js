@@ -154,5 +154,6 @@ document.querySelector('#logoutButton').onclick = () => {
   updateAccountUI();
 };
 ['#course','#exam','#mistakes','#learn','#listen','#speak','#patterns','#favorites','#home','#reset'].forEach(selector => document.querySelector(selector)?.addEventListener('click', scheduleSync));
+window.addEventListener('malbit-progress-changed', scheduleSync);
 updateAccountUI();
 if (session?.access_token) loadOrSeedCloud().catch(() => { syncLabel.textContent = '同步暂时失败 · 本机进度仍已保存'; });
