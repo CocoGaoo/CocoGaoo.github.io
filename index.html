@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="auth.css">
   <link rel="stylesheet" href="mobile-study.css?v=2">
+  <link rel="stylesheet" href="learning-upgrade.css?v=4">
 </head>
 <body>
 <button class="mobile-menu" id="menuButton" aria-label="打开导航">☰</button>
@@ -22,6 +23,7 @@
     <button data-view-link="listen"><i>耳</i><span>听力实验室</span></button>
     <button data-view-link="speak"><i>声</i><span>口语跟读</span></button>
     <button data-view-link="patterns"><i>句</i><span>句型地图</span></button>
+    <button data-view-link="favorites"><i>♡</i><span>我的收藏</span></button>
     <button data-view-link="plan"><i>路</i><span>TOPIK 路线</span></button>
   </nav>
   <div class="sidebar-foot">
@@ -42,22 +44,27 @@
 
   <section class="view" id="learn">
     <header class="page-head"><div><p class="eyebrow">WORD GARDEN · 单词花园</p><h1>先猜，再翻面。</h1></div><button class="ghost" id="reset">重置进度</button></header>
-    <div class="study-layout"><button class="flashcard" id="card"><span class="card-tag" id="tag">问候</span><strong id="ko">안녕하세요</strong><span id="hint">点击查看记忆线索</span><small id="count">1 / 24</small></button><div class="rate-box"><h2>这次想起来了吗？</h2><p>诚实选择，大脑会自动安排下次复习。</p><div class="ratings"><button data-rate="0"><b>×</b>忘记了<small>马上再来</small></button><button data-rate="1"><b>~</b>有点模糊<small>今天再见</small></button><button data-rate="2"><b>✓</b>想起来了<small>明天复习</small></button><button data-rate="3"><b>★</b>很熟练<small>几天后见</small></button></div><div class="tip"><b>记忆规律</b><span>一个词不要孤立背：读音 + 画面 + 例句，至少连接两条线索。</span></div></div></div>
+    <div class="study-layout"><button class="flashcard" id="card"><span class="card-tag" id="tag">问候</span><strong id="ko">안녕하세요</strong><span class="pronunciation" id="pronunciation">实际读音 [안녕하세요]</span><span id="hint">点击查看记忆线索</span><small id="count">1 / 24</small></button><div class="rate-box"><div class="card-tools"><button id="wordVoice">🔊 听发音</button><button id="wordFavorite">♡ 收藏例句</button></div><div class="sound-rule" id="soundRule"><b>发音提示</b><span>按音节清楚地读：안-녕-하-세-요</span></div><h2>这次想起来了吗？</h2><p>诚实选择，大脑会自动安排下次复习。</p><div class="ratings"><button data-rate="0"><b>×</b>忘记了<small>马上再来</small></button><button data-rate="1"><b>~</b>有点模糊<small>今天再见</small></button><button data-rate="2"><b>✓</b>想起来了<small>明天复习</small></button><button data-rate="3"><b>★</b>很熟练<small>几天后见</small></button></div><div class="tip"><b>记忆规律</b><span>一个词不要孤立背：读音 + 画面 + 例句，至少连接两条线索。</span></div></div></div>
   </section>
 
   <section class="view" id="listen">
     <header class="page-head"><div><p class="eyebrow">LISTENING LAB · 听力实验室</p><h1>先用耳朵，<em>别急着看。</em></h1></div></header>
-    <div class="lab-grid"><article class="audio-stage"><span class="round-no" id="listenNo">01</span><p>闭眼听 2 遍，再写下你听到的内容。</p><button class="play-main" id="playNormal">▶ 播放韩语</button><div class="speed-row"><button id="playSlow">0.72× 慢速</button><button id="revealListen">显示原文</button></div><div class="listen-answer" id="listenAnswer" hidden><strong id="listenKorean"></strong><span id="listenMeaning"></span></div></article><article class="dictation"><span class="soft-label">DICTATION · 听写</span><h2>你听到了什么？</h2><textarea id="dictationInput" placeholder="在这里输入韩语，空格和标点不影响判断"></textarea><button class="solid" id="checkDictation">检查答案</button><p class="feedback" id="dictationFeedback"></p><button class="next-link" id="nextListen">下一句 →</button></article></div>
+    <div class="lab-grid"><article class="audio-stage"><span class="round-no" id="listenNo">01</span><p>闭眼听 2 遍，在纸上写下你听到的内容。</p><button class="play-main" id="playNormal">▶ 播放韩语</button><div class="speed-row"><button id="playSlow">0.72× 慢速</button><button id="revealListen">对照原文</button></div><div class="listen-answer" id="listenAnswer" hidden><strong id="listenKorean"></strong><span id="listenMeaning"></span></div></article><article class="dictation paper-mode"><span class="soft-label">PAPER MODE · 纸笔听写</span><h2>写完后这样核对</h2><ol><li>圈出漏听或写错的音节</li><li>再听慢速，找出连音位置</li><li>看原文跟读三遍</li></ol><div class="paper-actions"><button class="solid" id="paperDone">我已在纸上完成 · +10 XP</button><button id="listenFavorite">♡ 收藏这句话</button></div><p class="feedback" id="dictationFeedback"></p><button class="next-link" id="nextListen">下一句 →</button></article></div>
   </section>
 
   <section class="view" id="speak">
     <header class="page-head"><div><p class="eyebrow">SHADOWING ROOM · 口语跟读</p><h1>听一句，<em>跟一句。</em></h1></div></header>
-    <div class="speaking-stage"><span class="scene-tag" id="speakScene">初次见面</span><h2 id="speakKorean">안녕하세요. 저는 코코예요.</h2><p id="speakMeaning">你好，我是 Coco。</p><div class="speak-actions"><button id="modelVoice">◉ 听示范</button><button class="record" id="recordVoice">● 开始跟读</button></div><div class="wave" id="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p class="feedback" id="speechFeedback">建议：先听两遍，再模仿节奏，不要逐字蹦出来。</p><div class="self-check"><span>说完后自评：</span><button data-speech-rate="1">还不顺</button><button data-speech-rate="2">能说出</button><button data-speech-rate="3">很自然</button></div><button class="next-link" id="nextSpeak">换一句 →</button></div>
+    <div class="speaking-stage"><span class="scene-tag" id="speakScene">初次见面</span><button class="inline-favorite" id="speakFavorite">♡ 收藏</button><h2 id="speakKorean">안녕하세요. 저는 코코예요.</h2><p id="speakMeaning">你好，我是 Coco。</p><div class="speak-actions"><button id="modelVoice">◉ 听示范</button><button class="record" id="recordVoice">● 开始跟读并评分</button></div><div class="wave" id="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="score-orb" id="scoreOrb" hidden><strong id="speechScore">--</strong><span>口语分</span></div><p class="feedback" id="speechFeedback">建议：先听两遍，再模仿节奏，不要逐字蹦出来。</p><div class="self-check"><span>浏览器不能评分时自评：</span><button data-speech-rate="1">还不顺</button><button data-speech-rate="2">能说出</button><button data-speech-rate="3">很自然</button></div><button class="next-link" id="nextSpeak">换一句 →</button></div>
   </section>
 
   <section class="view" id="patterns">
     <header class="page-head"><div><p class="eyebrow">PATTERN MAP · 句型地图</p><h1>把语法变成<em>积木。</em></h1></div></header>
     <div class="pattern-grid" id="patternGrid"></div>
+  </section>
+
+  <section class="view" id="favorites">
+    <header class="page-head"><div><p class="eyebrow">MY LIGHTS · 我的收藏</p><h1>值得反复说的<em>句子。</em></h1></div></header>
+    <div class="favorites-grid" id="favoritesGrid"></div>
   </section>
 
   <section class="view" id="plan">
@@ -67,7 +74,9 @@
   </section>
 </main>
 
+<div class="detail-backdrop" id="patternBackdrop" hidden><article class="pattern-detail" role="dialog" aria-modal="true"><button class="auth-close" id="patternClose" aria-label="关闭">×</button><span class="soft-label">GRAMMAR NOTE · 语法详解</span><h2 id="detailTitle"></h2><b id="detailMeaning"></b><div id="detailBody"></div><button class="auth-secondary" id="patternFavorite">♡ 收藏例句</button></article></div>
+
 <div class="auth-backdrop" id="authBackdrop" hidden><section class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="auth-close" id="authClose" aria-label="关闭">×</button><p class="eyebrow">MALBIT CLOUD · 学习云同步</p><h2 id="authTitle">登录语光</h2><p class="auth-intro">手机号只是登录账号，不会发送短信。首次使用请选择“创建账号”。</p><form id="authForm"><label>手机号码<input id="phoneInput" inputmode="tel" autocomplete="username" placeholder="例如 13800138000" required></label><label>密码<input id="passwordInput" type="password" autocomplete="current-password" minlength="6" placeholder="至少 6 位" required></label><button class="auth-submit" type="submit">登录并同步</button><button class="auth-secondary" id="signupButton" type="button">第一次使用，创建账号</button></form><p class="auth-message" id="authMessage"></p><div class="signed-panel" id="signedPanel" hidden><strong id="signedPhone"></strong><span>学习进度已开启云同步</span><button class="auth-secondary" id="logoutButton" type="button">退出登录</button></div></section></div>
 
-<script src="app.js"></script><script src="sync.js?v=3"></script>
+<script src="app.js?v=4"></script><script src="sync.js?v=4"></script>
 </body></html>
