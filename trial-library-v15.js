@@ -24,9 +24,9 @@ let activeTrialMedia=0;
 function injectMediaTrial(){
  const page=document.querySelector('#listen');if(!page||page.querySelector('.media-library-trial'))return;
  const section=document.createElement('section');section.className='media-library-trial trial-feature';
- section.innerHTML=`<div class="trial-heading"><div><span>IMMERSION · 沉浸素材试用</span><h2>先用短场景，把本课韩语听活</h2><p>暂用原创微情景验证学习方式，不引入版权视频，也不影响原听力训练。</p></div><b>试用版 · 3 段</b></div><div class="media-tabs">${trialMedia.map((m,i)=>`<button data-media-tab="${i}" class="${i===0?'on':''}">${m.type}<small>${m.level}</small></button>`).join('')}</div><article class="media-player" id="trialMediaPlayer"></article>`;
+ section.innerHTML=`<div class="trial-heading"><div><span>SITUATIONAL LISTENING · 情境听力试验</span><h2>先用短场景，把本课韩语听活</h2><p><strong>目前是原创情境音频，不是真实动画、综艺或韩剧视频。</strong> 先验证这种学习方式是否适合你。</p></div><b>试用版 · 3 段</b></div><div class="media-tabs">${trialMedia.map((m,i)=>`<button data-media-tab="${i}" class="${i===0?'on':''}">${m.type}<small>${m.level}</small></button>`).join('')}</div><article class="media-player" id="trialMediaPlayer"></article>`;
  page.querySelector('.lab-grid')?.before(section);renderTrialMedia();
- section.querySelectorAll('[data-media-tab]').forEach(button=>button.onclick=()=>{activeTrialMedia=Number(button.dataset.mediaTab);section.querySelectorAll('[data-media-tab]').forEach(x=>x.classList.toggle('on',x===button));renderTrialMedia()});
+ section.querySelectorAll('[data-media-tab]').forEach(button=>button.onclick=()=>{activeTrialMedia=Number(button.dataset.mediaTab);section.querySelectorAll('[data-media-tab]').forEach(x=>x.classList.toggle('on',x===button));renderTrialMedia();document.querySelector('#trialMediaPlayer')?.scrollIntoView({behavior:'smooth',block:'nearest'})});
 }
 function renderTrialMedia(){
  const player=document.querySelector('#trialMediaPlayer');if(!player)return;const m=trialMedia[activeTrialMedia];
