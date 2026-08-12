@@ -38,11 +38,13 @@ function localState() {
     quests: JSON.parse(localStorage.getItem('hanstep-quests') || '{}'),
     favorites: JSON.parse(localStorage.getItem('malbit-favorites') || '[]'),
     course: JSON.parse(localStorage.getItem('malbit-course') || '{}'),
-    mistakes: JSON.parse(localStorage.getItem('malbit-mistakes') || '[]')
+    mistakes: JSON.parse(localStorage.getItem('malbit-mistakes') || '[]'),
+    topik: JSON.parse(localStorage.getItem('malbit-topik') || '{}'),
+    studyTime: JSON.parse(localStorage.getItem('malbit-study-time') || '{}')
   };
 }
 function hasProgress(state) {
-  return state.xp > 0 || Object.keys(state.progress || {}).length > 0 || Object.keys(state.quests || {}).length > 0 || (state.favorites || []).length > 0 || Object.keys(state.course || {}).length > 0 || (state.mistakes || []).length > 0;
+  return state.xp > 0 || Object.keys(state.progress || {}).length > 0 || Object.keys(state.quests || {}).length > 0 || (state.favorites || []).length > 0 || Object.keys(state.course || {}).length > 0 || (state.mistakes || []).length > 0 || Object.keys(state.topik || {}).length > 0 || Object.keys(state.studyTime || {}).length > 0;
 }
 function stableStringify(value) {
   if (Array.isArray(value)) return `[${value.map(stableStringify).join(',')}]`;
@@ -57,6 +59,8 @@ function applyState(state) {
   localStorage.setItem('malbit-favorites', JSON.stringify(state.favorites || []));
   localStorage.setItem('malbit-course', JSON.stringify(state.course || {}));
   localStorage.setItem('malbit-mistakes', JSON.stringify(state.mistakes || []));
+  localStorage.setItem('malbit-topik', JSON.stringify(state.topik || {}));
+  localStorage.setItem('malbit-study-time', JSON.stringify(state.studyTime || {}));
   applyingCloud = false;
 }
 function setAuthMessage(message, isError = false) {
@@ -153,7 +157,7 @@ document.querySelector('#logoutButton').onclick = () => {
   setAuthMessage('已退出。本机仍保留当前学习进度。');
   updateAccountUI();
 };
-['#course','#exam','#mistakes','#learn','#listen','#speak','#patterns','#favorites','#home','#reset'].forEach(selector => document.querySelector(selector)?.addEventListener('click', scheduleSync));
+['#course','#exam','#mistakes','#learn','#listen','#speak','#patterns','#favorites','#home','#topik','#reset'].forEach(selector => document.querySelector(selector)?.addEventListener('click', scheduleSync));
 window.addEventListener('malbit-progress-changed', scheduleSync);
 updateAccountUI();
 if (session?.access_token) loadOrSeedCloud().catch(() => { syncLabel.textContent = '同步暂时失败 · 本机进度仍已保存'; });
