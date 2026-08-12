@@ -36,11 +36,13 @@ function localState() {
     progress: JSON.parse(localStorage.getItem('hanstep-progress') || '{}'),
     xp: Number(localStorage.getItem('hanstep-xp') || 0),
     quests: JSON.parse(localStorage.getItem('hanstep-quests') || '{}'),
-    favorites: JSON.parse(localStorage.getItem('malbit-favorites') || '[]')
+    favorites: JSON.parse(localStorage.getItem('malbit-favorites') || '[]'),
+    course: JSON.parse(localStorage.getItem('malbit-course') || '{}'),
+    mistakes: JSON.parse(localStorage.getItem('malbit-mistakes') || '[]')
   };
 }
 function hasProgress(state) {
-  return state.xp > 0 || Object.keys(state.progress || {}).length > 0 || Object.keys(state.quests || {}).length > 0 || (state.favorites || []).length > 0;
+  return state.xp > 0 || Object.keys(state.progress || {}).length > 0 || Object.keys(state.quests || {}).length > 0 || (state.favorites || []).length > 0 || Object.keys(state.course || {}).length > 0 || (state.mistakes || []).length > 0;
 }
 function stableStringify(value) {
   if (Array.isArray(value)) return `[${value.map(stableStringify).join(',')}]`;
@@ -53,6 +55,8 @@ function applyState(state) {
   localStorage.setItem('hanstep-xp', String(state.xp || 0));
   localStorage.setItem('hanstep-quests', JSON.stringify(state.quests || {}));
   localStorage.setItem('malbit-favorites', JSON.stringify(state.favorites || []));
+  localStorage.setItem('malbit-course', JSON.stringify(state.course || {}));
+  localStorage.setItem('malbit-mistakes', JSON.stringify(state.mistakes || []));
   applyingCloud = false;
 }
 function setAuthMessage(message, isError = false) {
@@ -149,6 +153,6 @@ document.querySelector('#logoutButton').onclick = () => {
   setAuthMessage('已退出。本机仍保留当前学习进度。');
   updateAccountUI();
 };
-['#learn','#listen','#speak','#patterns','#favorites','#home','#reset'].forEach(selector => document.querySelector(selector)?.addEventListener('click', scheduleSync));
+['#course','#exam','#mistakes','#learn','#listen','#speak','#patterns','#favorites','#home','#reset'].forEach(selector => document.querySelector(selector)?.addEventListener('click', scheduleSync));
 updateAccountUI();
 if (session?.access_token) loadOrSeedCloud().catch(() => { syncLabel.textContent = '同步暂时失败 · 本机进度仍已保存'; });

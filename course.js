@@ -1,0 +1,39 @@
+const courseUnits=[
+ {n:1,title:'相遇与自我介绍',days:7,goal:'不看稿完成 30 秒自我介绍，并听懂姓名、国籍和职业',skills:['身份词汇 45 个','이에요/예요、은/는','问候与自我介绍听力','30 秒口头输出'],gate:'第一单元诊断'},
+ {n:2,title:'学校与学习生活',days:7,goal:'介绍学校场所、物品和自己的学习安排',skills:['校园词汇 55 个','이/가 있어요、에','位置与物品听力','描述自己的书桌'],gate:'光阶 2 门槛'},
+ {n:3,title:'家人与朋友',days:7,goal:'介绍家庭成员、年龄和人物关系',skills:['人物词汇 60 个','하고/와/과、도','人物信息听辨','介绍一位家人'],gate:'单元小考'},
+ {n:4,title:'饮食与点餐',days:7,goal:'看懂基础菜单并完成一次点餐对话',skills:['饮食词汇 70 个','주세요、을/를','价格与点餐听力','完成点餐角色扮演'],gate:'光阶 3 门槛'},
+ {n:5,title:'一天的生活',days:7,goal:'用韩语描述一天，并听懂时间安排',skills:['日常动作 70 个','아요/어요、부터/까지','时间与作息听力','1 分钟作息表达'],gate:'单元小考'},
+ {n:6,title:'购物与数量',days:7,goal:'询价、选择商品并表达数量',skills:['商品与数词 80 个','몇、 얼마예요','数字价格听辨','购物情景对话'],gate:'光阶 4 门槛'},
+ {n:7,title:'交通与出行',days:7,goal:'询问路线、理解方向并说明出行方式',skills:['交通词汇 70 个','에서/까지、으로','路线信息听力','问路与指路'],gate:'单元小考'},
+ {n:8,title:'电话与约定',days:7,goal:'完成简短电话沟通并约定时间地点',skills:['约会词汇 65 个','(으)ㄹ까요、고 싶어요','电话关键信息','邀请与回应'],gate:'光阶 5 门槛'},
+ {n:9,title:'天气与季节',days:7,goal:'谈论天气、季节和适合的活动',skills:['天气词汇 60 个','지만、아서/어서','天气预报听力','表达偏好与原因'],gate:'单元小考'},
+ {n:10,title:'假日与计划',days:7,goal:'讲述过去经历并制定简单计划',skills:['旅行词汇 80 个','았/었어요、(으)ㄹ 거예요','行程听力','90 秒经历与计划'],gate:'第一册结业考'}
+];
+const lightLevels=[
+ ['光阶 1 · 初见','能读韩文并完成固定问候','TOPIK 1 起步'],['光阶 2 · 开口','能介绍自己、学校与身边物品','TOPIK 1 前段'],['光阶 3 · 日常','能应对家庭、饮食和作息话题','TOPIK 1 中段'],['光阶 4 · 行动','能完成购物、时间和数量沟通','TOPIK 1 后段'],['光阶 5 · 连接','能问路、约定并表达简单原因','TOPIK 2 起步'],['光阶 6 · 独立','完成第一册，能处理基础生活对话','TOPIK 2 前段']
+];
+const dailyLessons={
+  1:[['身份词汇唤醒','复习 저、제、사람、학생、선생님、친구、의사、회사원','看到中文后 3 秒内说出韩语；正确率达到 90%'],['이에요/예요','学习有收音用 이에요、无收音用 예요，并与 아니에요 对照','完成 10 次替换，至少 9 次正确'],['自我介绍发音','练习 학생[학쌩]、맞아요[마자요] 和句尾自然语调','听辨 6 组并跟读，每句连续说顺 3 次'],['身份信息听力','只听声音辨认姓名、国籍、职业三类信息','两遍内抓住 3 个关键信息'],['30 秒自我介绍','组合问候、姓名、国籍、身份和正在学习的内容','脱稿说满 4 句，不停顿超过 3 秒'],['混合复习','把词汇、句型、听力和口语随机混合','综合练习达到 85%'],['第一单元诊断','完成词汇、语法、发音、理解和输出考核','总分达到 80%，错题全部完成一次修复']],
+  2:[['校园与物品词汇','学习 학교、교실、도서관、책、책상、의자、가방、연필 等核心词','看图或中文 3 秒内说出，正确率 85%'],['存在表达','掌握 N이/가 있어요/없어요，区分有收音和无收音','用自己的房间或书桌造 8 句'],['位置表达','学习 앞、뒤、옆、위、아래、안 和 N에 있어요','看位置图连续说对 6 题'],['校园听力','听懂“什么在哪里”和“有没有某物”','正常语速两遍内答对 4/5'],['描述我的书桌','把物品词、位置词和 있어요 连起来','脱稿说出至少 5 句'],['问答闭环','练习 뭐가 있어요? / 어디에 있어요?','完成 5 轮完整问答'],['第二单元结业考','词汇 25% + 语法 25% + 听力 25% + 输出 25%','总分 80%，且任何单项不低于 60%']]
+};
+const unitOneQuiz=[
+ {type:'词汇',q:'“老师”的韩语是哪一个？',opts:['학생','선생님','친구','회사원'],a:1,why:'선생님 = 老师；님 是尊称。'},
+ {type:'语法',q:'选择正确句子：我是学生。',opts:['저는 학생예요.','저가 학생이에요.','저는 학생이에요.','저는 학생이 아니에요.'],a:2,why:'학생有收音，所以使用 이에요；介绍主题用 저는。'},
+ {type:'语法',q:'의사 后应接哪一个？',opts:['이에요','예요','은','을'],a:1,why:'의사 没有收音，使用 예요。'},
+ {type:'理解',q:'“어느 나라 사람이에요?” 在问什么？',opts:['叫什么名字','是哪国人','做什么工作','去哪所学校'],a:1,why:'어느 나라=哪个国家，사람=人。'},
+ {type:'发音',q:'학생 的实际读音更接近：',opts:['[학생]','[학쌩]','[항생]','[하생]'],a:1,why:'받침 ㄱ 后的 ㅅ 紧音化为 ㅆ。'},
+ {type:'输出',q:'自我介绍中，“我的名字是 Coco”应选择：',opts:['제 이름은 코코예요.','저 이름이 코코이에요.','제 이름를 코코예요.','저는 이름 코코예요.'],a:0,why:'저의 缩略为 제；이름 有收音，作话题用 은。'}
+];
+let courseState=JSON.parse(localStorage.getItem('malbit-course')||'{"unit":1,"day":1,"passed":{},"lessonDone":{}}');
+let mistakeState=JSON.parse(localStorage.getItem('malbit-mistakes')||'[]');
+let quizAnswers={};
+function persistCourse(){localStorage.setItem('malbit-course',JSON.stringify(courseState));localStorage.setItem('malbit-mistakes',JSON.stringify(mistakeState));renderCourse();renderExam();renderMistakes()}
+function currentLight(){const passed=Object.keys(courseState.passed||{}).filter(k=>courseState.passed[k]>=80).length;return Math.min(6,1+Math.floor(passed/2))}
+function renderCourse(){const level=currentLight(),unit=courseUnits[Math.max(0,(courseState.unit||1)-1)],day=Math.min(7,courseState.day||1),lesson=(dailyLessons[unit.n]||[])[day-1]||['本日综合能力课',`围绕“${unit.title}”完成词汇、句型、听力和口语闭环`,unit.goal];document.querySelector('#courseDashboard').innerHTML=`
+ <div class="ability-card"><div><span>全程 30 光阶 · 每 5 光阶约对应一个 TOPIK 大等级</span><h2>${lightLevels[level-1][0]}</h2><p>${lightLevels[level-1][1]} · 约 ${lightLevels[level-1][2]}。第一册覆盖光阶 1–6。</p></div><div class="level-track">${lightLevels.map((l,i)=>`<i class="${i<level?'on':''}"></i>`).join('')}</div></div>
+ <div class="course-now"><div><span>第 ${unit.n} 单元 · 第 ${day}/7 天</span><h2>${unit.title}</h2><p>本单元结业标准：${unit.goal}</p><div class="today-lesson"><small>今天的课程</small><h3>${lesson[0]}</h3><p>${lesson[1]}</p><b>今日达标：${lesson[2]}</b></div><h3>本单元必须掌握</h3><ul>${unit.skills.map(s=>`<li>${s}</li>`).join('')}</ul><div class="lesson-actions"><button id="completeLesson">完成今日课程</button><button data-course-exam>参加${unit.gate} →</button></div></div><div class="day-path">${Array.from({length:7},(_,i)=>`<button class="${i<day?'done':''}"><b>${i+1}</b><span>${['词汇输入','核心句型','发音听辨','听力精练','口语输出','综合复习','单元考核'][i]}</span></button>`).join('')}</div></div>
+ <h2 class="course-title">第一册 · 70 天路线</h2><div class="unit-grid">${courseUnits.map(u=>`<article class="${u.n==unit.n?'current':''}"><span>UNIT ${String(u.n).padStart(2,'0')} · ${u.days} 天</span><h3>${u.title}</h3><p>${u.goal}</p><b>${courseState.passed?.[u.n]?`已通过 ${courseState.passed[u.n]} 分`:u.gate}</b></article>`).join('')}</div>`;document.querySelector('#completeLesson').onclick=()=>{courseState.day=Math.min(7,(courseState.day||1)+1);courseState.lessonDone[`${unit.n}-${courseState.day-1}`]=true;persistCourse()};document.querySelector('[data-course-exam]').onclick=()=>document.querySelector('[data-view-link="exam"]').click()}
+function renderExam(){const previous=courseState.passed?.[1];document.querySelector('#examCenter').innerHTML=`<div class="exam-intro"><span>第一单元诊断 · 约 8 分钟</span><h2>${previous?`上次成绩 ${previous} 分`:'先确认第一单元是否真正掌握'}</h2><p>本次基础卷包含词汇、语法、理解、发音和输出判断。达到 80 分后进入第二单元；错题会自动进入修复区。</p></div><form id="unitQuiz">${unitOneQuiz.map((x,i)=>`<fieldset><legend><span>${x.type}</span>${i+1}. ${x.q}</legend>${x.opts.map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}">${o}</label>`).join('')}</fieldset>`).join('')}<button class="submit-exam">提交并评分</button></form><div id="examResult"></div>`;document.querySelector('#unitQuiz').onsubmit=e=>{e.preventDefault();let right=0;mistakeState=mistakeState.filter(m=>m.exam!=='unit-1');unitOneQuiz.forEach((x,i)=>{const picked=Number(new FormData(e.currentTarget).get(`q${i}`));if(picked===x.a)right++;else mistakeState.push({id:`u1-${i}`,exam:'unit-1',type:x.type,q:x.q,your:x.opts[picked]||'未作答',answer:x.opts[x.a],why:x.why,reviewed:false})});const score=Math.round(right/unitOneQuiz.length*100);courseState.passed[1]=score;if(score>=80){courseState.unit=Math.max(2,courseState.unit||1);courseState.day=1}persistCourse();document.querySelector('#examResult').innerHTML=`<div class="result-card ${score>=80?'pass':'retry'}"><strong>${score}</strong><h2>${score>=80?'通过！第二单元已解锁':'还差一点，先修复错题'}</h2><p>答对 ${right}/${unitOneQuiz.length} 题。${score>=80?'你的第一单元基础已达到光阶升级要求。':'错题已自动加入“错题复习”。复习后可以再次参加。'}</p></div>`;document.querySelector('#examResult').scrollIntoView({behavior:'smooth'})}}
+function renderMistakes(){const pending=mistakeState.filter(m=>!m.reviewed);document.querySelector('#mistakeCenter').innerHTML=pending.length?`<div class="mistake-summary"><b>${pending.length}</b><span>个知识漏洞等待修复</span></div><div class="mistake-grid">${pending.map((m,i)=>`<article><span>${m.type}</span><h3>${m.q}</h3><p class="wrong">你的答案：${m.your}</p><p class="correct">正确答案：${m.answer}</p><details><summary>查看为什么</summary><p>${m.why}</p></details><button data-fixed="${m.id}">我已经理解</button></article>`).join('')}</div>`:'<div class="empty-favorites">目前没有待复习错题。完成单元小考后，错误会自动出现在这里。</div>';document.querySelectorAll('[data-fixed]').forEach(b=>b.onclick=()=>{const m=mistakeState.find(x=>x.id===b.dataset.fixed);if(m)m.reviewed=true;persistCourse()})}
+renderCourse();renderExam();renderMistakes();
