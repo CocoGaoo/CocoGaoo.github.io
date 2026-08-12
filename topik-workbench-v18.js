@@ -13,6 +13,7 @@ if(!Array.isArray(studyState.sessions))studyState.sessions=[];
 if(!topikState.words||typeof topikState.words!=='object')topikState.words={};
 let studyTicker;
 function saveWorkbench(){localStorage.setItem('malbit-topik',JSON.stringify(topikState));localStorage.setItem('malbit-study-time',JSON.stringify(studyState));window.dispatchEvent(new Event('malbit-progress-changed'))}
+function ensureLegacyRenderTargets(){if(document.querySelector('#legacyRenderTargets'))return;const box=document.createElement('div');box.id='legacyRenderTargets';box.hidden=true;box.innerHTML='<span id="mastered"></span><span id="progressText"></span><span id="ring"></span><span id="listenCount"></span><span id="speakCount"></span>';document.body.append(box)}
 function currentElapsed(){return Number(studyState.elapsed||0)+(studyState.running&&studyState.startedAt?Math.max(0,Math.floor((Date.now()-studyState.startedAt)/1000)):0)}
 function totalStudyMinutes(){return Math.round((studyState.sessions||[]).reduce((n,x)=>n+(x.seconds||0),0)/60)}
 function studyDays(){return [...new Set((studyState.sessions||[]).map(x=>x.date))].sort()}
@@ -42,6 +43,6 @@ function renderTopikWorkbench(){
 const learningMinutesBeforeV18=learningMinutes;
 learningMinutes=()=>learningMinutesBeforeV18()+totalStudyMinutes();
 const renderBeforeV18=render;
-render=()=>{renderBeforeV18();injectStudyRitual();renderTopikWorkbench()};
-render();upgradeMainNavigation();
+render=()=>{ensureLegacyRenderTargets();renderBeforeV18();injectStudyRitual();renderTopikWorkbench()};
+ensureLegacyRenderTargets();render();upgradeMainNavigation();
 if(studyState.running)studyTicker=setInterval(injectStudyRitual,1000);
