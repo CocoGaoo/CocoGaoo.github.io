@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="learning-upgrade.css?v=4">
   <link rel="stylesheet" href="course.css?v=5">
   <link rel="stylesheet" href="course-extra.css?v=5">
+  <link rel="stylesheet" href="classroom.css?v=7">
 </head>
 <body>
 <button class="mobile-menu" id="menuButton" aria-label="打开导航">☰</button>
@@ -95,8 +96,9 @@
 </main>
 
 <div class="detail-backdrop" id="patternBackdrop" hidden><article class="pattern-detail" role="dialog" aria-modal="true"><button class="auth-close" id="patternClose" aria-label="关闭">×</button><span class="soft-label">GRAMMAR NOTE · 语法详解</span><h2 id="detailTitle"></h2><b id="detailMeaning"></b><div id="detailBody"></div><button class="auth-secondary" id="patternFavorite">♡ 收藏例句</button></article></div>
+<div class="detail-backdrop" id="lessonBackdrop" hidden><article class="lesson-room" role="dialog" aria-modal="true"><button class="auth-close" id="lessonClose" aria-label="关闭">×</button><span class="soft-label" id="lessonLabel">TODAY'S LESSON · 今日课程</span><h2 id="lessonTitle"></h2><p class="lesson-lead" id="lessonLead"></p><div id="lessonContent"></div><button class="lesson-complete" id="lessonComplete">完成本课并进入下一天</button><p class="lesson-warning" id="lessonWarning"></p></article></div>
 
 <div class="auth-backdrop" id="authBackdrop" hidden><section class="auth-dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle"><button class="auth-close" id="authClose" aria-label="关闭">×</button><p class="eyebrow">MALBIT CLOUD · 学习云同步</p><h2 id="authTitle">登录语光</h2><p class="auth-intro">手机号只是登录账号，不会发送短信。首次使用请选择“创建账号”。</p><form id="authForm"><label>手机号码<input id="phoneInput" inputmode="tel" autocomplete="username" placeholder="例如 13800138000" required></label><label>密码<input id="passwordInput" type="password" autocomplete="current-password" minlength="6" placeholder="至少 6 位" required></label><button class="auth-submit" type="submit">登录并同步</button><button class="auth-secondary" id="signupButton" type="button">第一次使用，创建账号</button></form><p class="auth-message" id="authMessage"></p><div class="signed-panel" id="signedPanel" hidden><strong id="signedPhone"></strong><span>学习进度已开启云同步</span><button class="auth-secondary" id="logoutButton" type="button">退出登录</button></div></section></div>
 
-<script src="app.js?v=4"></script><script src="course.js?v=6"></script><script src="sync.js?v=6"></script>
+<script src="app.js?v=4"></script><script src="course.js?v=7"></script><script src="sync.js?v=7"></script>
 </body></html>
