@@ -5,7 +5,7 @@ const trialGrammar=[
 ];
 
 const trialMedia=[
- {type:'动画精读',level:'当前课 · 25 秒',title:'第一次找教学楼',scene:'原创校园动画式情景',lines:[['하루','한국어교육관이 어디에 있어요?','韩语教育馆在哪里？'],['민준','도서관 옆에 있어요.','在图书馆旁边。']],focus:'听 어디에 和 옆에 的节奏，不逐字翻译。'},
+ {type:'真实视频',level:'第一课 · 2 分钟',title:'화장실이 어디에 있어요?',scene:'真实初级韩语教学视频',videoId:'CaGGrgKsgxg',source:'한국어로 말해요_Speaking Korean',sourceUrl:'https://www.youtube.com/watch?v=CaGGrgKsgxg',lines:[['질문','화장실이 어디에 있어요?','洗手间在哪里？'],['대답','학교 맞은편이에요.','在学校对面。']],focus:'先完整看一遍，再只听 어디에 있어요 和 맞은편이에요 的节奏。'},
  {type:'综艺反应',level:'当前课 · 20 秒',title:'猜猜教室里有什么',scene:'原创问答式情景',lines:[['민준','교실에 뭐가 있어요?','教室里有什么？'],['하루','책상하고 의자가 있어요!','有书桌和椅子！']],focus:'注意 뭐가 的连读，以及回答时自然上扬的语气。'},
  {type:'韩剧场景',level:'当前课 · 30 秒',title:'图书馆前的约定',scene:'原创校园短剧情景',lines:[['민준','내일도 학교에 와요?','明天也来学校吗？'],['하루','네, 도서관에서 만나요.','嗯，在图书馆见吧。']],focus:'区分存在地点 에 与动作地点 에서；先整体模仿语调。'}
 ];
@@ -30,8 +30,8 @@ function injectMediaTrial(){
 }
 function renderTrialMedia(){
  const player=document.querySelector('#trialMediaPlayer');if(!player)return;const m=trialMedia[activeTrialMedia];
- player.innerHTML=`<div class="media-screen"><span>${m.scene}</span><strong>${m.title}</strong><button id="playTrialMedia">▶ 只听一遍</button></div><div class="media-study"><span>本段任务</span><h3>${m.focus}</h3><button id="revealTrialLines">看逐句精读</button><div class="media-lines" hidden>${m.lines.map((x,i)=>`<p><button data-trial-line="${i}">🔊</button><span><b>${x[0]} · ${x[1]}</b><small>${x[2]}</small></span></p>`).join('')}</div><div class="trial-actions"><button id="repeatTrialMedia">0.75× 慢速</button><button id="favoriteTrialMedia">♡ 收藏重点句</button></div></div>`;
- document.querySelector('#playTrialMedia').onclick=()=>speakDialogue(m.lines.map(x=>[x[0],x[1],x[2]]));
+ player.innerHTML=`${m.videoId?`<div class="real-video-frame"><iframe src="https://www.youtube-nocookie.com/embed/${m.videoId}" title="${m.title}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`:`<div class="media-screen"><span>${m.scene}</span><strong>${m.title}</strong><button id="playTrialMedia">▶ 只听一遍</button></div>`}<div class="media-study">${m.videoId?'<span class="real-media-label">真实素材 · 外部播放器</span>':'<span>本段任务</span>'}<h3>${m.focus}</h3><button id="revealTrialLines">看逐句精读</button><div class="media-lines" hidden>${m.lines.map((x,i)=>`<p><button data-trial-line="${i}">🔊</button><span><b>${x[0]} · ${x[1]}</b><small>${x[2]}</small></span></p>`).join('')}</div><div class="trial-actions"><button id="repeatTrialMedia">0.75× 慢速</button><button id="favoriteTrialMedia">♡ 收藏重点句</button></div>${m.source?`<p class="media-source">来源：<a href="${m.sourceUrl}" target="_blank" rel="noopener">${m.source}</a> · 视频由 YouTube 提供</p>`:''}</div>`;
+ if(document.querySelector('#playTrialMedia'))document.querySelector('#playTrialMedia').onclick=()=>speakDialogue(m.lines.map(x=>[x[0],x[1],x[2]]));
  document.querySelector('#repeatTrialMedia').onclick=()=>speakKorean(m.lines.map(x=>x[1]).join(' '),.75);
  document.querySelector('#revealTrialLines').onclick=e=>{const lines=player.querySelector('.media-lines');lines.hidden=!lines.hidden;e.currentTarget.textContent=lines.hidden?'看逐句精读':'收起逐句精读'};
  player.querySelectorAll('[data-trial-line]').forEach(button=>button.onclick=()=>speakKorean(m.lines[Number(button.dataset.trialLine)][1],.82));
