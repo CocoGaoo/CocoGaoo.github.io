@@ -17,6 +17,7 @@ const themes = [...partOne, ...partTwo];
 const expectedPartOneTitles = ['问候与介绍', '物品', '学校', '朋友', '故乡', '学校生活', '饮食', '一天生活', '周末', '过去的事'];
 const expectedPartTwoTitles = ['购物与价格', '衣物与尺寸', '问路', '公共交通', '打电话', '约会与计划', '天气与季节', '爱好与能力', '身体状况', '初级生活综合'];
 const entityIds = new Set();
+const partTwoThemeIds = new Set(partTwo.map(theme => theme.id));
 let wordCount = 0;
 
 function registerId(id, prefix){
@@ -69,6 +70,11 @@ for(const theme of themes){
       assert.ok(grammar.examples.every(example => example.ko && example.zh));
     }
     assert.ok(day.culture && day.culture.title && day.culture.zh);
+    if(partTwoThemeIds.has(theme.id)){
+      assert.ok(Array.isArray(day.culture.paragraphs) && day.culture.paragraphs.length >= 3, `${theme.title}: ${phase} bilingual culture paragraphs`);
+      assert.ok(day.culture.paragraphs.every(paragraph => paragraph.ko && paragraph.zh), `${theme.title}: ${phase} culture paragraphs must be bilingual`);
+      assert.equal(day.culture.zh, day.culture.paragraphs.map(paragraph => paragraph.zh).join(''));
+    }
     assert.ok(Array.isArray(day.assessment) && day.assessment.length > 0);
     assert.ok(day.assessment.every(item => item.id && item.type && item.prompt));
     const assessmentPrefix = `${theme.id}-${phase === 'input' ? 'a' : 'b'}`;
@@ -91,6 +97,31 @@ for(const theme of themes){
     assert.ok(outputTypes.has(type), `${theme.title}: missing ${type}`);
   }
 }
+
+const partTwoWords = partTwo.flatMap(theme => [...theme.inputDay.words, ...theme.outputDay.words]);
+const partTwoWordsById = new Map(partTwoWords.map(word => [word.id, word]));
+for(const [ko, expectedPron] of Object.entries({
+  옷:'옫', 벗다:'벋따', 맞다:'맏따', 옆:'엽', 찾다:'찯따', 택시:'택씨', 잘못:'잘몯', 끊다:'끈타', 못:'몯', 낫다:'낟따', 붓다:'붇따'
+})){
+  const matches = partTwoWords.filter(word => word.ko === ko);
+  assert.ok(matches.length > 0, `${ko}: pronunciation fixture word exists`);
+  assert.ok(matches.every(word => word.pron === expectedPron), `${ko}: expected pronunciation ${expectedPron}`);
+}
+
+for(const [id, expectedSoundRule] of Object.entries({
+  'l1-u11-w19':'ㄲ是紧音，不送气',
+  'l1-u12-w18':'三个音节依次清楚发音',
+  'l1-u13-w07':'元音是ㅟ，和前面的ㄷ组成一个音节',
+  'l1-u14-w03':'ㄱ收音使后面的ㅅ紧音化为ㅆ',
+  'l1-u15-w18':'ㄶ中的ㅎ与后面的ㄷ结合送气化为ㅌ，读作끈타',
+  'l1-u20-w09':'四个音节依次清楚发音，没有ㅂ收音接ㅎ的音变'
+})){
+  assert.equal(partTwoWordsById.get(id)?.soundRule, expectedSoundRule, `${id}: sound-rule fixture`);
+}
+assert.equal(partTwoWordsById.get('l1-u11-w03')?.origin, '汉字词“價格”');
+assert.equal(partTwoWordsById.get('l1-u11-w12')?.origin, '汉字词“領收證”');
+assert.equal(partTwoWordsById.get('l1-u16-w12')?.example.ko, '약속을 내일로 미뤄요.');
+assert.ok(!JSON.stringify(partTwo).includes('기타를 못 컐요'));
 
 assert.equal(wordCount, themes.reduce((count, theme) => count + theme.inputDay.words.length + theme.outputDay.words.length, 0));
 console.log(`level one: ${themes.length} themes, ${wordCount} words, and ${entityIds.size} unique entity ids validated`);
