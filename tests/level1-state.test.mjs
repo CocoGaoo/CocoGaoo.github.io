@@ -52,4 +52,12 @@ assert.equal(completeDay(1,{score:80},null).currentDay,2);
 assert.strictEqual(completeDay(0,{score:100},empty),empty);
 assert.strictEqual(completeDay(46,{score:100},empty),empty);
 
+const invalidFromEmpty=completeDay(0,{score:100},null);
+assert.equal(invalidFromEmpty.version,26);
+assert.equal(invalidFromEmpty.currentDay,1);
+assert.equal(canOpen(1,{currentDay:Symbol('broken')}),false);
+const symbolScore=completeDay(1,{score:Symbol('broken')},migrate(null));
+assert.equal(symbolScore.currentDay,1);
+assert.deepEqual(plain(symbolScore.completedDays),[]);
+
 console.log('level one state: migration, quick check, unlocks and failures');
