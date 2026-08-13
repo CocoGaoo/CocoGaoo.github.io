@@ -1,20 +1,674 @@
 {
-  "sample-word": {
-    "src": "audio/seven-day/sample-word.wav",
-    "text": "대학교",
-    "kind": "word",
-    "voice": "Yuna"
-  },
-  "sample-sentence": {
-    "src": "audio/seven-day/sample-sentence.wav",
+  "d1-l1": {
+    "src": "audio/seven-day/d1-l1.mp3",
     "text": "오늘 한국 대학교에 처음 왔어요.",
-    "kind": "sentence",
-    "voice": "Yuna"
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
   },
-  "sample-sound-change": {
-    "src": "audio/seven-day/sample-sound-change.wav",
-    "text": "학생 식당 옆에 작은 도서관이 있어요.",
-    "kind": "sound-change",
-    "voice": "Yuna"
+  "d1-l3": {
+    "src": "audio/seven-day/d1-l3.mp3",
+    "text": "학생 식당은 어디에 있어요?",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-l4": {
+    "src": "audio/seven-day/d1-l4.mp3",
+    "text": "도서관 옆에 있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-l5": {
+    "src": "audio/seven-day/d1-l5.mp3",
+    "text": "저기 큰 건물이 도서관이에요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-l2": {
+    "src": "audio/seven-day/d1-l2.mp3",
+    "text": "캠퍼스가 아주 넓어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-l6": {
+    "src": "audio/seven-day/d1-l6.mp3",
+    "text": "감사합니다. 같이 가요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-w1": {
+    "src": "audio/seven-day/d1-w1.mp3",
+    "text": "대학교",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-w3": {
+    "src": "audio/seven-day/d1-w3.mp3",
+    "text": "건물",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-w2": {
+    "src": "audio/seven-day/d1-w2.mp3",
+    "text": "캠퍼스",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-w4": {
+    "src": "audio/seven-day/d1-w4.mp3",
+    "text": "도서관",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-w7": {
+    "src": "audio/seven-day/d1-w7.mp3",
+    "text": "어디",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-w5": {
+    "src": "audio/seven-day/d1-w5.mp3",
+    "text": "식당",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-w8": {
+    "src": "audio/seven-day/d1-w8.mp3",
+    "text": "있어요",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-w6": {
+    "src": "audio/seven-day/d1-w6.mp3",
+    "text": "옆",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-g2": {
+    "src": "audio/seven-day/d1-g2.mp3",
+    "text": "식당은 1층에 있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-l1": {
+    "src": "audio/seven-day/d2-l1.mp3",
+    "text": "이것은 제 책상이에요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-l3": {
+    "src": "audio/seven-day/d2-l3.mp3",
+    "text": "저것은 선생님의 컴퓨터예요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-l2": {
+    "src": "audio/seven-day/d2-l2.mp3",
+    "text": "그것은 민수 씨의 의자예요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-l4": {
+    "src": "audio/seven-day/d2-l4.mp3",
+    "text": "책은 책상 위에 있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d1-g1": {
+    "src": "audio/seven-day/d1-g1.mp3",
+    "text": "도서관이 있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-l5": {
+    "src": "audio/seven-day/d2-l5.mp3",
+    "text": "가방은 의자 아래에 있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-l6": {
+    "src": "audio/seven-day/d2-l6.mp3",
+    "text": "우리 같이 수업을 들어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-w1": {
+    "src": "audio/seven-day/d2-w1.mp3",
+    "text": "교실",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-w3": {
+    "src": "audio/seven-day/d2-w3.mp3",
+    "text": "의자",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-w2": {
+    "src": "audio/seven-day/d2-w2.mp3",
+    "text": "책상",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-w6": {
+    "src": "audio/seven-day/d2-w6.mp3",
+    "text": "위",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-w4": {
+    "src": "audio/seven-day/d2-w4.mp3",
+    "text": "컴퓨터",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-w7": {
+    "src": "audio/seven-day/d2-w7.mp3",
+    "text": "아래",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-w8": {
+    "src": "audio/seven-day/d2-w8.mp3",
+    "text": "수업",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-w5": {
+    "src": "audio/seven-day/d2-w5.mp3",
+    "text": "가방",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-g1": {
+    "src": "audio/seven-day/d2-g1.mp3",
+    "text": "이것은 제 책이에요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-l1": {
+    "src": "audio/seven-day/d3-l1.mp3",
+    "text": "오늘 한국어 수업이 있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-l2": {
+    "src": "audio/seven-day/d3-l2.mp3",
+    "text": "수업은 아홉 시에 시작해요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-l4": {
+    "src": "audio/seven-day/d3-l4.mp3",
+    "text": "수업은 열한 시까지예요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-l5": {
+    "src": "audio/seven-day/d3-l5.mp3",
+    "text": "점심시간에는 친구를 만나요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d2-g2": {
+    "src": "audio/seven-day/d2-g2.mp3",
+    "text": "가방은 의자 아래에 있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-l3": {
+    "src": "audio/seven-day/d3-l3.mp3",
+    "text": "아침 여덟 시부터 도서관에서 공부해요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-l6": {
+    "src": "audio/seven-day/d3-l6.mp3",
+    "text": "오후에는 숙제를 해요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-w1": {
+    "src": "audio/seven-day/d3-w1.mp3",
+    "text": "오늘",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-w3": {
+    "src": "audio/seven-day/d3-w3.mp3",
+    "text": "시작하다",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-w2": {
+    "src": "audio/seven-day/d3-w2.mp3",
+    "text": "시간",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-w4": {
+    "src": "audio/seven-day/d3-w4.mp3",
+    "text": "아침",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-w5": {
+    "src": "audio/seven-day/d3-w5.mp3",
+    "text": "오후",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-w8": {
+    "src": "audio/seven-day/d3-w8.mp3",
+    "text": "까지",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-w6": {
+    "src": "audio/seven-day/d3-w6.mp3",
+    "text": "숙제",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-w7": {
+    "src": "audio/seven-day/d3-w7.mp3",
+    "text": "부터",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-g2": {
+    "src": "audio/seven-day/d3-g2.mp3",
+    "text": "여덟 시부터 열한 시까지예요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d3-g1": {
+    "src": "audio/seven-day/d3-g1.mp3",
+    "text": "아홉 시에 시작해요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-l2": {
+    "src": "audio/seven-day/d4-l2.mp3",
+    "text": "민수 씨하고 같이 가요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-l3": {
+    "src": "audio/seven-day/d4-l3.mp3",
+    "text": "한국어 책과 사전을 찾아요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-l5": {
+    "src": "audio/seven-day/d4-l5.mp3",
+    "text": "사전은 책장 안에 있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-l1": {
+    "src": "audio/seven-day/d4-l1.mp3",
+    "text": "수업 후에 도서관에 가요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-l4": {
+    "src": "audio/seven-day/d4-l4.mp3",
+    "text": "책은 이 층에 있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-l6": {
+    "src": "audio/seven-day/d4-l6.mp3",
+    "text": "책 두 권을 빌려요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-w3": {
+    "src": "audio/seven-day/d4-w3.mp3",
+    "text": "책장",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-w4": {
+    "src": "audio/seven-day/d4-w4.mp3",
+    "text": "안",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-w1": {
+    "src": "audio/seven-day/d4-w1.mp3",
+    "text": "도서관",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-w5": {
+    "src": "audio/seven-day/d4-w5.mp3",
+    "text": "찾다",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-w6": {
+    "src": "audio/seven-day/d4-w6.mp3",
+    "text": "빌리다",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-w8": {
+    "src": "audio/seven-day/d4-w8.mp3",
+    "text": "권",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-w7": {
+    "src": "audio/seven-day/d4-w7.mp3",
+    "text": "같이",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-w2": {
+    "src": "audio/seven-day/d4-w2.mp3",
+    "text": "사전",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-l1": {
+    "src": "audio/seven-day/d5-l1.mp3",
+    "text": "점심에 학생 식당에 가요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-g2": {
+    "src": "audio/seven-day/d4-g2.mp3",
+    "text": "친구하고 같이 가요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-l2": {
+    "src": "audio/seven-day/d5-l2.mp3",
+    "text": "오늘 메뉴는 비빔밥과 김치찌개예요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-l4": {
+    "src": "audio/seven-day/d5-l4.mp3",
+    "text": "아주머니, 비빔밥 하나 주세요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d4-g1": {
+    "src": "audio/seven-day/d4-g1.mp3",
+    "text": "도서관에 가요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-l5": {
+    "src": "audio/seven-day/d5-l5.mp3",
+    "text": "물도 한 잔 주세요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-l6": {
+    "src": "audio/seven-day/d5-l6.mp3",
+    "text": "조금 맵지만 맛있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-w1": {
+    "src": "audio/seven-day/d5-w1.mp3",
+    "text": "점심",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-l3": {
+    "src": "audio/seven-day/d5-l3.mp3",
+    "text": "저는 비빔밥을 먹고 싶어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-w2": {
+    "src": "audio/seven-day/d5-w2.mp3",
+    "text": "메뉴",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-w5": {
+    "src": "audio/seven-day/d5-w5.mp3",
+    "text": "물",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-w4": {
+    "src": "audio/seven-day/d5-w4.mp3",
+    "text": "김치찌개",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-w3": {
+    "src": "audio/seven-day/d5-w3.mp3",
+    "text": "비빔밥",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-w6": {
+    "src": "audio/seven-day/d5-w6.mp3",
+    "text": "잔",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-g1": {
+    "src": "audio/seven-day/d5-g1.mp3",
+    "text": "비빔밥을 먹어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-w7": {
+    "src": "audio/seven-day/d5-w7.mp3",
+    "text": "맵다",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-g2": {
+    "src": "audio/seven-day/d5-g2.mp3",
+    "text": "비빔밥 하나 주세요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d5-w8": {
+    "src": "audio/seven-day/d5-w8.mp3",
+    "text": "맛있어요",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-l2": {
+    "src": "audio/seven-day/d6-l2.mp3",
+    "text": "수업 후에 같이 복습할까요?",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-l1": {
+    "src": "audio/seven-day/d6-l1.mp3",
+    "text": "오늘 수업이 조금 어려워요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-l3": {
+    "src": "audio/seven-day/d6-l3.mp3",
+    "text": "네, 좋아요. 어디에서 만날까요?",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-l5": {
+    "src": "audio/seven-day/d6-l5.mp3",
+    "text": "오후 세 시가 어때요?",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-l4": {
+    "src": "audio/seven-day/d6-l4.mp3",
+    "text": "도서관 앞에서 만나요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-w2": {
+    "src": "audio/seven-day/d6-w2.mp3",
+    "text": "복습",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-l6": {
+    "src": "audio/seven-day/d6-l6.mp3",
+    "text": "좋아요. 그때 봐요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-w3": {
+    "src": "audio/seven-day/d6-w3.mp3",
+    "text": "약속",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-w5": {
+    "src": "audio/seven-day/d6-w5.mp3",
+    "text": "앞",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-w4": {
+    "src": "audio/seven-day/d6-w4.mp3",
+    "text": "만나다",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-w6": {
+    "src": "audio/seven-day/d6-w6.mp3",
+    "text": "어때요",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-w1": {
+    "src": "audio/seven-day/d6-w1.mp3",
+    "text": "어렵다",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-w7": {
+    "src": "audio/seven-day/d6-w7.mp3",
+    "text": "그때",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-w8": {
+    "src": "audio/seven-day/d6-w8.mp3",
+    "text": "같이",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-g2": {
+    "src": "audio/seven-day/d6-g2.mp3",
+    "text": "같이 복습할까요?",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-l2": {
+    "src": "audio/seven-day/d7-l2.mp3",
+    "text": "교실에서 한국어 수업을 들어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d6-g1": {
+    "src": "audio/seven-day/d6-g1.mp3",
+    "text": "도서관에서 만나요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-l1": {
+    "src": "audio/seven-day/d7-l1.mp3",
+    "text": "아침 여덟 시에 학교에 와요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-l3": {
+    "src": "audio/seven-day/d7-l3.mp3",
+    "text": "점심에는 친구하고 비빔밥을 먹어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-l6": {
+    "src": "audio/seven-day/d7-l6.mp3",
+    "text": "오늘은 바쁘지만 재미있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-l5": {
+    "src": "audio/seven-day/d7-l5.mp3",
+    "text": "세 시부터 친구와 같이 복습해요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-w1": {
+    "src": "audio/seven-day/d7-w1.mp3",
+    "text": "하루",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-l4": {
+    "src": "audio/seven-day/d7-l4.mp3",
+    "text": "오후에는 도서관에서 책을 빌려요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-w3": {
+    "src": "audio/seven-day/d7-w3.mp3",
+    "text": "수업",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-w5": {
+    "src": "audio/seven-day/d7-w5.mp3",
+    "text": "빌리다",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-w2": {
+    "src": "audio/seven-day/d7-w2.mp3",
+    "text": "학교",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-w4": {
+    "src": "audio/seven-day/d7-w4.mp3",
+    "text": "점심",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-w6": {
+    "src": "audio/seven-day/d7-w6.mp3",
+    "text": "복습하다",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-g1": {
+    "src": "audio/seven-day/d7-g1.mp3",
+    "text": "학교에 와서 교실에서 공부해요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-w7": {
+    "src": "audio/seven-day/d7-w7.mp3",
+    "text": "바쁘다",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-w8": {
+    "src": "audio/seven-day/d7-w8.mp3",
+    "text": "재미있다",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "d7-g2": {
+    "src": "audio/seven-day/d7-g2.mp3",
+    "text": "바쁘지만 재미있어요.",
+    "kind": "course",
+    "voice": "ko-KR-SunHiNeural"
   }
 }
