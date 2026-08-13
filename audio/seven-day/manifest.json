@@ -1,0 +1,20 @@
+{
+  "sample-word": {
+    "src": "audio/seven-day/sample-word.wav",
+    "text": "대학교",
+    "kind": "word",
+    "voice": "Yuna"
+  },
+  "sample-sentence": {
+    "src": "audio/seven-day/sample-sentence.wav",
+    "text": "오늘 한국 대학교에 처음 왔어요.",
+    "kind": "sentence",
+    "voice": "Yuna"
+  },
+  "sample-sound-change": {
+    "src": "audio/seven-day/sample-sound-change.wav",
+    "text": "학생 식당 옆에 작은 도서관이 있어요.",
+    "kind": "sound-change",
+    "voice": "Yuna"
+  }
+}
