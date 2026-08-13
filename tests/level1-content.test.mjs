@@ -5,10 +5,17 @@ import vm from 'node:vm';
 const context = {globalThis: {}};
 vm.runInNewContext(fs.readFileSync('curriculum/level1-schema.js', 'utf8'), context);
 vm.runInNewContext(fs.readFileSync('curriculum/level1-1.js', 'utf8'), context);
+if(fs.existsSync('curriculum/level1-2.js')){
+  vm.runInNewContext(fs.readFileSync('curriculum/level1-2.js', 'utf8'), context);
+}
 
-const {MalbitLevel1PartOne, MalbitLevel1Schema} = context.globalThis;
-const themes = Array.from(MalbitLevel1PartOne.themes);
-const expectedTitles = ['问候与介绍', '物品', '学校', '朋友', '故乡', '学校生活', '饮食', '一天生活', '周末', '过去的事'];
+const {MalbitLevel1PartOne, MalbitLevel1PartTwo, MalbitLevel1Schema} = context.globalThis;
+assert.ok(MalbitLevel1PartTwo, 'MalbitLevel1PartTwo must be defined');
+const partOne = Array.from(MalbitLevel1PartOne.themes);
+const partTwo = Array.from(MalbitLevel1PartTwo.themes);
+const themes = [...partOne, ...partTwo];
+const expectedPartOneTitles = ['问候与介绍', '物品', '学校', '朋友', '故乡', '学校生活', '饮食', '一天生活', '周末', '过去的事'];
+const expectedPartTwoTitles = ['购物与价格', '衣物与尺寸', '问路', '公共交通', '打电话', '约会与计划', '天气与季节', '爱好与能力', '身体状况', '初级生活综合'];
 const entityIds = new Set();
 let wordCount = 0;
 
@@ -18,7 +25,10 @@ function registerId(id, prefix){
   entityIds.add(id);
 }
 
-assert.deepEqual(themes.map(theme => theme.title), expectedTitles);
+assert.deepEqual(partOne.map(theme => theme.title), expectedPartOneTitles);
+assert.deepEqual(partTwo.map(theme => theme.title), expectedPartTwoTitles);
+assert.ok(partTwo.every(theme => theme.sourceLabel === '依据延世1级能力目标原创'));
+assert.equal(themes.length, 20);
 
 for(const theme of themes){
   assert.equal(MalbitLevel1Schema.validateTheme(theme).length, 0, `${theme.title}: schema validation`);
@@ -83,4 +93,4 @@ for(const theme of themes){
 }
 
 assert.equal(wordCount, themes.reduce((count, theme) => count + theme.inputDay.words.length + theme.outputDay.words.length, 0));
-console.log(`level one part one: ${themes.length} themes, ${wordCount} words, and ${entityIds.size} unique entity ids validated`);
+console.log(`level one: ${themes.length} themes, ${wordCount} words, and ${entityIds.size} unique entity ids validated`);
