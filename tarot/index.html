@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>塔罗学习小站 · 78张牌库</title>
+<style>
+  :root{
+    --bg:#0f1729;          /* 深夜蓝 */
+    --bg2:#151f38;
+    --card:#1c2742;        /* 卡片底 */
+    --card2:#243153;
+    --mist:#b9a7d6;        /* 雾紫 */
+    --mist-dim:#8a7aa8;
+    --gold:#e8d28a;        /* 月光金 */
+    --gold-soft:#cdb86a;
+    --text:#eef1f8;
+    --muted:#9aa6c2;
+    --line:#2c3a5e;
+    --ok:#7fc8a9; --warn:#e8c27a; --bad:#e08a8a;
+    --wands:#e0926a; --cups:#6aa8e0; --swords:#9ab0c9; --pents:#7fc08a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+    background:linear-gradient(165deg,var(--bg),var(--bg2));color:var(--text);
+    min-height:100vh;line-height:1.62}
+  header{padding:16px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+    border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;
+    background:rgba(15,23,41,.92);backdrop-filter:blur(8px)}
+  header h1{font-size:18px;color:var(--gold);letter-spacing:.5px}
+  header .sub{color:var(--mist-dim);font-size:12px;margin-left:2px}
+  .nav{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+  .nav button{background:var(--card);color:var(--muted);border:1px solid var(--line);
+    padding:7px 14px;border-radius:20px;cursor:pointer;font-size:13px;transition:.2s}
+  .nav button:hover{color:var(--text);border-color:var(--gold-soft)}
+  .nav button.active{background:var(--gold);color:#0f1729;border-color:var(--gold);font-weight:600}
+  main{max-width:1000px;margin:0 auto;padding:22px 16px 80px}
+  .view{display:none;animation:fade .3s}
+  .view.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1}}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px}
+  h2{font-size:16px;margin-bottom:10px;color:var(--gold)}
+  h3{font-size:14px;margin:4px 0;color:var(--text)}
+  p{color:var(--muted);font-size:13.5px;margin-bottom:6px}
+  .muted{color:var(--muted);font-size:13px}
+  .tip{background:rgba(232,210,138,.1);border-left:3px solid var(--gold);padding:10px 14px;border-radius:8px;margin:10px 0;font-size:14px}
+  .tip b{color:var(--gold)}
+  .kw{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .kw span{font-size:12px;background:var(--bg2);border:1px solid var(--line);padding:3px 9px;border-radius:6px;color:var(--mist)}
+
+  /* 牌库 */
+  .filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+  .filter button{background:var(--card);color:var(--muted);border:1px solid var(--line);
+    padding:6px 13px;border-radius:18px;cursor:pointer;font-size:13px}
+  .filter button.active{background:var(--mist);color:#0f1729;border-color:var(--mist);font-weight:600}
+  .filter .lbl{font-size:12px;color:var(--mist-dim);margin-right:2px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:12px}
+  .tcard{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);
+    border-radius:12px;padding:12px 8px;text-align:center;cursor:pointer;transition:.18s;min-height:120px;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px}
+  .tcard:hover{border-color:var(--gold-soft);transform:translateY(-3px);box-shadow:0 6px 18px rgba(0,0,0,.3)}
+  .tcard .num{font-size:11px;color:var(--gold-soft);font-weight:600}
+  .tcard .nm{font-size:14px;font-weight:600;color:var(--text)}
+  .tcard .en{font-size:10px;color:var(--mist-dim)}
+  .tcard .badge{font-size:10px;margin-top:3px;padding:1px 7px;border-radius:10px;border:1px solid var(--line)}
+  .tcard.done{border-color:var(--ok)}
+  .tcard.done .nm{color:var(--ok)}
+  .b-wands{color:var(--wands);border-color:var(--wands)} .b-cups{color:var(--cups);border-color:var(--cups)}
+  .b-swords{color:var(--swords);border-color:var(--swords)} .b-pents{color:var(--pents);border-color:var(--pents)}
+  .b-major{color:var(--gold);border-color:var(--gold-soft)}
+
+  /* 牌详情弹窗 */
+  .ov{position:fixed;inset:0;background:rgba(8,12,22,.72);z-index:100;display:flex;align-items:center;justify-content:center;padding:18px}
+  .modal{background:var(--card);border:1px solid var(--line);border-radius:16px;max-width:600px;width:100%;
+    padding:22px;max-height:88vh;overflow:auto;box-shadow:0 12px 40px rgba(0,0,0,.45)}
+  .modal .top{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+  .modal .top .num{font-size:13px;color:var(--gold-soft);font-weight:700}
+  .modal .top .nm{font-size:20px;font-weight:700;color:var(--gold)}
+  .modal .top .en{font-size:12px;color:var(--mist-dim)}
+  .sec{margin:12px 0;padding-top:10px;border-top:1px solid var(--line)}
+  .sec .t{font-size:13px;color:var(--mist);font-weight:600;margin-bottom:5px}
+  .sec .c{font-size:14px;color:var(--text);line-height:1.7}
+  .meta-row{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0}
+  .meta-row .m{font-size:12px;background:var(--bg2);border:1px solid var(--line);padding:4px 10px;border-radius:8px;color:var(--mist)}
+  .btn{background:var(--gold);color:#0f1729;border:none;padding:9px 16px;border-radius:10px;font-size:13.5px;font-weight:600;cursor:pointer;transition:.2s}
+  .btn:hover{filter:brightness(1.08)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}
+  .btn.ghost:hover{color:var(--text);border-color:var(--gold-soft)}
+  .btn-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  textarea{width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:10px;color:var(--text);
+    padding:10px;font-size:13.5px;font-family:inherit;resize:vertical;min-height:60px}
+
+  /* 每日练习 */
+  .combo{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:14px;margin:12px 0}
+  .combo .pair{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+  .combo .pc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;text-align:center;flex:1}
+  .combo .pc .n{font-size:12px;color:var(--gold-soft)}
+  .combo .pc .nm{font-size:14px;font-weight:600}
+  .combo .plus{color:var(--gold);font-size:18px;font-weight:700}
+  .combo .ans{background:rgba(232,210,138,.08);border-radius:8px;padding:10px 12px;font-size:13.5px;margin-top:6px;display:none}
+  .combo .ans.show{display:block}
+  .rng{display:flex;gap:10px;margin:14px 0}
+  .rng .pc{flex:1}
+
+  /* 占卜 */
+  .oracle{text-align:center;padding:10px 0}
+  .qinput{width:100%;max-width:480px;margin:0 auto 14px;display:block;background:var(--bg2);border:1px solid var(--line);
+    border-radius:10px;color:var(--text);padding:12px;font-size:14px;font-family:inherit}
+  .yesno{font-size:34px;font-weight:800;letter-spacing:2px;margin:14px 0;color:var(--gold)}
+  .yesno.yes{color:var(--ok)} .yesno.no{color:var(--bad)}
+  .drawn{display:inline-flex;flex-direction:column;gap:4px;background:var(--card2);border:1px solid var(--line);
+    border-radius:12px;padding:14px 18px;margin:8px}
+  .drawn .n{font-size:11px;color:var(--gold-soft)} .drawn .nm{font-size:16px;font-weight:600}
+
+  /* 成就 */
+  .ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+  .ach{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+  .ach .ic{font-size:30px}
+  .ach .nm{font-size:13px;margin:4px 0;color:var(--text)}
+  .ach .ds{font-size:11px;color:var(--muted)}
+  .ach.lock{opacity:.45}
+  .ach.lock .ic{filter:grayscale(1)}
+  .bar{height:9px;background:var(--bg2);border-radius:6px;overflow:hidden;margin:8px 0 4px}
+  .bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--gold-soft),var(--gold));width:0;transition:.4s}
+  .stat{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+  .stat .box{flex:1;min-width:110px;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+  .stat .box .n{font-size:24px;font-weight:700;color:var(--gold)}
+  .stat .box .l{font-size:12px;color:var(--muted);margin-top:2px}
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--gold);color:#0f1729;
+    padding:10px 20px;border-radius:10px;font-size:13.5px;font-weight:600;opacity:0;transition:.3s;z-index:120;pointer-events:none}
+  .toast.show{opacity:1}
+  .empty{text-align:center;color:var(--muted);padding:26px;font-size:13.5px}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>🔮 塔罗学习小站</h1><span class="sub">78张牌库 · 每日练习 · 占卜 · 成就</span></div>
+  <nav class="nav">
+    <button data-v="deck" class="active">🃏 牌库</button>
+    <button data-v="practice">✍ 每日练习</button>
+    <button data-v="oracle">🔮 占卜</button>
+    <button data-v="ach">🏆 成就</button>
+  </nav>
+</header>
+
+<main>
+  <!-- 牌库 -->
+  <section class="view active" id="v-deck">
+    <div class="panel">
+      <h2>78 张牌库</h2>
+      <p>点任意一张牌，看它的牌义、讲解、<b>与其他牌的关系</b>、记忆技巧，以及对应的<b>四元素 / 星座 / 星骰</b>。建议从大阿尔卡纳开始，每天翻几张。</p>
+      <div class="filter">
+        <span class="lbl">筛选：</span>
+        <button data-f="all" class="active">全部</button>
+        <button data-f="major">大阿尔卡纳</button>
+        <button data-f="wands">权杖🔥</button>
+        <button data-f="cups">圣杯💧</button>
+        <button data-f="swords">宝剑🌬</button>
+        <button data-f="pentacles">星币⛰</button>
+        <button data-f="learned">已掌握</button>
+      </div>
+    </div>
+    <div class="grid" id="deck-grid"></div>
+  </section>
+
+  <!-- 每日练习 -->
+  <section class="view" id="v-practice">
+    <div class="panel">
+      <h2>每日练习：两张牌组合解读</h2>
+      <p>塔罗真正的用法是看<b>牌与牌的关系</b>。下面给出经典组合，先自己想，再点「看答案举例」。也可以随机抽两张练手。</p>
+      <div class="btn-row">
+        <button class="btn" id="rng-2">🎲 随机抽两张练手</button>
+      </div>
+      <div class="rng" id="rng-pair" style="display:none"></div>
+    </div>
+    <div id="combo-list"></div>
+  </section>
+
+  <!-- 占卜 -->
+  <section class="view" id="v-oracle">
+    <div class="panel oracle">
+      <h2>🔮 占卜</h2>
+      <div class="filter" style="margin-bottom:12px">
+        <span class="lbl">模式：</span>
+        <button data-mode="yesno" class="active">YES / NO</button>
+        <button data-mode="spread">三张牌阵</button>
+      </div>
+      <p id="oracle-hint">在心里或下方想清楚一个<b>能答是/否</b>的问题，默念，然后抽牌。本工具用牌的「肯定/否定倾向」给参考，仅供直觉练习，不作决策依据。</p>
+      <textarea class="qinput" id="q-input" placeholder="例：我该接受这份工作 offer 吗？"></textarea>
+      <button class="btn" id="draw-yesno">🔮 抽牌</button>
+      <div id="oracle-result"></div>
+    </div>
+  </section>
+
+  <!-- 成就 -->
+  <section class="view" id="v-ach">
+    <div class="panel">
+      <h2>学习成就</h2>
+      <div class="stat" id="ach-stat"></div>
+      <div class="bar"><i id="overall-bar"></i></div>
+      <div class="muted" id="overall-txt" style="font-size:12px;margin-bottom:10px"></div>
+      <h3 style="margin-top:8px">成就徽章</h3>
+      <div class="ach-grid" id="ach-grid"></div>
+      <h3 style="margin-top:16px">占星学习进度（按元素/花色）</h3>
+      <div id="elem-prog"></div>
+    </div>
+  </section>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/*
+ * 玄学学习网站 - 完整知识库（78张塔罗 + 占星/星骰对应）
+ * 对应体系基于黄金黎明/托特体系的塔罗-占星映射（公认体系）：
+ *   大阿尔卡纳：0愚人=天王星 / 1魔术师=水星 / 2女祭司=月亮 / 3皇后=金星
+ *   4皇帝=白羊 / 5教皇=金牛 / 6恋人=双子 / 7战车=巨蟹 / 8力量=狮子
+ *   9隐士=处女 / 10命运之轮=木星 / 11正义=天秤 / 12倒吊人=海王星
+ *   13死神=天蝎 / 14节制=射手 / 15恶魔=摩羯 / 16高塔=火星 / 17星星=水瓶
+ *   18月亮=双鱼 / 19太阳=太阳 / 20审判=冥王星 / 21世界=土星
+ *   小阿尔卡纳花色：权杖=火 / 圣杯=水 / 宝剑=风 / 星币=土
+ *   星骰映射：行星骰(牌义主题) + 宫位骰(生活领域)
+ */
+
+const REVIEW_SCHEDULE = [0, 1, 3, 7, 15, 30];
+
+// 大阿尔卡纳 22 张（完整：牌义/讲解/关系/记忆/元素/星座/星骰）
+const MAJOR = [
+  {n:0,en:"The Fool",zh:"愚人",astro:"天王星 ♅",element:"风(自由)",dice:"天王星 · 任何宫(新的开始)",
+   meaning:"开端、纯真、冒险、无限可能。",
+   explain:"编号0，旅程的起点。一个背着小包站在悬崖边的小白，代表放下顾虑、信任未知、踏出第一步。它不是'傻'，是未被经验束缚的自由。",
+   relations:"+魔术师=灵感落地行动；+世界=圆满闭环的起点；+高塔=天真被现实打碎；逆位常配合节制提醒别冲动。",
+   tip:"画面：悬崖边的小白+小花狗。口诀『无知者无畏，新旅程的开始』。数字0=一切之源。",
+   reversed:"冲动冒进、逃避责任、犹豫不决、漫无目的。提醒：先想清楚再跳。"},
+  {n:1,en:"The Magician",zh:"魔术师",astro:"水星 ☿",element:"风(沟通)",dice:"水星 · 第1宫(显化自我)",
+   meaning:"创造力、行动力、资源整合、显化。",
+   explain:"一手指天一手指地，桌上摆着四元素(权杖杯剑币)。意思是'上有天意，下有工具，万事俱备只欠行动'。把灵性化为现实的能力。",
+   relations:"+愚人=灵感变行动；+女祭司=外显vs内隐互补；+星币=物质显化；逆位警惕欺骗/画大饼。",
+   tip:"口诀『上有天下有地，只欠行动』。四元素都在桌上=工具齐全。",
+   reversed:"欺骗、画大饼、能力没落地、操控。提醒：别被花架子骗，也别空谈。"},
+  {n:2,en:"The High Priestess",zh:"女祭司",astro:"月亮 ☽",element:"水(直觉)",dice:"月亮 · 第12宫(潜意识)",
+   meaning:"直觉、潜意识、神秘、静默。",
+   explain:"守在两根柱子(BJ)间，背后帷幕是潜意识之门。与魔术师互补：魔术师对外行动，她对内觉察。代表'先向内看，答案在静默里'。",
+   relations:"+魔术师=阴与阳；+月亮=都是潜意识领域；+隐士=都是向内求；逆位=忽视直觉/表里不一。",
+   tip:"口诀『沉默的智慧』。帷幕=潜意识之门，别急着推门，先感受。",
+   reversed:"忽视直觉、表里不一、秘密、与内在失联。提醒：静下来听自己。"},
+  {n:3,en:"The Empress",zh:"皇后",astro:"金星 ♀",element:"土(丰盛)",dice:"金星 · 第2宫(价值/滋养)",
+   meaning:"丰饶、母性、创造、自然、感官。",
+   explain:"麦田果实环绕的女神，代表滋养、生育、把想法变成实在的成果。她是'做大'的能量，也管爱自己。",
+   relations:"+皇帝=柔与刚(创造一对)；+星币=物质丰盛；+力量=都是温柔力量；逆位=过度放纵/停滞。",
+   tip:"口诀『丰盛之母』。画面满是果实=滋养与产出。",
+   reversed:"依赖、过度放纵、停滞、创造受阻。提醒：爱自己但要行动。"},
+  {n:4,en:"The Emperor",zh:"皇帝",astro:"白羊 ♈",element:"火(行动)",dice:"火星 · 第10宫(权威/事业)",
+   meaning:"权威、结构、规则、控制、父性。",
+   explain:"盔甲权杖+身后的山，用结构和纪律掌控世界。与皇后互补：她是柔的生长，他是刚的秩序。",
+   relations:"+皇后=刚与柔；+战车=都是掌控；+高塔=旧结构崩塌；逆位=专断/僵化。",
+   tip:"口诀『秩序的建立者』。山=稳固，盔甲=防御。",
+   reversed:"专断、僵化、失控、滥用权力。提醒：结构服务人，不是反过来。"},
+  {n:5,en:"The Hierophant",zh:"教皇",astro:"金牛 ♉",element:"土(稳固)",dice:"金星 · 第9宫(信仰/传承)",
+   meaning:"传统、信仰、教导、规则、传承。",
+   explain:"三重冠+两把钥匙，代表体制内的知识传承。提醒你'有些智慧已有前人总结，先跟着学，再谈突破'。",
+   relations:"+恋人=传统vs自主选择；+皇后=体制vs自然；逆位=墨守成规/另寻路径。",
+   tip:"口诀『传统的老师』。钥匙=开启既有知识。",
+   reversed:"墨守成规、叛逆钻牛角尖、教条。提醒：规则可取，别被绑死。"},
+  {n:6,en:"The Lovers",zh:"恋人",astro:"双子 ♊",element:"风(沟通)",dice:"水星 · 第7宫(关系/合作)",
+   meaning:"选择、关系、价值观、结合、和谐。",
+   explain:"天使在上、两人在下，代表价值观层面的抉择与结合。不止爱情，更是'什么对你真正重要'的取舍。",
+   relations:"+恋人+恶魔=吸引vs束缚；+正义=选择后的因果；+节制=关系中的调和。",
+   tip:"口诀『选择的十字路口』。天使=更高的指引在旁。",
+   reversed:"失衡、分歧、错误选择、关系紧张。提醒：先对齐自己再选。"},
+  {n:7,en:"The Chariot",zh:"战车",astro:"巨蟹 ♋",element:"水(情绪驱动)",dice:"月亮 · 第10宫(成就/驾驭)",
+   meaning:"胜利、意志、控制、前进、决心。",
+   explain:"黑白两只狮身兽拉车，靠意志(非蛮力)拉向目标。代表用决心驾驭内在矛盾，向前冲。",
+   relations:"+力量=都是驾驭(一个意志一个温柔)；+高塔=失控的对照；+战车逆位=内耗/方向迷失。",
+   tip:"口诀『用意志驾驭对立』。黑白兽=矛盾的两股力。",
+   reversed:"内耗、方向迷失、失控、半途而废。提醒：两股力没驾驭好就先停。"},
+  {n:8,en:"Strength",zh:"力量",astro:"狮子 ♌",element:"火(热情)",dice:"太阳 · 第1宫(内在力量)",
+   meaning:"内在力量、勇气、耐心、温柔、自制。",
+   explain:"女子温和按住狮口，真正的力量是耐心与温柔，不是暴力压制。狮子代表原始冲动，被以柔克刚驯服。",
+   relations:"+战车=都是驾驭(这里用温柔)；+恶魔=束缚vs解脱；+力量逆位=自我怀疑。",
+   tip:"口诀『以柔克刚』。狮口被轻按=温柔胜强力。",
+   reversed:"自我怀疑、暴躁、力量用错地方。提醒：温柔不是弱，别硬撑。"},
+  {n:9,en:"The Hermit",zh:"隐士",astro:"处女 ♍",element:"土(务实)",dice:"水星 · 第9宫(寻道/分析)",
+   meaning:"内省、孤独、寻道、智慧、谨慎。",
+   explain:"提灯(六角星=内在之光)独行的老人，代表退下来自己想清楚。孤独不是可怜，是充电与求真。",
+   relations:"+女祭司=都是向内；+星星=独行后的希望；+隐士逆位=孤立/逃避。",
+   tip:"口诀『提灯独行』。灯笼=内在智慧之光。",
+   reversed:"孤立、逃避、固执、钻牛角尖。提醒：独行可以，别脱离人。"},
+  {n:10,en:"Wheel of Fortune",zh:"命运之轮",astro:"木星 ♃",element:"火(扩张)",dice:"木星 · 第10宫(机遇/周期)",
+   meaning:"周期、转机、命运、机遇、变化。",
+   explain:"转动的轮子，命运起伏无常。好与坏都会轮流转——低谷会过去，高峰也会落。接纳周期。",
+   relations:"+高塔=都是突变(一个柔和一个剧烈)；+星星=转机后的希望；+命运之轮逆位=低谷期。",
+   tip:"口诀『轮回与转机』。轮转=无常但有规律。",
+   reversed:"低谷、失控感、坏运气、周期下行。提醒：低谷会过去，别慌。"},
+  {n:11,en:"Justice",zh:"正义",astro:"天秤 ♎",element:"风(理性)",dice:"金星 · 第7宫(公平/关系)",
+   meaning:"公平、真相、因果、平衡、法律。",
+   explain:"一手剑一手秤，真相与公平。做过的终有回应——不是惩罚，是平衡。提醒你为每个选择负责。",
+   relations:"+恋人=选择后的结果；+死神=因果的转化；+正义逆位=不公/逃避责任。",
+   tip:"口诀『因果天平』。剑=真相，秤=平衡。",
+   reversed:"不公、逃避责任、偏颇、自欺。提醒：对自己诚实，因果逃不掉。"},
+  {n:12,en:"The Hanged Man",zh:"倒吊人",astro:"海王星 ♆",element:"水(灵性)",dice:"海王星 · 第12宫(牺牲/顿悟)",
+   meaning:"暂停、转念、牺牲、觉悟、等待。",
+   explain:"头下脚上被倒吊，主动暂停，用全新视角看问题。小牺牲换大觉悟——不是受苦，是'换角度看'。",
+   relations:"+节制=都是转念调和；+死神=都是转化(一个慢一个彻底)；+倒吊人逆位=无谓牺牲/拖延。",
+   tip:"口诀『换角度看』。倒吊=视角翻转。",
+   reversed:"无谓牺牲、拖延、固执视角、不愿转念。提醒：该换角度了。"},
+  {n:13,en:"Death",zh:"死神",astro:"天蝎 ♏",element:"水(深层)",dice:"冥王星 · 第8宫(蜕变/终结)",
+   meaning:"结束、转化、重生、放手、过渡。",
+   explain:"骷髅不是真死，是'旧的不去新的不来'。一段关系/习惯/阶段的结束，为新生腾出空间。Transform 而非 The End。",
+   relations:"+倒吊人=转化前奏；+审判=重生后觉醒；+死神逆位=抗拒改变/卡住。",
+   tip:"口诀『结束即新生』。骷髅=破除旧形。",
+   reversed:"抗拒改变、卡住、恐惧结束、停滞。提醒：旧的放不下，新的不来。"},
+  {n:14,en:"Temperance",zh:"节制",astro:"射手 ♐",element:"火(信念)",dice:"木星 · 第5宫(调和/创造)",
+   meaning:"平衡、调和、耐心、疗愈、适度。",
+   explain:"倒水两相融的天使，把矛盾元素慢慢混合，找到中庸。代表疗愈与耐心——不极端，慢慢调。",
+   relations:"+倒吊人=都是转念；+恋人=关系中的平衡；+节制逆位=失衡/极端。",
+   tip:"口诀『调和与耐心』。两水相融=找到中间。",
+   reversed:"失衡、极端、急躁、调和失败。提醒：别一端倒，慢慢调。"},
+  {n:15,en:"The Devil",zh:"恶魔",astro:"摩羯 ♑",element:"土(物质)",dice:"土星 · 第10宫(束缚/责任)",
+   meaning:"执念、欲望、束缚、阴影、上瘾。",
+   explain:"被链子绑住的一对，但链子松垮——束缚多是自己心里的执念、上瘾、恐惧。看穿它，就能解开。",
+   relations:"+力量=束缚vs解脱；+恋人=吸引vs掌控；+恶魔逆位=觉醒挣脱。",
+   tip:"口诀『自我绑缚』。松链=束缚是自己给的。",
+   reversed:"挣脱束缚、觉醒、摆脱执念、上瘾缓解。提醒：链子本就松。"},
+  {n:16,en:"The Tower",zh:"高塔",astro:"火星 ♂",element:"火(爆发)",dice:"火星 · 第1宫(突变/冲击)",
+   meaning:"突变、崩塌、觉醒、解放、冲击。",
+   explain:"闪电劈塔，虚假结构瞬间碎裂。痛但必要——为重建腾地。代表被压抑的真相爆发。",
+   relations:"+命运之轮=剧烈版周期；+星星=崩塌后的希望；+高塔逆位=勉强维系。",
+   tip:"口诀『突发的崩塌』。闪电=真相降临。",
+   reversed:"勉强维系、延迟的崩塌、不愿面对真相。提醒：早破比晚破好。"},
+  {n:17,en:"The Star",zh:"星星",astro:"水瓶 ♒",element:"风(革新)",dice:"天王星 · 第11宫(希望/群体)",
+   meaning:"希望、疗愈、信念、灵感、宁静。",
+   explain:"风暴(高塔)过后的宁静，少女倒水疗愈大地。代表恢复信心、被希望照亮。温柔的指引。",
+   relations:"+高塔=崩塌后的治愈；+隐士=独行后的光；+星星逆位=失望。",
+   tip:"口诀『希望之后』。七星=指引之光。",
+   reversed:"失望、信心动摇、疗愈中断。提醒：光还在，只是被云挡。"},
+  {n:18,en:"The Moon",zh:"月亮",astro:"双鱼 ♓",element:"水(梦幻)",dice:"海王星 · 第12宫(幻象/潜意识)",
+   meaning:"幻象、直觉、恐惧、未知、潜意识。",
+   explain:"狗狼+螯蟹+蜿蜒小路，代表恐惧、幻觉、不确定的潜意识领地。月光下看不清——信直觉，但别被恐惧骗。",
+   relations:"+女祭司=都是月之神秘；+太阳=迷雾后的明朗；+月亮逆位=真相渐明。",
+   tip:"口诀『迷雾与潜意识』。小路=不确定的前路。",
+   reversed:"幻象成真、被恐惧骗、迷雾更浓、自我欺骗。提醒：别信恐惧编的剧本。"},
+  {n:19,en:"The Sun",zh:"太阳",astro:"太阳 ☉",element:"火(光明)",dice:"太阳 · 第1宫(喜悦/成功)",
+   meaning:"喜悦、成功、活力、清晰、滋养。",
+   explain:"孩童骑马+向日葵，纯粹喜悦、成功、被看见。代表明朗、活力、简单的快乐。",
+   relations:"+月亮=明朗驱散迷雾；+星星=希望成真；+太阳逆位=短暂阴霾。",
+   tip:"口诀『明朗的快乐』。向日葵=向阳而生。",
+   reversed:"短暂阴霾、过度乐观、信心不足、被遮住。提醒：太阳会再出来。"},
+  {n:20,en:"Judgement",zh:"审判",astro:"冥王星 ♇",element:"水(重生)",dice:"冥王星 · 第8宫(觉醒/复盘)",
+   meaning:"觉醒、复盘、召唤、宽恕、重生。",
+   explain:"号角唤醒墓中人，对过去的回顾、觉醒与召唤。代表复盘后释怀、被更高使命召唤。",
+   relations:"+死神=重生前奏；+世界=觉醒后圆满；+审判逆位=自我批判。",
+   tip:"口诀『唤醒与复盘』。号角=内在召唤。",
+   reversed:"自我批判、拒绝成长、不愿复盘、拖延觉醒。提醒：号角在响，听。"},
+  {n:21,en:"The World",zh:"世界",astro:"土星 ♄",element:"土(完成)",dice:"土星 · 第10宫(成就/圆满)",
+   meaning:"完成、整合、圆满、成就、旅行。",
+   explain:"花环中跳舞的舞者，一个周期的完成、整合、庆祝。数字21是旅程终点——但不是结束，是更高循环的开始。",
+   relations:"+愚人=闭环回起点(21→0)；+审判=觉醒后圆满；+世界逆位=未竟。",
+   tip:"口诀『圆满闭环』。花环=完整循环。",
+   reversed:"未竟、卡在终点前、闭环失败、散场。提醒：就差一步，收尾。"},
+];
+
+// 四元素花色 + 数字剧本 + 宫廷牌
+const SUITS = [
+  {key:"wands",zh:"权杖",element:"火",theme:"行动、热情、创造力、意志",
+   num:["起源/灵感的火花","抉择与合作伙伴","初步行动起步","稳固扎根限制","冲突与变动","和谐与庆祝","挑战内省","掌控与恢复","高峰接近完成","完成与成果"],
+   court:["侍从=学习火(行动新手)","骑士=推进火(冲锋派)","王后=内化火(热情感染)","国王=外显火(掌控行动)"],
+   reversed:"未竟、卡在终点前、闭环失败、散场。提醒：就差一步，收尾。"},
+  {key:"cups",zh:"圣杯",element:"水",theme:"情感、关系、直觉、爱",
+   num:["爱的起源","关系中的抉择","情感初动","情感稳固","情感冲突","关系和谐","情感内省","情感恢复","情感高峰","情感圆满"],
+   court:["侍从=学习水(感受新手)","骑士=推进水(浪漫派)","王后=内化水(共情滋养)","国王=外显水(情商掌控)"]},
+  {key:"swords",zh:"宝剑",element:"风",theme:"思想、沟通、冲突、理性",
+   num:["想法的起源","两难抉择","思维行动","思想稳固","思想冲突","真相浮现","思虑内省","理性恢复","思维高峰","思维终结"],
+   court:["侍从=学习风(信息新手)","骑士=推进风(锐利派)","王后=内化风(洞察清明)","国王=外显风(理智掌控)"]},
+  {key:"pentacles",zh:"星币",element:"土",theme:"物质、金钱、身体、现实",
+   num:["物质的起源","资源抉择","务实起步","物质稳固","资源变动","物质和谐","务实内省","恢复积累","物质高峰","物质圆满"],
+   court:["侍从=学习土(务实新手)","骑士=推进土(稳健派)","王后=内化土(丰盛滋养)","国王=外显土(资源掌控)"]}
+];
+
+// 小阿尔卡纳逆位通用模板：按花色主题反向 + 数字/宫廷规律
+function minorReversed(s, i, court, role){
+  if(court){
+    const map={
+      "侍从":"新手拖延、没学好基础、信息混乱。提醒：先打地基。",
+      "骑士":"冲过头、方向跑偏、浮躁难静。提醒：控速，别乱冲。",
+      "王后":"情绪过度、边界模糊、付出失衡。提醒：先顾好自己。",
+      "国王":"掌控变控制、固执僵化、滥用资源。提醒：放权，别抓太死。"
+    };
+    return map[role]||"能量失衡、过度或不足。提醒：回到中道。";
+  }
+  // 数字牌逆位：低数字(1-4)=能量不足/没启动；中(5-7)=过度/冲突加剧；高(8-10)=拖延/未竟
+  if(i<=3) return `${s.zh}能量的${s.theme.split("、")[0]}还没真正启动或不足，计划停滞、缺乏行动。提醒：从小步开始。`;
+  if(i<=4) return `${s.zh}的逆位常是稳固变僵化、限制成束缚。提醒：结构别压死自己。`;
+  if(i<=7) return `${s.zh}的逆位：冲突/内耗加剧或方向迷失，能量用错地方。提醒：先稳住再动。`;
+  if(i<=9) return `${s.zh}的逆位：接近完成却拖延、高峰难维持、追求完美卡住。提醒：完成比完美重要。`;
+  return `${s.zh}的逆位：闭环失败、成果落空、散场或未完成。提醒：就差收尾一步。`;
+}
+// 生成小阿尔卡纳卡片：数字牌(1-10) + 宫廷牌(4)
+const MINOR = [];
+SUITS.forEach(s=>{
+  for(let i=1;i<=10;i++){
+    MINOR.push({
+      suit:s.key, suitZh:s.zh, element:s.element, num:i, court:false,
+      name:`${s.zh}${i}`,
+      astro:`${s.element}象 · ${s.zh}主题`,
+      dice:`${s.element}象行星 · 对应宫位(见数字含义)`,
+      meaning:`${s.theme}领域，${s.num[i-1]}。`,
+      explain:`花色=${s.zh}(${s.element}：${s.theme})；数字=${s.num[i-1]}。把两者叠加即得牌义。`,
+      relations:`同花色相邻数字有承接；与对应大牌有呼应(如火象呼应皇帝/力量/太阳)。`,
+      tip:`套用『数字剧本』：${s.num[i-1]}。再叠加${s.zh}(${s.element})主题。`,
+      reversed:minorReversed(s,i,false)
+    });
+  }
+  const courtMap=[["侍从",1],["骑士",2],["王后",3],["国王",4]];
+  s.court.forEach((c,idx)=>{
+    const [role]=c.split("=");
+    MINOR.push({
+      suit:s.key, suitZh:s.zh, element:s.element, num:0, court:true, courtRole:role,
+      name:`${s.zh}${role}`,
+      astro:`${s.element}象 · ${role}`,
+      dice:`${s.element}象行星 · 第${idx+1}宫领域`,
+      meaning:`${c.replace(role+"=","")}。`,
+      explain:`花色=${s.zh}(${s.element})决定领域；${role}决定成熟度：${role==="侍从"?"学习者":role==="骑士"?"行动派":role==="王后"?"感受内化者":"外显掌控者"}。`,
+      relations:`同角色跨花色可比较(如四张王后=四种滋养方式)；与大牌元素呼应。`,
+      tip:c,
+      reversed:minorReversed(s,0,true,role)
+    });
+  });
+});
+
+// 合并成 78 张，统一结构
+const CARDS = [];
+MAJOR.forEach(m=>CARDS.push({
+  id:"major-"+m.n, type:"major", n:m.n, name:m.zh, en:m.en,
+  astro:m.astro, element:m.element, dice:m.dice,
+  meaning:m.meaning, explain:m.explain, relations:m.relations, tip:m.tip, reversed:m.reversed
+}));
+MINOR.forEach((m,idx)=>CARDS.push({
+  id:"minor-"+idx, type:"minor", suit:m.suit, suitZh:m.suitZh,
+  name:m.name, element:m.element, astro:m.astro, dice:m.dice,
+  meaning:m.meaning, explain:m.explain, relations:m.relations, tip:m.tip, court:m.court, reversed:m.reversed
+}));
+
+// 配套：牌组关系样例（用于每日练习/组合解读）
+const COMBOS = [
+  {a:"major-0",b:"major-1",ans:"愚人(新灵感)+魔术师(落地行动)=一个想法准备变成现实，适合开启新项目。注意：只有灵感没有行动会停留在起点。"},
+  {a:"major-6",b:"major-15",ans:"恋人(吸引/选择)+恶魔(执念/束缚)=关系中出现了控制或成瘾成分，需要分清是爱还是依赖。"},
+  {a:"major-13",b:"major-20",ans:"死神(结束转化)+审判(觉醒复盘)=一段旧关系结束后你终于看清真相、获得释怀，是重生前奏。"},
+  {a:"major-16",b:"major-17",ans:"高塔(崩塌冲击)+星星(希望疗愈)=剧烈变动后进入恢复与重建期，先疗伤再规划。"},
+  {a:"major-10",b:"major-7",ans:"命运之轮(周期转机)+战车(意志前进)=机会来了，靠决心抓住它向前冲。"},
+  {a:"major-3",b:"minor-30",ans:"皇后(丰盛创造)+星币王后(物质滋养)=在事业/钱财上既能创造也能稳守，丰盛落地。"},
+  {a:"major-18",b:"major-19",ans:"月亮(迷雾恐惧)+太阳(明朗喜悦)=困惑期即将过去，真相与信心会回来。"},
+  {a:"major-8",b:"major-15",ans:"力量(温柔驾驭)+恶魔(挣脱束缚)=你有能力用温柔坚定解开自己的心结/执念。"}
+];
+
+function byId(id){ return CARDS.find(c=>c.id===id); }
+function flattenCards(){ return CARDS; }
+
+</script>
+<script>
+/* ============ 存储 ============ */
+const LS_KEY="tarot_study_v2";
+let store=JSON.parse(localStorage.getItem(LS_KEY)||"null")||{cards:{},notes:[],streak:0,lastDay:null,drawn:[]};
+function save(){localStorage.setItem(LS_KEY,JSON.stringify(store));}
+const todayStr=()=>new Date().toISOString().slice(0,10);
+const addDays=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x.toISOString().slice(0,10);};
+function ensure(id){if(!store.cards[id])store.cards[id]={status:'new',level:0,nextDue:todayStr(),lastReview:null,note:''};return store.cards[id];}
+function isDue(id){const c=store.cards[id];if(!c)return true;return c.nextDue<=todayStr();}
+
+/* ============ 工具 ============ */
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1700);}
+function suitBadge(c){
+  if(c.type==='major')return `<span class="badge b-major">大阿尔卡纳</span>`;
+  const map={wands:'权杖🔥',cups:'圣杯💧',swords:'宝剑🌬',pentacles:'星币⛰'};
+  return `<span class="badge b-${c.suit}">${map[c.suit]}</span>`;
+}
+// YES/NO 倾向：基于牌义能量（大牌为主，小牌按元素/数字）
+function yesNoBias(c){
+  const YES=["major-0","major-1","major-3","major-6","major-7","major-8","major-10","major-14","major-17","major-19","major-21"];
+  const NO=["major-12","major-13","major-15","major-16","major-18","major-5","major-9","major-11"];
+  if(YES.includes(c.id))return 0.8;
+  if(NO.includes(c.id))return 0.25;
+  if(c.type==='minor'){
+    if(c.court)return 0.5;
+    if(c.num>=7)return 0.65; if(c.num<=3)return 0.55; return 0.5;
+  }
+  return 0.5;
+}
+
+/* ============ 导航 ============ */
+document.querySelectorAll('.nav button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');document.getElementById('v-'+b.dataset.v).classList.add('active');
+    if(b.dataset.v==='practice')renderCombos();
+    if(b.dataset.v==='ach')renderAch();
+  };
+});
+
+/* ============ 牌库 ============ */
+let curFilter='all';
+function renderDeck(){
+  const grid=document.getElementById('deck-grid');grid.innerHTML='';
+  let list=CARDS.slice();
+  if(curFilter==='major')list=list.filter(c=>c.type==='major');
+  else if(['wands','cups','swords','pentacles'].includes(curFilter))list=list.filter(c=>c.suit===curFilter);
+  else if(curFilter==='learned')list=list.filter(c=>store.cards[c.id]&&store.cards[c.id].status==='learned');
+  if(curFilter!=='major'&&curFilter!=='learned'&&curFilter!=='all'){
+    // 小阿尔卡纳按花色+数字排序
+    list.sort((a,b)=>(a.suit>b.suit?1:-1)||(a.num-b.num));
+  }
+  list.forEach(c=>{
+    const st=store.cards[c.id]||{};
+    const el=document.createElement('div');el.className='tcard'+(st.status==='learned'?' done':'');
+    const num=c.type==='major'?c.n:(c.court?c.courtRole:c.num);
+    el.innerHTML=`<div class="num">${c.type==='major'?'★ '+num:num}</div>
+      <div class="nm">${c.name}</div>
+      <div class="en">${c.en||c.suitZh}</div>
+      ${suitBadge(c)}`;
+    el.onclick=()=>openCard(c);
+    grid.appendChild(el);
+  });
+}
+document.querySelectorAll('.filter button').forEach(b=>{
+  b.onclick=()=>{document.querySelectorAll('.filter button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');curFilter=b.dataset.f;renderDeck();};
+});
+
+/* ============ 牌详情 ============ */
+function openCard(c){
+  const cd=ensure(c.id);
+  const ov=document.createElement('div');ov.className='ov';
+  const relText=c.relations||'（组合示例见「每日练习」）';
+  ov.innerHTML=`<div class="modal">
+    <div class="top"><span class="num">${c.type==='major'?'大阿尔卡纳 '+c.n:'★'}</span>
+      <span class="nm">${c.name}</span><span class="en">${c.en||''}</span></div>
+    <div class="meta-row">
+      <span class="m">${c.type==='major'?'大阿尔卡纳':(c.suitZh+(c.court?'·'+c.courtRole:''))}</span>
+      <span class="m">四元素：${c.element}</span>
+    </div>
+    <div class="sec"><div class="t">📖 牌义</div><div class="c">${c.meaning}</div></div>
+    <div class="sec"><div class="t">💬 讲解</div><div class="c">${c.explain}</div></div>
+    <div class="sec"><div class="t">🔗 与其他牌的关系</div><div class="c">${relText}</div></div>
+    <div class="sec"><div class="t">💡 协助记忆</div><div class="tip"><b>口诀：</b>${c.tip}</div></div>
+    <div class="sec"><div class="t">🔄 逆位含义</div><div class="c">${c.reversed||'（暂无）'}</div></div>
+    <div class="sec"><div class="t">🌟 星座对应</div><div class="c">${c.astro}</div></div>
+    <div class="sec"><div class="t">🎲 星骰补充</div><div class="c">${c.dice}</div></div>
+    <div class="sec"><div class="t">📝 我的备注</div>
+      <textarea id="card-note" placeholder="记点私货…">${cd.note||''}</textarea>
+      <div class="btn-row"><button class="btn ghost" id="save-note" style="padding:6px 14px;font-size:13px">保存备注</button></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn" id="mark-learn">✅ 我记住了（加入复习）</button>
+      <button class="btn ghost" id="close">关闭</button>
+    </div>
+  </div>`;
+  document.body.appendChild(ov);
+  ov.onclick=e=>{if(e.target===ov)ov.remove();};
+  ov.querySelector('#close').onclick=()=>ov.remove();
+  ov.querySelector('#save-note').onclick=()=>{cd.note=ov.querySelector('#card-note').value;save();toast('备注已存');};
+  ov.querySelector('#mark-learn').onclick=()=>{
+    cd.status='learned';cd.level=Math.max(1,cd.level);
+    cd.nextDue=addDays(todayStr(),REVIEW_SCHEDULE[Math.min(cd.level,REVIEW_SCHEDULE.length-1)]||30);
+    cd.lastReview=todayStr();save();toast('已掌握，记入复习 🔁');ov.remove();renderDeck();renderAch();
+  };
+}
+
+/* ============ 每日练习 ============ */
+function renderCombos(){
+  const root=document.getElementById('combo-list');root.innerHTML='';
+  COMBOS.forEach((cb,i)=>{
+    const ca=byId(cb.a),cb2=byId(cb.b);
+    const el=document.createElement('div');el.className='combo';
+    el.innerHTML=`<div class="pair">
+        <div class="pc"><div class="n">${ca.type==='major'?'★'+ca.n:ca.name}</div><div class="nm">${ca.name}</div></div>
+        <div class="plus">+</div>
+        <div class="pc"><div class="n">${cb2.type==='major'?'★'+cb2.n:cb2.name}</div><div class="nm">${cb2.name}</div></div>
+      </div>
+      <div class="btn-row"><button class="btn ghost" data-i="${i}" style="padding:6px 14px;font-size:13px">👀 看答案举例</button></div>
+      <div class="ans" id="ans-${i}">${cb.ans}</div>`;
+    el.querySelector('button').onclick=()=>{const a=el.querySelector('#ans-'+i);a.classList.toggle('show');};
+    root.appendChild(el);
+  });
+}
+document.getElementById('rng-2').onclick=()=>{
+  const [a,b]=drawUnique(2);
+  const box=document.getElementById('rng-pair');box.style.display='flex';
+  box.innerHTML=`
+    <div class="pc"><div class="n">${a.type==='major'?'★'+a.n:a.name}</div><div class="nm">${a.name}</div></div>
+    <div class="plus" style="color:var(--gold);font-size:18px;font-weight:700">+</div>
+    <div class="pc"><div class="n">${b.type==='major'?'★'+b.n:b.name}</div><div class="nm">${b.name}</div></div>`;
+  toast('抽到：'+a.name+' + '+b.name+'，自己先解读试试');
+  // 自动生成解读示例
+  let auto;
+  const types=[a.type,b.type].filter(t=>t==='major').length;
+  if(a.element===b.element){
+    auto=`两张都与「${a.element}」相关，主题聚焦在同一个面向(${a.element})：${a.meaning} 叠加 ${b.meaning} —— 同一个议题被两次强调，能量集中。`;
+  }else if(types===2){
+    auto=`两张大阿尔卡纳相遇，是「人生课题级」的组合：${a.meaning} 与 ${b.meaning} 共同推动一段重要的内在旅程。`;
+  }else if(types===1){
+    const M=a.type==='major'?a:b, m=a.type==='major'?b:a;
+    auto=`大牌「${M.name}」提供背景能量(${M.meaning})，小牌「${m.name}」落在具体日常(${m.meaning})—— 宏观课题在微观生活里显现。`;
+  }else{
+    auto=`两张小牌组合，看元素互动：${a.element} × ${b.element}。${a.meaning} 遇上 ${b.meaning}，留意两种能量是互补还是拉扯。`;
+  }
+  box.innerHTML+=`<div class="ans show" style="margin-top:10px"><b style="color:var(--gold)">📋 解读示例：</b>${auto}<br><span class="muted" style="font-size:12px">（示例仅供参考，你的直觉更重要。先自己想，再对照。）</span></div>`;
+};
+
+/* ============ 占卜 ============ */
+let oracleMode='yesno';
+document.querySelectorAll('#v-oracle .filter button').forEach(b=>{
+  b.onclick=()=>{
+    document.querySelectorAll('#v-oracle .filter button').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active'); oracleMode=b.dataset.mode;
+    document.getElementById('oracle-hint').innerHTML = oracleMode==='yesno'
+      ? '在心里或下方想清楚一个<b>能答是/否</b>的问题，默念，然后抽牌。本工具用牌的「肯定/否定倾向」给参考，仅供直觉练习，不作决策依据。'
+      : '想一个具体处境，默念，抽三张牌看<b>过去-现在-未来</b>的脉络。仅供参考，直觉练习用。';
+    document.getElementById('draw-yesno').textContent = oracleMode==='yesno'?'🔮 抽牌占卜':'🔮 抽三张牌';
+  };
+});
+function drawUnique(n){
+  const pool=CARDS.slice(); const out=[];
+  for(let i=0;i<n;i++){ const k=Math.floor(Math.random()*pool.length); out.push(pool.splice(k,1)[0]); }
+  return out;
+}
+document.getElementById('draw-yesno').onclick=()=>{
+  const q=document.getElementById('q-input').value.trim();
+  const root=document.getElementById('oracle-result');
+  if(oracleMode==='yesno'){
+    const card=drawUnique(1)[0];
+    const aid=drawUnique(1)[0];
+    const bias=yesNoBias(card); const yes=bias>=0.55;
+    root.innerHTML=`<div class="yesno ${yes?'yes':'no'}">${yes?'YES':'NO'}</div>
+      <div class="muted" style="font-size:12.5px">${q?('问题：'+q):'（未填写问题）'}</div>
+      <div style="margin:10px 0">
+        <div class="drawn"><div class="n">${card.type==='major'?'★'+card.n:card.name}</div><div class="nm">${card.name}</div><div class="muted" style="font-size:11px">${card.meaning}</div></div>
+        <div class="drawn"><div class="n">语境牌</div><div class="nm">${aid.name}</div><div class="muted" style="font-size:11px">${aid.meaning}</div></div>
+      </div>
+      <div class="tip" style="display:inline-block;max-width:460px"><b>直觉提示：</b>主牌「${card.name}」倾向${yes?'支持(肯定能量偏强)':'谨慎(否定/转化能量偏强)'}；语境牌「${aid.name}」提示你关注${aid.element}相关的议题。仅供练习，决定权在你。</div>`;
+    store.drawn.push({mode:'yesno',q,card:card.id,aid:aid.id,verdict:yes?'YES':'NO',ts:new Date().toLocaleString('zh-CN')});
+  }else{
+    const [p,n,f]=drawUnique(3);
+    root.innerHTML=`<div class="muted" style="font-size:12.5px;margin-bottom:6px">${q?('问题：'+q):'（未填写问题）'}</div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:8px 0">
+        ${[['过去',p],['现在',n],['未来',f]].map(([lab,c])=>`<div class="drawn"><div class="n">${lab}</div><div class="nm">${c.name}</div><div class="muted" style="font-size:11px;max-width:150px">${c.meaning}</div></div>`).join('')}
+      </div>
+      <div class="tip" style="display:inline-block;max-width:460px"><b>脉络提示：</b>过去「${p.name}」→ 现在「${n.name}」→ 未来「${f.name}」。<br>
+      元素脉络：${p.element} → ${n.element} → ${f.element}。整体看${f.type==='major'&&f.n>=17?'向明朗/希望发展':f.n===13||f.n===16?'正经历转化/变动':'仍在推进中'}。仅供直觉练习。</div>`;
+    store.drawn.push({mode:'spread',q,p:p.id,n:n.id,f:f.id,ts:new Date().toLocaleString('zh-CN')});
+  }
+  if(store.drawn.length>50)store.drawn=store.drawn.slice(-50);
+  save();
+};
+
+/* ============ 成就 ============ */
+function renderAch(){
+  const learned=CARDS.filter(c=>store.cards[c.id]&&store.cards[c.id].status==='learned').length;
+  const majorLearned=CARDS.filter(c=>c.type==='major'&&store.cards[c.id]&&store.cards[c.id].status==='learned').length;
+  const minorLearned=CARDS.filter(c=>c.type==='minor'&&store.cards[c.id]&&store.cards[c.id].status==='learned').length;
+  const pct=Math.round(learned/CARDS.length*100);
+  document.getElementById('ach-stat').innerHTML=`
+    <div class="box"><div class="n">${learned}</div><div class="l">已掌握 / ${CARDS.length}</div></div>
+    <div class="box"><div class="n">${majorLearned}</div><div class="l">大阿尔卡纳</div></div>
+    <div class="box"><div class="n">${minorLearned}</div><div class="l">小阿尔卡纳</div></div>
+    <div class="box"><div class="n">${pct}%</div><div class="l">总进度</div></div>`;
+  document.getElementById('overall-bar').style.width=pct+'%';
+  document.getElementById('overall-txt').textContent=pct>=100?'🎉 78张全掌握，塔罗大师！':`还差 ${CARDS.length-learned} 张，每天翻几张就够。`;
+  // 徽章
+  const badges=[
+    {ic:'🌱',nm:'初识塔罗',ds:'掌握第1张',ok:learned>=1},
+    {ic:'⭐',nm:'大牌入门',ds:'掌握10张大阿尔卡纳',ok:majorLearned>=10},
+    {ic:'👑',nm:'大阿尔卡纳全通',ds:'22张大牌全掌握',ok:majorLearned>=22},
+    {ic:'🔥',nm:'权杖学徒',ds:'掌握全部14张权杖',ok:learnedOf('wands')>=14},
+    {ic:'💧',nm:'圣杯学徒',ds:'掌握全部14张圣杯',ok:learnedOf('cups')>=14},
+    {ic:'🌬',nm:'宝剑学徒',ds:'掌握全部14张宝剑',ok:learnedOf('swords')>=14},
+    {ic:'⛰',nm:'星币学徒',ds:'掌握全部14张星币',ok:learnedOf('pentacles')>=14},
+    {ic:'🃏',nm:'小阿尔卡纳全通',ds:'56张小牌全掌握',ok:minorLearned>=56},
+    {ic:'🏆',nm:'塔罗大师',ds:'78张全掌握',ok:learned>=78}
+  ];
+  document.getElementById('ach-grid').innerHTML=badges.map(b=>
+    `<div class="ach ${b.ok?'':'lock'}"><div class="ic">${b.ic}</div><div class="nm">${b.nm}</div><div class="ds">${b.ds}</div></div>`).join('');
+  // 元素进度
+  const suits=[['wands','权杖🔥'],['cups','圣杯💧'],['swords','宝剑🌬'],['pentacles','星币⛰']];
+  document.getElementById('elem-prog').innerHTML=suits.map(([k,nm])=>{
+    const tot=14,d=learnedOf(k);const p=Math.round(d/tot*100);
+    return `<div style="margin:8px 0"><div style="display:flex;justify-content:space-between;font-size:13px"><span>${nm}</span><span class="muted">${d}/14</span></div><div class="bar"><i style="width:${p}%"></i></div></div>`;
+  }).join('');
+}
+function learnedOf(suit){return CARDS.filter(c=>c.type==='minor'&&c.suit===suit&&store.cards[c.id]&&store.cards[c.id].status==='learned').length;}
+
+/* ============ 启动 ============ */
+renderDeck();renderAch();
+</script>
+</body>
+</html>
