@@ -33,7 +33,7 @@
 - `mistakes: Mistake[]`：新版课程的具体错题。
 - `checkpointScores: Record<number, number>`：阶段复习成绩。
 
-`Mistake` 包含 `id`、`dayId`、`type`、`prompt`、`selected`、`answer`、`explanation`、`reviewed` 和 `updatedAt`。同一题再次答错时更新原记录，答对时不自动删除历史记录；用户在错题修复页完成后将其标为 `reviewed`。
+`Mistake` 包含 `id`、`dayId`、`source`、`type`、`prompt`、`selected`、`answer`、`explanation`、`reviewed` 和 `updatedAt`；`source` 为 `lesson`、`checkpoint` 或 `topik`。同一题再次答错时更新原记录，答对时不自动删除历史记录；用户在错题修复页完成后将其标为 `reviewed`。
 
 状态归一化必须兼容已上线的 v26 数据，缺失字段使用空数组或空对象，不重置 `currentDay`、`completedDays` 和既有分数。
 
