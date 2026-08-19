@@ -142,6 +142,14 @@
     });
   }
 
+  function topikQuestions(state={},audioManifest=manifest){
+    const completed=new Set(Array.isArray(state.completedDays)?state.completedDays:[]),excluded=new Set(['writing','speaking','authentic-writing','reflection']);
+    return days.filter(day=>completed.has(day.id)&&day.kind==='lesson'&&day.id<=usableDays).flatMap(day=>{
+      const lesson=lessonSummary(day.id,audioManifest);
+      return lesson.assessment.filter(item=>!excluded.has(item.type)).map(item=>({id:`course-topik:${item.id}`,dayId:day.id,themeId:day.themeId,type:item.type,prompt:item.prompt,options:item.options,answer:item.options.indexOf(item.answer),why:item.explanation||`参考答案：${item.answer}`,audio:item.audio}));
+    });
+  }
+
   function nextLessonAfterPass(dayId,result){
     return result?.passed&&Number(dayId)<usableDays?Number(dayId)+1:null;
   }
@@ -287,9 +295,10 @@
     renderHomeSummary();
     root.renderFavorites?.();
     root.renderMistakes?.();
+    root.MalbitTopikPracticeV25?.render();
   }
 
-  root.MalbitLevel1Course={mount,openDay,loadState,saveState,homeSummary,directorySummary,lessonSummary,gradeAssessment,dailyReview,nextLessonAfterPass,favoriteWords,mistakeView};
+  root.MalbitLevel1Course={mount,openDay,loadState,saveState,homeSummary,directorySummary,lessonSummary,gradeAssessment,dailyReview,topikQuestions,nextLessonAfterPass,favoriteWords,mistakeView};
 
   if(typeof document!=='undefined'){
     fetch('audio/level1/manifest.json').then(response=>response.ok?response.json():{}).then(data=>{manifest=data;if(openId)openDay(openId)}).catch(()=>{});

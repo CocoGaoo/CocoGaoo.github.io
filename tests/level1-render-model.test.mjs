@@ -67,4 +67,11 @@ assert.equal(api.nextLessonAfterPass(1,{passed:true}),2);
 assert.equal(api.nextLessonAfterPass(7,{passed:true}),null);
 assert.equal(api.nextLessonAfterPass(1,{passed:false}),null);
 
+const topik=api.topikQuestions({completedDays:[1,2]},manifest);
+assert.ok(topik.length>=2);
+assert.ok(topik.every(item=>item.themeId==='l1-u01'));
+assert.ok(topik.every(item=>Array.isArray(item.options)&&item.options.length>=2));
+assert.ok(topik.every(item=>!['writing','speaking','authentic-writing','reflection'].includes(item.type)));
+assert.deepEqual(plain(api.topikQuestions({completedDays:[]},manifest)),[]);
+
 console.log('level one render model: seven usable days, mapped audio, assessment gate and 45-day preview');
