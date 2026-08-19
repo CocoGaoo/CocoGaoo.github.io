@@ -18,7 +18,7 @@
   function loadState(){
     try{
       const saved=JSON.parse(localStorage.getItem(storeKey)||'null');
-      if(saved?.version===26)return saved;
+      if(saved?.version===26)return root.MalbitLevel1State.normalize(saved);
       const legacy=JSON.parse(localStorage.getItem('malbit-course')||'{}');
       return root.MalbitLevel1State?.migrate(legacy)||defaultState();
     }catch{return defaultState()}
@@ -89,8 +89,54 @@
       words:lesson.words.map(word=>({...word,audio:{ko:audioItem(word.audio.ko,audioManifest),en:audioItem(word.audio.en,audioManifest)}})),
       grammar:lesson.grammar,
       culture:{title:culture?.title||lesson.culture.title,paragraphs},
-      assessment:lesson.assessment.map(item=>({...item,audio:audioItem(item.audioId,audioManifest)}))
+      assessment:choiceAssessment(lesson.assessment).map(item=>({...item,audio:audioItem(item.audioId,audioManifest)}))
     };
+  }
+
+  function choiceAssessment(items=[]){
+    const objective=items.filter(item=>item.answer!=='开放作答');
+    return objective.map((item,index)=>{
+      if(Array.isArray(item.options))return item;
+      const distractors=objective.map(other=>other.answer).filter(answer=>answer!==item.answer);
+      for(const fallback of ['课文中没有提到','以上都不正确'])if(!distractors.includes(fallback))distractors.push(fallback);
+      const options=[item.answer,...distractors.slice(0,2)];
+      const shift=index%options.length;
+      return{...item,options:[...options.slice(shift),...options.slice(0,shift)]};
+    });
+  }
+
+  function dateIndex(dateKey){
+    const parts=String(dateKey).split('-').map(Number);
+    return parts.length===3&&parts.every(Number.isFinite)?Math.floor(Date.UTC(parts[0],parts[1]-1,parts[2])/864e5):0;
+  }
+
+  function hash(value){
+    return [...String(value)].reduce((total,char)=>(total*31+char.charCodeAt(0))>>>0,2166136261);
+  }
+
+  function dailyReview(state={},dateKey=''){
+    const completed=new Set(Array.isArray(state.completedDays)?state.completedDays:[]);
+    const pool=days.filter(day=>completed.has(day.id)&&day.kind==='lesson').flatMap(day=>{
+      const theme=themeById.get(day.themeId),lesson=day.phase==='input'?theme.inputDay:theme.outputDay;
+      return lesson.article.lines.map((line,index)=>({id:`${day.id}-${index+1}`,dayId:day.id,...line}));
+    });
+    if(!pool.length)return[];
+    const shuffled=[...pool].sort((a,b)=>hash(a.id)-hash(b.id));
+    const start=((dateIndex(dateKey)%shuffled.length)+shuffled.length)%shuffled.length;
+    return Array.from({length:Math.min(5,shuffled.length)},(_,index)=>{
+      const item=shuffled[(start+index)%shuffled.length];
+      const options=[item.ko,shuffled[(start+index+1)%shuffled.length].ko,shuffled[(start+index+2)%shuffled.length].ko].filter((value,i,array)=>array.indexOf(value)===i);
+      const shift=(start+index)%options.length;
+      return{...item,options:[...options.slice(shift),...options.slice(0,shift)]};
+    });
+  }
+
+  function nextLessonAfterPass(dayId,result){
+    return result?.passed&&Number(dayId)<usableDays?Number(dayId)+1:null;
+  }
+
+  function todayKey(date=new Date()){
+    return `${date.getFullYear()}-${String(date.getMonth()+1).padStart(2,'0')}-${String(date.getDate()).padStart(2,'0')}`;
   }
 
   function gradeAssessment(items=[],answers={}){
@@ -127,9 +173,24 @@
     openId=null;
     const state=loadState(),model=directorySummary(state),current=Math.min(usableDays,state.currentDay||1);
     const groups=[[1,22,'延世 1-1 路线'],[23,45,'延世 1-2 路线']];
-    container.innerHTML=`<section class="l1-overview"><header><div><span>45 天路线 · 本周前 7 天可学习</span><h2>每天 55 分钟课程 + 20 分钟训练</h2><p>未来课程可预览目录；静态音频完成前不会使用系统语音替代。</p></div><button type="button" id="l1Continue">继续第 ${current} 天 →</button></header>${groups.map(([from,to,title])=>`<section class="l1-part"><div class="l1-part-title"><h3>${title}</h3><span>${from}–${to} 天</span></div><ol>${model.days.slice(from-1,to).map(day=>`<li class="${day.status}"><button type="button" data-l1-day="${day.id}" ${day.status==='locked'?'disabled':''}><b>${day.status==='done'?'✓':day.id}</b><span><strong>${esc(day.title)}</strong><small>${day.kind==='checkpoint'?'复习考核':day.phase==='input'?'A 日 · 输入':'B 日 · 输出'} · ${day.expectedDate}</small><em>${esc(day.source)}</em></span><i>${day.status==='done'?'已通过':day.status==='current'?'继续':day.status==='preview'?'预览 · 音频准备中':'未解锁'}</i></button></li>`).join('')}</ol></section>`).join('')}</section>`;
+    const review=dailyReview(state,todayKey());
+    container.innerHTML=`<section class="l1-overview"><header><div><span>45 天路线 · 本周前 7 天可学习</span><h2>每天 55 分钟课程 + 20 分钟训练</h2><p>未来课程可预览目录；静态音频完成前不会使用系统语音替代。</p></div><button type="button" id="l1Continue">继续第 ${current} 天 →</button></header><section class="l1-daily-review"><div><span>每日记忆强化</span><h3>今日随机 5 句</h3><p>${review.length?'题目今天固定，明天自动更换。':'通过第一课后，从已学课文中生成。'}</p></div><button type="button" id="l1Review" ${review.length?'':'disabled'}>开始复习 →</button></section>${groups.map(([from,to,title])=>`<section class="l1-part"><div class="l1-part-title"><h3>${title}</h3><span>${from}–${to} 天</span></div><ol>${model.days.slice(from-1,to).map(day=>`<li class="${day.status}"><button type="button" data-l1-day="${day.id}" ${day.status==='locked'?'disabled':''}><b>${day.status==='done'?'✓':day.id}</b><span><strong>${esc(day.title)}</strong><small>${day.kind==='checkpoint'?'复习考核':day.phase==='input'?'A 日 · 输入':'B 日 · 输出'} · ${day.expectedDate}</small><em>${esc(day.source)}</em></span><i>${day.status==='done'?'已通过':day.status==='current'?'继续':day.status==='preview'?'预览 · 音频准备中':'未解锁'}</i></button></li>`).join('')}</ol></section>`).join('')}</section>`;
     container.querySelector('#l1Continue').onclick=()=>openDay(current);
+    container.querySelector('#l1Review').onclick=()=>renderDailyReview(review);
     container.querySelectorAll('[data-l1-day]').forEach(button=>button.onclick=()=>openDay(Number(button.dataset.l1Day)));
+  }
+
+  function renderDailyReview(items){
+    container.innerHTML=`<section class="l1-preview l1-review"><button type="button" id="l1Back">← 返回 45 天目录</button><span>每日记忆强化 · ${esc(todayKey())}</span><h2>从已学课程随机抽取 5 句</h2><p>根据中文选择对应的韩语句子；今天可反复练习同一组。</p><form id="l1ReviewForm">${items.map((item,index)=>`<fieldset class="l1-question"><legend>${index+1}. ${esc(item.zh)}</legend><div>${item.options.map(option=>`<label><input type="radio" name="review${index}" value="${esc(option)}"><span>${esc(option)}</span></label>`).join('')}</div></fieldset>`).join('')}<button class="l1-submit" type="submit">提交复习</button><output id="l1ReviewResult"></output></form></section>`;
+    container.querySelector('#l1Back').onclick=renderDirectory;
+    container.querySelector('#l1ReviewForm').onsubmit=event=>{
+      event.preventDefault();
+      const form=new FormData(event.currentTarget);
+      const correct=items.filter((item,index)=>form.get(`review${index}`)===item.ko).length;
+      const output=container.querySelector('#l1ReviewResult');
+      output.className=correct===items.length?'pass':'retry';
+      output.innerHTML=`<strong>${correct} / ${items.length}</strong><span>${correct===items.length?'全部答对，可以再练一轮。':'再看一遍课文原句后重试。'}</span>`;
+    };
   }
 
   function renderPreview(day){
@@ -139,8 +200,7 @@
 
   function assessmentField(item,index){
     const audio=item.type==='listening'?audioButton(item.audio,'播放题目音频'):'';
-    if(item.options)return `<fieldset class="l1-question" data-l1-question="${esc(item.id)}"><legend>${index+1}. ${esc(item.prompt)}</legend>${audio}<div>${item.options.map(option=>`<label><input type="radio" name="${esc(item.id)}" value="${esc(option)}"><span>${esc(option)}</span></label>`).join('')}</div><p class="l1-feedback"></p></fieldset>`;
-    return `<label class="l1-question" data-l1-question="${esc(item.id)}"><b>${index+1}. ${esc(item.prompt)}</b>${audio}<textarea rows="3" placeholder="输入答案；口语或反思题完成后写“已完成”"></textarea><p class="l1-feedback"></p></label>`;
+    return `<fieldset class="l1-question" data-l1-question="${esc(item.id)}"><legend>${index+1}. ${esc(item.prompt)}</legend>${audio}<div>${item.options.map(option=>`<label><input type="radio" name="${esc(item.id)}" value="${esc(option)}"><span>${esc(option)}</span></label>`).join('')}</div><p class="l1-feedback"></p></fieldset>`;
   }
 
   function renderLesson(lesson){
@@ -162,7 +222,7 @@
       const answers={};
       lesson.assessment.forEach(item=>{
         const field=container.querySelector(`[data-l1-question="${item.id}"]`);
-        answers[item.id]=item.options?field.querySelector('input:checked')?.value:field.querySelector('textarea')?.value;
+        answers[item.id]=field.querySelector('input:checked')?.value;
       });
       const result=gradeAssessment(lesson.assessment,answers);
       result.feedback.forEach(item=>{
@@ -177,6 +237,9 @@
         const next=root.MalbitLevel1State.completeDay(lesson.id,{score:result.score,weakTags:result.weakTags},loadState());
         saveState(next);
         renderHomeSummary();
+        const nextDay=nextLessonAfterPass(lesson.id,result);
+        if(nextDay)setTimeout(()=>openDay(nextDay),900);
+        else setTimeout(renderDirectory,900);
       }
       output.scrollIntoView({behavior:'smooth',block:'center'});
     };
@@ -203,7 +266,7 @@
     renderHomeSummary();
   }
 
-  root.MalbitLevel1Course={mount,openDay,homeSummary,directorySummary,lessonSummary,gradeAssessment};
+  root.MalbitLevel1Course={mount,openDay,homeSummary,directorySummary,lessonSummary,gradeAssessment,dailyReview,nextLessonAfterPass};
 
   if(typeof document!=='undefined'){
     fetch('audio/level1/manifest.json').then(response=>response.ok?response.json():{}).then(data=>{manifest=data;if(openId)openDay(openId)}).catch(()=>{});

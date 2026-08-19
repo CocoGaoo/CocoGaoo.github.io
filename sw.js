@@ -1,10 +1,10 @@
-const CACHE='malbit-v26';
+const CACHE='malbit-v27';
 const ASSETS=['./','./index.html','./app.css','./auth.css','./mobile-study.css','./learning-upgrade.css','./course.css','./course-extra.css','./classroom.css','./real-class.css','./textbook.css?v=10','./course-system.css?v=12','./summer-layout.css?v=13','./dashboard-v14.css?v=14','./trial-library-v15.css?v=15','./trial-fixes-v16.css?v=16','./shared-review-v17.css?v=17','./topik-workbench-v18.css?v=19','./pomodoro-v20.css?v=21','./home-report-v22.css?v=22','./app.js?v=5','./course.js?v=9','./course-v10.js?v=10','./course-system.js?v=11','./growth-system.js?v=12','./summer-layout.js?v=13','./dashboard-v14.js?v=14','./trial-library-v15.js?v=15','./trial-fixes-v16.js?v=16','./shared-review-v17.js?v=17','./topik-workbench-v18.js?v=19','./pomodoro-v20.js?v=21','./home-report-v22.js?v=22','./sync.js?v=22','./manifest.webmanifest','./favicon.svg'];
 ASSETS.push('./seven-day-data.js?v=24','./seven-day-classroom-data.js?v=24');
 ASSETS.push('./seven-day-course.css?v=24','./seven-day-course.js?v=24','./seven-day-exam.js?v=23','./seven-day-progress.js?v=23','./audio/seven-day/manifest.json');
 ASSETS.push('./home-focus-v24.css?v=24','./home-focus-model.js?v=24','./home-focus-v24.js?v=24');
 ASSETS.push('./content-v25.js?v=25','./upgrade-v25.css?v=25','./topik-practice-v25.js?v=25','./audio/topik/topik-l1.mp3','./audio/topik/topik-l2.mp3');
-ASSETS.push('./level1-course-v26.css?v=26','./level1-course-v26.js?v=26','./curriculum/level1-1.js?v=26','./curriculum/level1-2.js?v=26','./curriculum/level1-schedule.js?v=26','./curriculum/level1-state.js?v=26','./audio/level1/manifest.json');
+ASSETS.push('./level1-course-v26.css?v=27','./level1-course-v26.js?v=27','./curriculum/level1-1.js?v=26','./curriculum/level1-2.js?v=26','./curriculum/level1-schedule.js?v=26','./curriculum/level1-state.js?v=27','./audio/level1/manifest.json');
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{if(e.request.method==='GET')e.respondWith(fetch(e.request).then(r=>{const copy=r.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));return r}).catch(()=>caches.match(e.request)))})

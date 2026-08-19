@@ -13,6 +13,13 @@
     return {version:26,currentDay:1,completedDays:[],themeScores:{},weakTags:[],legacySnapshot:legacy,quickCheck:true};
   }
 
+  function normalize(value){
+    if(!object(value)||value.version!==26)return migrate(value);
+    const completedDays=Array.from(new Set((Array.isArray(value.completedDays)?value.completedDays:[]).filter(day))).sort((a,b)=>a-b);
+    const currentDay=Math.max(stateDay(value.currentDay)||1,completedDays.length?Math.min(maxDay,completedDays.at(-1)+1):1);
+    return{...value,version:26,currentDay,completedDays,themeScores:object(value.themeScores)?{...value.themeScores}:{},weakTags:tags(value.weakTags)};
+  }
+
   function canOpen(dayId,state){
     const current=stateDay(object(state)?state.currentDay:undefined);
     return day(dayId)&&current!==null&&dayId<=current;
@@ -30,5 +37,5 @@
     return next;
   }
 
-  root.MalbitLevel1State={migrate,canOpen,completeDay};
+  root.MalbitLevel1State={migrate,normalize,canOpen,completeDay};
 })(globalThis);

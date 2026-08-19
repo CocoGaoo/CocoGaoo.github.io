@@ -4,7 +4,7 @@ import vm from 'node:vm';
 
 const context={globalThis:{}};
 vm.runInNewContext(fs.readFileSync('curriculum/level1-state.js','utf8'),context);
-const {migrate,canOpen,completeDay}=context.globalThis.MalbitLevel1State;
+const {migrate,normalize,canOpen,completeDay}=context.globalThis.MalbitLevel1State;
 const plain=value=>JSON.parse(JSON.stringify(value));
 
 const legacy={day:3,stages:{d1:[true,true,true]},exams:[{day:1,score:90}]};
@@ -59,5 +59,11 @@ assert.equal(canOpen(1,{currentDay:Symbol('broken')}),false);
 const symbolScore=completeDay(1,{score:Symbol('broken')},migrate(null));
 assert.equal(symbolScore.currentDay,1);
 assert.deepEqual(plain(symbolScore.completedDays),[]);
+
+const refreshed=normalize({version:26,currentDay:4,completedDays:[1,2,3],themeScores:{1:90,2:80,3:100},weakTags:['listening']});
+assert.equal(refreshed.currentDay,4);
+assert.deepEqual(plain(refreshed.completedDays),[1,2,3]);
+assert.deepEqual(plain(refreshed.themeScores),{1:90,2:80,3:100});
+assert.equal(canOpen(4,refreshed),true);
 
 console.log('level one state: migration, quick check, unlocks and failures');
