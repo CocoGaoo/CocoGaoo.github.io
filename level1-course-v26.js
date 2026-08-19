@@ -105,6 +105,17 @@
     });
   }
 
+  function favoriteWords(state={}){
+    const ids=new Set(Array.isArray(state.favoriteWordIds)?state.favoriteWordIds:[]);
+    return themes.flatMap(theme=>[...theme.inputDay.words,...theme.outputDay.words]).filter(word=>ids.has(word.id));
+  }
+
+  function mistakeView(legacyMistakes=[],state={}){
+    const legacy=(Array.isArray(legacyMistakes)?legacyMistakes:[]).filter(item=>!item.reviewed).map(item=>({id:`legacy:${item.id}`,storage:'legacy',storageId:item.id,source:'legacy',type:item.type,prompt:item.q,selected:item.your,answer:item.answer,explanation:item.why}));
+    const level1=(Array.isArray(state.mistakes)?state.mistakes:[]).filter(item=>!item.reviewed).map(item=>({...item,id:`level1:${item.id}`,storage:'level1',storageId:item.id}));
+    return[...legacy,...level1];
+  }
+
   function dateIndex(dateKey){
     const parts=String(dateKey).split('-').map(Number);
     return parts.length===3&&parts.every(Number.isFinite)?Math.floor(Date.UTC(parts[0],parts[1]-1,parts[2])/864e5):0;
@@ -146,7 +157,7 @@
       const exact=Array.isArray(item.options);
       const ok=exact?answer===clean(item.answer):Boolean(answer);
       if(ok)correct++;
-      return{id:item.id,ok,answer:answer||'未作答',reference:item.answer,type:item.type};
+      return{id:item.id,itemId:item.id,ok,selected:answer||'未作答',answer:item.answer,reference:item.answer,type:item.type,prompt:item.prompt,explanation:item.explanation||`参考答案：${item.answer}`};
     });
     const score=items.length?Math.round(correct/items.length*100):0;
     return{score,passed:score>=80,feedback,weakTags:Array.from(new Set(feedback.filter(item=>!item.ok).map(item=>item.type)))};
@@ -204,7 +215,8 @@
   }
 
   function renderLesson(lesson){
-    container.innerHTML=`<article class="l1-lesson"><header><button type="button" id="l1Back">← 45 天目录</button><div><small>DAY ${lesson.id} · ${lesson.phase==='input'?'A 日输入':'B 日输出'} · ${esc(lesson.sourceLabel)}</small><h2>${esc(lesson.themeTitle)} · ${esc(lesson.title)}</h2></div><b>${lesson.courseMinutes}<small>课程</small> + ${lesson.trainingMinutes}<small>训练</small></b></header>${lesson.id===1?'<p class="l1-quick">第一课可快速验收：直接完成末尾考核，80 分即可解锁下一天。</p>':''}<section class="l1-goals"><span>学习目标</span><ul>${lesson.goals.map(goal=>`<li>${esc(goal)}</li>`).join('')}</ul></section><section class="l1-section"><div class="l1-heading"><span>01 · 双语课文</span><h3>逐句听、读、理解</h3></div><div class="l1-article">${lesson.article.lines.map((line,index)=>`<article>${audioButton(line.audio,`播放第 ${index+1} 句`)}<div><b>${esc(line.ko)}</b><p>${esc(line.zh)}</p></div><small>${String(index+1).padStart(2,'0')}</small></article>`).join('')}</div></section><section class="l1-section"><div class="l1-heading"><span>02 · 词汇卡</span><h3>韩中英、发音与记忆线索</h3></div><div class="l1-words">${lesson.words.map(word=>`<article><header><h3>${esc(word.ko)}</h3><span>[${esc(word.pron)}]</span></header><p><b>${esc(word.zh)}</b> · ${esc(word.en)} <small>${esc(word.ipa)}</small></p><div class="l1-audio-pair">${audioButton(word.audio.ko,'韩语发音')}${audioButton(word.audio.en,'英语发音')}</div><dl><div><dt>词源</dt><dd>${esc(word.origin)}</dd></div><div><dt>记忆</dt><dd>${esc(word.memory)}</dd></div><div><dt>音变</dt><dd>${esc(word.soundRule)}</dd></div></dl><blockquote><b>${esc(word.example.ko)}</b><span>${esc(word.example.zh)}</span></blockquote></article>`).join('')}</div></section><section class="l1-section"><div class="l1-heading"><span>03 · 语法详解</span><h3>形式、意义和双语例句</h3></div><div class="l1-grammar">${lesson.grammar.map(grammar=>`<article><span>GRAMMAR</span><h3>${esc(grammar.title)}</h3><b>${esc(grammar.form)}</b><p>${esc(grammar.meaning)}</p>${grammar.examples.map(example=>`<blockquote><b>${esc(example.ko)}</b><span>${esc(example.zh)}</span></blockquote>`).join('')}</article>`).join('')}</div></section><section class="l1-section"><div class="l1-heading"><span>04 · 双语文化</span><h3>${esc(lesson.culture.title)}</h3></div><div class="l1-culture">${lesson.culture.paragraphs.map((paragraph,index)=>`<article><small>0${index+1}</small><p lang="ko">${esc(paragraph.ko)}</p><b>${esc(paragraph.zh)}</b></article>`).join('')}</div></section><form class="l1-section l1-assessment" id="l1Assessment"><div class="l1-heading"><span>05 · 今日考核</span><h3>提交后即时反馈 · 80 分解锁下一天</h3></div>${lesson.assessment.map(assessmentField).join('')}<button class="l1-submit" type="submit">提交考核</button><output id="l1Result"></output></form></article>`;
+    const favorites=new Set(loadState().favoriteWordIds||[]);
+    container.innerHTML=`<article class="l1-lesson"><header><button type="button" id="l1Back">← 45 天目录</button><div><small>DAY ${lesson.id} · ${lesson.phase==='input'?'A 日输入':'B 日输出'} · ${esc(lesson.sourceLabel)}</small><h2>${esc(lesson.themeTitle)} · ${esc(lesson.title)}</h2></div><b>${lesson.courseMinutes}<small>课程</small> + ${lesson.trainingMinutes}<small>训练</small></b></header>${lesson.id===1?'<p class="l1-quick">第一课可快速验收：直接完成末尾考核，80 分即可解锁下一天。</p>':''}<section class="l1-goals"><span>学习目标</span><ul>${lesson.goals.map(goal=>`<li>${esc(goal)}</li>`).join('')}</ul></section><section class="l1-section"><div class="l1-heading"><span>01 · 双语课文</span><h3>逐句听、读、理解</h3></div><div class="l1-article">${lesson.article.lines.map((line,index)=>`<article>${audioButton(line.audio,`播放第 ${index+1} 句`)}<div><b>${esc(line.ko)}</b><p>${esc(line.zh)}</p></div><small>${String(index+1).padStart(2,'0')}</small></article>`).join('')}</div></section><section class="l1-section"><div class="l1-heading"><span>02 · 词汇卡</span><h3>韩中英、发音与记忆线索</h3></div><div class="l1-words">${lesson.words.map(word=>`<article><header><h3>${esc(word.ko)}</h3><span>[${esc(word.pron)}]</span></header><button type="button" class="l1-word-favorite" data-l1-favorite="${esc(word.id)}">${favorites.has(word.id)?'♥ 已收藏':'♡ 收藏'}</button><p><b>${esc(word.zh)}</b> · ${esc(word.en)} <small>${esc(word.ipa)}</small></p><div class="l1-audio-pair">${audioButton(word.audio.ko,'韩语发音')}${audioButton(word.audio.en,'英语发音')}</div><dl><div><dt>词源</dt><dd>${esc(word.origin)}</dd></div><div><dt>记忆</dt><dd>${esc(word.memory)}</dd></div><div><dt>音变</dt><dd>${esc(word.soundRule)}</dd></div></dl><blockquote><b>${esc(word.example.ko)}</b><span>${esc(word.example.zh)}</span></blockquote></article>`).join('')}</div></section><section class="l1-section"><div class="l1-heading"><span>03 · 语法详解</span><h3>形式、意义和双语例句</h3></div><div class="l1-grammar">${lesson.grammar.map(grammar=>`<article><span>GRAMMAR</span><h3>${esc(grammar.title)}</h3><b>${esc(grammar.form)}</b><p>${esc(grammar.meaning)}</p>${grammar.examples.map(example=>`<blockquote><b>${esc(example.ko)}</b><span>${esc(example.zh)}</span></blockquote>`).join('')}</article>`).join('')}</div></section><section class="l1-section"><div class="l1-heading"><span>04 · 双语文化</span><h3>${esc(lesson.culture.title)}</h3></div><div class="l1-culture">${lesson.culture.paragraphs.map((paragraph,index)=>`<article><small>0${index+1}</small><p lang="ko">${esc(paragraph.ko)}</p><b>${esc(paragraph.zh)}</b></article>`).join('')}</div></section><form class="l1-section l1-assessment" id="l1Assessment"><div class="l1-heading"><span>05 · 今日考核</span><h3>提交后即时反馈 · 80 分解锁下一天</h3></div>${lesson.assessment.map(assessmentField).join('')}<button class="l1-submit" type="submit">提交考核</button><output id="l1Result"></output></form></article>`;
     bindLesson(lesson);
   }
 
@@ -217,6 +229,12 @@
   function bindLesson(lesson){
     container.querySelector('#l1Back').onclick=renderDirectory;
     container.querySelectorAll('[data-l1-audio]').forEach(button=>button.onclick=()=>play(button.dataset.l1Audio));
+    container.querySelectorAll('[data-l1-favorite]').forEach(button=>button.onclick=()=>{
+      const next=root.MalbitLevel1State.toggleFavorite(button.dataset.l1Favorite,loadState());
+      saveState(next);
+      button.textContent=next.favoriteWordIds.includes(button.dataset.l1Favorite)?'♥ 已收藏':'♡ 收藏';
+      root.renderFavorites?.();
+    });
     container.querySelector('#l1Assessment').onsubmit=event=>{
       event.preventDefault();
       const answers={};
@@ -233,10 +251,13 @@
       const output=container.querySelector('#l1Result');
       output.className=result.passed?'pass':'retry';
       output.innerHTML=`<strong>${result.score} 分</strong><span>${result.passed?'达标，下一天已解锁。':'未到 80 分，复习反馈后再试一次。'}</span>`;
+      let next=root.MalbitLevel1State.completeDay(lesson.id,{score:result.score,weakTags:result.weakTags},loadState());
+      const mistakes=result.feedback.filter(item=>!item.ok).map(item=>({id:`lesson:${item.itemId}`,dayId:lesson.id,source:'lesson',type:item.type,prompt:item.prompt,selected:item.selected,answer:item.answer,explanation:item.explanation,reviewed:false,updatedAt:new Date().toISOString()}));
+      next=root.MalbitLevel1State.recordMistakes(mistakes,next);
+      saveState(next);
+      renderHomeSummary();
+      root.renderMistakes?.();
       if(result.passed){
-        const next=root.MalbitLevel1State.completeDay(lesson.id,{score:result.score,weakTags:result.weakTags},loadState());
-        saveState(next);
-        renderHomeSummary();
         const nextDay=nextLessonAfterPass(lesson.id,result);
         if(nextDay)setTimeout(()=>openDay(nextDay),900);
         else setTimeout(renderDirectory,900);
@@ -264,9 +285,11 @@
     container=target;
     renderDirectory();
     renderHomeSummary();
+    root.renderFavorites?.();
+    root.renderMistakes?.();
   }
 
-  root.MalbitLevel1Course={mount,openDay,homeSummary,directorySummary,lessonSummary,gradeAssessment,dailyReview,nextLessonAfterPass};
+  root.MalbitLevel1Course={mount,openDay,loadState,saveState,homeSummary,directorySummary,lessonSummary,gradeAssessment,dailyReview,nextLessonAfterPass,favoriteWords,mistakeView};
 
   if(typeof document!=='undefined'){
     fetch('audio/level1/manifest.json').then(response=>response.ok?response.json():{}).then(data=>{manifest=data;if(openId)openDay(openId)}).catch(()=>{});
