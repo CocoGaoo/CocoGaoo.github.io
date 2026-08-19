@@ -4,7 +4,7 @@ import vm from 'node:vm';
 
 const context={globalThis:{}};
 vm.runInNewContext(fs.readFileSync('curriculum/level1-state.js','utf8'),context);
-const {migrate,normalize,canOpen,completeDay}=context.globalThis.MalbitLevel1State;
+const {migrate,normalize,canOpen,completeDay,toggleFavorite,recordMistakes,resolveMistake,completeCheckpoint}=context.globalThis.MalbitLevel1State;
 const plain=value=>JSON.parse(JSON.stringify(value));
 
 const legacy={day:3,stages:{d1:[true,true,true]},exams:[{day:1,score:90}]};
@@ -65,5 +65,33 @@ assert.equal(refreshed.currentDay,4);
 assert.deepEqual(plain(refreshed.completedDays),[1,2,3]);
 assert.deepEqual(plain(refreshed.themeScores),{1:90,2:80,3:100});
 assert.equal(canOpen(4,refreshed),true);
+
+const expanded=normalize({version:26,currentDay:8,completedDays:[1,2,3,4,5,6,7],themeScores:{},weakTags:[]});
+assert.deepEqual(plain(expanded.favoriteWordIds),[]);
+assert.deepEqual(plain(expanded.mistakes),[]);
+assert.deepEqual(plain(expanded.checkpointScores),{});
+
+const favorited=toggleFavorite('l1-u04-w11',expanded);
+assert.deepEqual(plain(favorited.favoriteWordIds),['l1-u04-w11']);
+assert.deepEqual(plain(toggleFavorite('l1-u04-w11',favorited).favoriteWordIds),[]);
+assert.deepEqual(plain(expanded.favoriteWordIds),[]);
+
+const wrong={id:'lesson:l1-u04-b02',dayId:8,source:'lesson',type:'reading',prompt:'문제',selected:'오답',answer:'정답',explanation:'해설',reviewed:false,updatedAt:'2026-08-19T00:00:00.000Z'};
+const recorded=recordMistakes([wrong],expanded);
+assert.equal(recorded.mistakes.length,1);
+const rerecorded=recordMistakes([{...wrong,selected:'다른 오답'}],recorded);
+assert.equal(rerecorded.mistakes.length,1);
+assert.equal(rerecorded.mistakes[0].selected,'다른 오답');
+assert.equal(resolveMistake(wrong.id,rerecorded).mistakes[0].reviewed,true);
+assert.equal(recorded.mistakes[0].reviewed,false);
+
+const checkpointReady=normalize({...expanded,currentDay:10,completedDays:[1,2,3,4,5,6,7,8,9]});
+const failedStage=completeCheckpoint(10,{score:79,weakTags:['reading']},checkpointReady);
+assert.equal(failedStage.currentDay,10);
+assert.deepEqual(plain(failedStage.weakTags),['reading']);
+const passedStage=completeCheckpoint(10,{score:80},failedStage);
+assert.equal(passedStage.currentDay,11);
+assert.equal(passedStage.checkpointScores[10],80);
+assert.ok(passedStage.completedDays.includes(10));
 
 console.log('level one state: migration, quick check, unlocks and failures');

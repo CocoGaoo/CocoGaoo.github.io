@@ -10,14 +10,14 @@
 
   function migrate(rootState){
     const legacy=object(rootState)&&object(rootState.sevenDay)?copy(rootState.sevenDay):null;
-    return {version:26,currentDay:1,completedDays:[],themeScores:{},weakTags:[],legacySnapshot:legacy,quickCheck:true};
+    return {version:26,currentDay:1,completedDays:[],themeScores:{},weakTags:[],favoriteWordIds:[],mistakes:[],checkpointScores:{},legacySnapshot:legacy,quickCheck:true};
   }
 
   function normalize(value){
     if(!object(value)||value.version!==26)return migrate(value);
     const completedDays=Array.from(new Set((Array.isArray(value.completedDays)?value.completedDays:[]).filter(day))).sort((a,b)=>a-b);
     const currentDay=Math.max(stateDay(value.currentDay)||1,completedDays.length?Math.min(maxDay,completedDays.at(-1)+1):1);
-    return{...value,version:26,currentDay,completedDays,themeScores:object(value.themeScores)?{...value.themeScores}:{},weakTags:tags(value.weakTags)};
+    return{...value,version:26,currentDay,completedDays,themeScores:object(value.themeScores)?{...value.themeScores}:{},weakTags:tags(value.weakTags),favoriteWordIds:tags(value.favoriteWordIds),mistakes:(Array.isArray(value.mistakes)?value.mistakes:[]).filter(object).map(item=>({...item})),checkpointScores:object(value.checkpointScores)?{...value.checkpointScores}:{}};
   }
 
   function canOpen(dayId,state){
@@ -37,5 +37,32 @@
     return next;
   }
 
-  root.MalbitLevel1State={migrate,normalize,canOpen,completeDay};
+  function toggleFavorite(wordId,state){
+    const next=normalize(state);
+    if(typeof wordId!=='string'||!wordId)return next;
+    const ids=new Set(next.favoriteWordIds);
+    ids.has(wordId)?ids.delete(wordId):ids.add(wordId);
+    return{...next,favoriteWordIds:[...ids]};
+  }
+
+  function recordMistakes(items,state){
+    const next=normalize(state),byId=new Map(next.mistakes.map(item=>[item.id,item]));
+    for(const item of Array.isArray(items)?items:[])if(object(item)&&typeof item.id==='string'&&item.id)byId.set(item.id,{...byId.get(item.id),...item,reviewed:false});
+    return{...next,mistakes:[...byId.values()]};
+  }
+
+  function resolveMistake(id,state){
+    const next=normalize(state);
+    return{...next,mistakes:next.mistakes.map(item=>item.id===id?{...item,reviewed:true}:item)};
+  }
+
+  function completeCheckpoint(dayId,result={},state){
+    const current=normalize(state);
+    if(!canOpen(dayId,current))return current;
+    if(score(result.score)<80)return{...current,weakTags:tags([...current.weakTags,...(result.weakTags||[])])};
+    const completedDays=current.completedDays.includes(dayId)?current.completedDays:[...current.completedDays,dayId];
+    return{...current,currentDay:Math.min(maxDay,Math.max(current.currentDay,dayId+1)),completedDays,checkpointScores:{...current.checkpointScores,[dayId]:score(result.score)}};
+  }
+
+  root.MalbitLevel1State={migrate,normalize,canOpen,completeDay,toggleFavorite,recordMistakes,resolveMistake,completeCheckpoint};
 })(globalThis);
