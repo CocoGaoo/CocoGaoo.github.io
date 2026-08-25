@@ -13,7 +13,7 @@ for(const file of [
 ]) vm.runInNewContext(fs.readFileSync(file,'utf8'),context);
 
 const api=context.globalThis.MalbitLevel1Course;
-assert.equal(api.usableDays,9);
+assert.equal(api.usableDays,10);
 const plain=value=>JSON.parse(JSON.stringify(value));
 const state={version:26,currentDay:1,completedDays:[],themeScores:{},weakTags:[]};
 const view=api.homeSummary({currentDay:11,completedDays:[1,2,3,4,5,6,7,8,9,10]});
@@ -28,7 +28,8 @@ assert.equal(directory.days[0].status,'current');
 assert.equal(directory.days[6].status,'locked');
 assert.equal(directory.days[7].status,'locked');
 assert.equal(directory.days[8].status,'locked');
-assert.equal(directory.days[9].status,'preview');
+assert.equal(directory.days[9].status,'locked');
+assert.equal(directory.days[10].status,'preview');
 assert.equal(directory.days[0].expectedDate,'08-13');
 assert.equal(directory.days[6].expectedDate,'08-19');
 assert.equal(directory.days[9].source,'阶段复习');
@@ -81,7 +82,8 @@ assert.ok(new Set(reviewA.map(item=>item.options.indexOf(item.ko))).size>1);
 assert.equal(api.nextLessonAfterPass(1,{passed:true}),2);
 assert.equal(api.nextLessonAfterPass(7,{passed:true}),8);
 assert.equal(api.nextLessonAfterPass(8,{passed:true}),9);
-assert.equal(api.nextLessonAfterPass(9,{passed:true}),null);
+assert.equal(api.nextLessonAfterPass(9,{passed:true}),10);
+assert.equal(api.nextLessonAfterPass(10,{passed:true}),null);
 assert.equal(api.nextLessonAfterPass(1,{passed:false}),null);
 
 const topik=api.topikQuestions({completedDays:[1,2]},manifest);
@@ -93,4 +95,11 @@ assert.deepEqual(plain(api.topikQuestions({completedDays:[]},manifest)),[]);
 assert.ok(api.topikQuestions({completedDays:[8]},manifest).every(item=>item.dayId===8));
 assert.ok(api.topikQuestions({completedDays:[9]},manifest).every(item=>item.dayId===9));
 
-console.log('level one render model: nine usable days, mapped audio, assessment gate and 45-day preview');
+const checkpoint=api.checkpointSummary(10,manifest);
+assert.equal(checkpoint.id,10);
+assert.ok(checkpoint.questions.length>=5);
+assert.ok(checkpoint.questions.every(item=>item.options?.length>=2));
+assert.equal(new Set(checkpoint.questions.map(item=>item.id)).size,checkpoint.questions.length);
+assert.equal(api.gradeAssessment(checkpoint.questions,Object.fromEntries(checkpoint.questions.map(item=>[item.id,item.answer]))).score,100);
+
+console.log('level one render model: day ten checkpoint, mapped audio, assessment gate and 45-day preview');
