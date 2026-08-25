@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 
 const context = {globalThis: {}};
-for (const file of ['curriculum/level1-schema.js', 'curriculum/level1-schedule.js', 'curriculum/level1-1.js', 'curriculum/level1-2.js']) {
+for (const file of ['content-v25.js','curriculum/level1-schema.js', 'curriculum/level1-schedule.js', 'curriculum/level1-1.js', 'curriculum/level1-2.js','curriculum/level1-state.js','level1-course-v26.js']) {
   vm.runInNewContext(fs.readFileSync(file, 'utf8'), context);
 }
 
@@ -12,9 +12,11 @@ const add = (id, text, lang) => requiredAudio.push({id, text, lang, voice: lang 
 const addExamples = (id, examples) => examples.forEach((example, index) => add(`${id}-example-${String(index + 1).padStart(2, '0')}`, example.ko, 'ko'));
 
 const themes = [...context.globalThis.MalbitLevel1PartOne.themes, ...context.globalThis.MalbitLevel1PartTwo.themes];
-const firstWeek = context.globalThis.MalbitLevel1Schedule.build(themes).slice(0, 7).filter(day => day.kind === 'lesson');
-assert.equal(firstWeek.length, 7, 'first week has seven lesson days');
-for (const {themeId, phase} of firstWeek) {
+const usableDays=context.globalThis.MalbitLevel1Course.usableDays;
+const publishedDays = context.globalThis.MalbitLevel1Schedule.build(themes).slice(0, usableDays).filter(day => day.kind === 'lesson');
+assert.equal(usableDays,7);
+assert.equal(publishedDays.length,7,'all published days are lessons before the first checkpoint');
+for (const {themeId, phase} of publishedDays) {
   const theme = themes.find(item => item.id === themeId);
   const day = theme[`${phase}Day`];
     day.article.lines.forEach((line, index) => add(`${theme.id}-${phase}-article-${String(index + 1).padStart(2, '0')}`, line.ko, 'ko'));

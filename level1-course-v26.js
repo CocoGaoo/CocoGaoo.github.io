@@ -298,7 +298,7 @@
     root.MalbitTopikPracticeV25?.render();
   }
 
-  root.MalbitLevel1Course={mount,openDay,loadState,saveState,homeSummary,directorySummary,lessonSummary,gradeAssessment,dailyReview,topikQuestions,nextLessonAfterPass,favoriteWords,mistakeView};
+  root.MalbitLevel1Course={mount,openDay,usableDays,loadState,saveState,homeSummary,directorySummary,lessonSummary,gradeAssessment,dailyReview,topikQuestions,nextLessonAfterPass,favoriteWords,mistakeView};
 
   if(typeof document!=='undefined'){
     fetch('audio/level1/manifest.json').then(response=>response.ok?response.json():{}).then(data=>{manifest=data;if(openId)openDay(openId)}).catch(()=>{});
