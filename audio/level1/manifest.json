@@ -1720,5 +1720,251 @@
     "text": "준호는 제 친구예요. 민서는 제 동생이에요.",
     "lang": "ko",
     "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-output-article-01": {
+    "src": "audio/level1/l1-u04-output-article-01.mp3",
+    "text": "하린: 오늘 누구를 만나요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-output-article-02": {
+    "src": "audio/level1/l1-u04-output-article-02.mp3",
+    "text": "태오: 제 친구 민호를 만나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-output-article-03": {
+    "src": "audio/level1/l1-u04-output-article-03.mp3",
+    "text": "하린: 민호 씨는 어디에 살아요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-output-article-04": {
+    "src": "audio/level1/l1-u04-output-article-04.mp3",
+    "text": "태오: 학교 근처에 살아요. 하지만 요즘 바빠요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-output-article-05": {
+    "src": "audio/level1/l1-u04-output-article-05.mp3",
+    "text": "하린: 민호 씨를 자주 만나요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-output-article-06": {
+    "src": "audio/level1/l1-u04-output-article-06.mp3",
+    "text": "태오: 네, 저는 민호 씨를 정말 좋아해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w11-ko": {
+    "src": "audio/level1/l1-u04-w11-ko.mp3",
+    "text": "크다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w11-en": {
+    "src": "audio/level1/l1-u04-w11-en.mp3",
+    "text": "tall",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u04-w11-example": {
+    "src": "audio/level1/l1-u04-w11-example.mp3",
+    "text": "제 친구는 키가 커요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w12-ko": {
+    "src": "audio/level1/l1-u04-w12-ko.mp3",
+    "text": "작다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w12-en": {
+    "src": "audio/level1/l1-u04-w12-en.mp3",
+    "text": "short",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u04-w12-example": {
+    "src": "audio/level1/l1-u04-w12-example.mp3",
+    "text": "제 동생은 키가 작아요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w13-ko": {
+    "src": "audio/level1/l1-u04-w13-ko.mp3",
+    "text": "바쁘다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w13-en": {
+    "src": "audio/level1/l1-u04-w13-en.mp3",
+    "text": "busy",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u04-w13-example": {
+    "src": "audio/level1/l1-u04-w13-example.mp3",
+    "text": "요즘 아주 바빠요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w14-ko": {
+    "src": "audio/level1/l1-u04-w14-ko.mp3",
+    "text": "살다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w14-en": {
+    "src": "audio/level1/l1-u04-w14-en.mp3",
+    "text": "live",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u04-w14-example": {
+    "src": "audio/level1/l1-u04-w14-example.mp3",
+    "text": "학교 근처에 살아요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w15-ko": {
+    "src": "audio/level1/l1-u04-w15-ko.mp3",
+    "text": "만나다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w15-en": {
+    "src": "audio/level1/l1-u04-w15-en.mp3",
+    "text": "meet",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u04-w15-example": {
+    "src": "audio/level1/l1-u04-w15-example.mp3",
+    "text": "금요일에 친구를 만나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w16-ko": {
+    "src": "audio/level1/l1-u04-w16-ko.mp3",
+    "text": "좋아하다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w16-en": {
+    "src": "audio/level1/l1-u04-w16-en.mp3",
+    "text": "like",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u04-w16-example": {
+    "src": "audio/level1/l1-u04-w16-example.mp3",
+    "text": "저는 제 친구를 좋아해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w17-ko": {
+    "src": "audio/level1/l1-u04-w17-ko.mp3",
+    "text": "자주",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w17-en": {
+    "src": "audio/level1/l1-u04-w17-en.mp3",
+    "text": "often",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u04-w17-example": {
+    "src": "audio/level1/l1-u04-w17-example.mp3",
+    "text": "친구를 자주 만나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w18-ko": {
+    "src": "audio/level1/l1-u04-w18-ko.mp3",
+    "text": "누구",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w18-en": {
+    "src": "audio/level1/l1-u04-w18-en.mp3",
+    "text": "who",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u04-w18-example": {
+    "src": "audio/level1/l1-u04-w18-example.mp3",
+    "text": "오늘 누구를 만나요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w19-ko": {
+    "src": "audio/level1/l1-u04-w19-ko.mp3",
+    "text": "요즘",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w19-en": {
+    "src": "audio/level1/l1-u04-w19-en.mp3",
+    "text": "these days",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u04-w19-example": {
+    "src": "audio/level1/l1-u04-w19-example.mp3",
+    "text": "요즘 친구가 바빠요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w20-ko": {
+    "src": "audio/level1/l1-u04-w20-ko.mp3",
+    "text": "정말",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-w20-en": {
+    "src": "audio/level1/l1-u04-w20-en.mp3",
+    "text": "really",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u04-w20-example": {
+    "src": "audio/level1/l1-u04-w20-example.mp3",
+    "text": "친구를 정말 좋아해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-g03-example-01": {
+    "src": "audio/level1/l1-u04-g03-example-01.mp3",
+    "text": "친구를 만나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-g03-example-02": {
+    "src": "audio/level1/l1-u04-g03-example-02.mp3",
+    "text": "음악을 좋아해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-g04-example-01": {
+    "src": "audio/level1/l1-u04-g04-example-01.mp3",
+    "text": "바쁘지만 자주 만나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-g04-example-02": {
+    "src": "audio/level1/l1-u04-g04-example-02.mp3",
+    "text": "키가 작지만 운동을 잘해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u04-b01-audio": {
+    "src": "audio/level1/l1-u04-b01-audio.mp3",
+    "text": "제 친구 민호는 학교 근처에 살아요. 요즘 바쁘지만 우리는 자주 만나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
   }
 }
