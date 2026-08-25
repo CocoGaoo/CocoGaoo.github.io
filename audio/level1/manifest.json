@@ -2956,5 +2956,251 @@
     "text": "저는 수업에서 잘 듣고, 집에서 매일 한국어 책을 읽어요.",
     "lang": "ko",
     "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-input-article-01": {
+    "src": "audio/level1/l1-u07-input-article-01.mp3",
+    "text": "서준: 점심에 뭐 먹어요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-input-article-02": {
+    "src": "audio/level1/l1-u07-input-article-02.mp3",
+    "text": "아라: 저는 비빔밥을 먹어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-input-article-03": {
+    "src": "audio/level1/l1-u07-input-article-03.mp3",
+    "text": "서준: 비빔밥이 매워요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-input-article-04": {
+    "src": "audio/level1/l1-u07-input-article-04.mp3",
+    "text": "아라: 조금 매워요. 하지만 맛있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-input-article-05": {
+    "src": "audio/level1/l1-u07-input-article-05.mp3",
+    "text": "서준: 저는 불고기하고 김치찌개를 먹을게요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-input-article-06": {
+    "src": "audio/level1/l1-u07-input-article-06.mp3",
+    "text": "아라: 물도 같이 마셔요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w01-ko": {
+    "src": "audio/level1/l1-u07-w01-ko.mp3",
+    "text": "밥",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w01-en": {
+    "src": "audio/level1/l1-u07-w01-en.mp3",
+    "text": "rice",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u07-w01-example": {
+    "src": "audio/level1/l1-u07-w01-example.mp3",
+    "text": "점심에 밥을 먹어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w02-ko": {
+    "src": "audio/level1/l1-u07-w02-ko.mp3",
+    "text": "김치",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w02-en": {
+    "src": "audio/level1/l1-u07-w02-en.mp3",
+    "text": "kimchi",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u07-w02-example": {
+    "src": "audio/level1/l1-u07-w02-example.mp3",
+    "text": "김치가 조금 매워요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w03-ko": {
+    "src": "audio/level1/l1-u07-w03-ko.mp3",
+    "text": "비빔밥",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w03-en": {
+    "src": "audio/level1/l1-u07-w03-en.mp3",
+    "text": "bibimbap",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u07-w03-example": {
+    "src": "audio/level1/l1-u07-w03-example.mp3",
+    "text": "저는 비빔밥을 먹어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w04-ko": {
+    "src": "audio/level1/l1-u07-w04-ko.mp3",
+    "text": "불고기",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w04-en": {
+    "src": "audio/level1/l1-u07-w04-en.mp3",
+    "text": "bulgogi",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u07-w04-example": {
+    "src": "audio/level1/l1-u07-w04-example.mp3",
+    "text": "불고기는 달고 맛있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w05-ko": {
+    "src": "audio/level1/l1-u07-w05-ko.mp3",
+    "text": "찌개",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w05-en": {
+    "src": "audio/level1/l1-u07-w05-en.mp3",
+    "text": "stew",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u07-w05-example": {
+    "src": "audio/level1/l1-u07-w05-example.mp3",
+    "text": "김치찌개를 먹어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w06-ko": {
+    "src": "audio/level1/l1-u07-w06-ko.mp3",
+    "text": "물",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w06-en": {
+    "src": "audio/level1/l1-u07-w06-en.mp3",
+    "text": "water",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u07-w06-example": {
+    "src": "audio/level1/l1-u07-w06-example.mp3",
+    "text": "물을 주세요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w07-ko": {
+    "src": "audio/level1/l1-u07-w07-ko.mp3",
+    "text": "커피",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w07-en": {
+    "src": "audio/level1/l1-u07-w07-en.mp3",
+    "text": "coffee",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u07-w07-example": {
+    "src": "audio/level1/l1-u07-w07-example.mp3",
+    "text": "아침에 커피를 마셔요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w08-ko": {
+    "src": "audio/level1/l1-u07-w08-ko.mp3",
+    "text": "차",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w08-en": {
+    "src": "audio/level1/l1-u07-w08-en.mp3",
+    "text": "tea",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u07-w08-example": {
+    "src": "audio/level1/l1-u07-w08-example.mp3",
+    "text": "따뜻한 차를 마셔요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w09-ko": {
+    "src": "audio/level1/l1-u07-w09-ko.mp3",
+    "text": "과일",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w09-en": {
+    "src": "audio/level1/l1-u07-w09-en.mp3",
+    "text": "fruit",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u07-w09-example": {
+    "src": "audio/level1/l1-u07-w09-example.mp3",
+    "text": "후식으로 과일을 먹어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w10-ko": {
+    "src": "audio/level1/l1-u07-w10-ko.mp3",
+    "text": "빵",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-w10-en": {
+    "src": "audio/level1/l1-u07-w10-en.mp3",
+    "text": "bread",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u07-w10-example": {
+    "src": "audio/level1/l1-u07-w10-example.mp3",
+    "text": "아침에 빵을 먹어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-g01-example-01": {
+    "src": "audio/level1/l1-u07-g01-example-01.mp3",
+    "text": "비빔밥을 먹어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-g01-example-02": {
+    "src": "audio/level1/l1-u07-g01-example-02.mp3",
+    "text": "물을 마셔요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-g02-example-01": {
+    "src": "audio/level1/l1-u07-g02-example-01.mp3",
+    "text": "불고기는 달고 맛있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-g02-example-02": {
+    "src": "audio/level1/l1-u07-g02-example-02.mp3",
+    "text": "김치가 맵고 짜요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u07-a01-audio": {
+    "src": "audio/level1/l1-u07-a01-audio.mp3",
+    "text": "아라는 비빔밥을 먹어요. 서준은 불고기와 김치찌개를 먹어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
   }
 }
