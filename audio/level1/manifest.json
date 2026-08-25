@@ -2710,5 +2710,251 @@
     "text": "오늘 한국어 수업은 열 시에 시작하고 열두 시에 끝나요.",
     "lang": "ko",
     "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-output-article-01": {
+    "src": "audio/level1/l1-u06-output-article-01.mp3",
+    "text": "미나: 한국어를 어떻게 공부해요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-output-article-02": {
+    "src": "audio/level1/l1-u06-output-article-02.mp3",
+    "text": "로이: 수업에서 잘 듣고 집에서 다시 읽어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-output-article-03": {
+    "src": "audio/level1/l1-u06-output-article-03.mp3",
+    "text": "미나: 쓰기와 말하기는 어려워요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-output-article-04": {
+    "src": "audio/level1/l1-u06-output-article-04.mp3",
+    "text": "로이: 쓰기는 어렵지만 말하기는 재미있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-output-article-05": {
+    "src": "audio/level1/l1-u06-output-article-05.mp3",
+    "text": "미나: 언제 숙제를 해요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-output-article-06": {
+    "src": "audio/level1/l1-u06-output-article-06.mp3",
+    "text": "로이: 저녁에 숙제를 하고 열한 시에 공부를 끝내요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w11-ko": {
+    "src": "audio/level1/l1-u06-w11-ko.mp3",
+    "text": "시작하다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w11-en": {
+    "src": "audio/level1/l1-u06-w11-en.mp3",
+    "text": "begin",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w11-example": {
+    "src": "audio/level1/l1-u06-w11-example.mp3",
+    "text": "수업이 열 시에 시작해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w12-ko": {
+    "src": "audio/level1/l1-u06-w12-ko.mp3",
+    "text": "끝나다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w12-en": {
+    "src": "audio/level1/l1-u06-w12-en.mp3",
+    "text": "end",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w12-example": {
+    "src": "audio/level1/l1-u06-w12-example.mp3",
+    "text": "수업이 열두 시에 끝나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w13-ko": {
+    "src": "audio/level1/l1-u06-w13-ko.mp3",
+    "text": "듣다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w13-en": {
+    "src": "audio/level1/l1-u06-w13-en.mp3",
+    "text": "listen",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w13-example": {
+    "src": "audio/level1/l1-u06-w13-example.mp3",
+    "text": "수업에서 잘 들어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w14-ko": {
+    "src": "audio/level1/l1-u06-w14-ko.mp3",
+    "text": "읽다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w14-en": {
+    "src": "audio/level1/l1-u06-w14-en.mp3",
+    "text": "read",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w14-example": {
+    "src": "audio/level1/l1-u06-w14-example.mp3",
+    "text": "한국어 책을 읽어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w15-ko": {
+    "src": "audio/level1/l1-u06-w15-ko.mp3",
+    "text": "쓰다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w15-en": {
+    "src": "audio/level1/l1-u06-w15-en.mp3",
+    "text": "write",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w15-example": {
+    "src": "audio/level1/l1-u06-w15-example.mp3",
+    "text": "공책에 단어를 써요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w16-ko": {
+    "src": "audio/level1/l1-u06-w16-ko.mp3",
+    "text": "말하다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w16-en": {
+    "src": "audio/level1/l1-u06-w16-en.mp3",
+    "text": "speak",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w16-example": {
+    "src": "audio/level1/l1-u06-w16-example.mp3",
+    "text": "친구하고 한국어로 말해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w17-ko": {
+    "src": "audio/level1/l1-u06-w17-ko.mp3",
+    "text": "배우다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w17-en": {
+    "src": "audio/level1/l1-u06-w17-en.mp3",
+    "text": "learn",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w17-example": {
+    "src": "audio/level1/l1-u06-w17-example.mp3",
+    "text": "학교에서 한국어를 배워요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w18-ko": {
+    "src": "audio/level1/l1-u06-w18-ko.mp3",
+    "text": "어렵다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w18-en": {
+    "src": "audio/level1/l1-u06-w18-en.mp3",
+    "text": "difficult",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w18-example": {
+    "src": "audio/level1/l1-u06-w18-example.mp3",
+    "text": "쓰기가 어려워요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w19-ko": {
+    "src": "audio/level1/l1-u06-w19-ko.mp3",
+    "text": "쉽다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w19-en": {
+    "src": "audio/level1/l1-u06-w19-en.mp3",
+    "text": "easy",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w19-example": {
+    "src": "audio/level1/l1-u06-w19-example.mp3",
+    "text": "이 질문은 쉬워요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w20-ko": {
+    "src": "audio/level1/l1-u06-w20-ko.mp3",
+    "text": "재미있다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w20-en": {
+    "src": "audio/level1/l1-u06-w20-en.mp3",
+    "text": "interesting",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w20-example": {
+    "src": "audio/level1/l1-u06-w20-example.mp3",
+    "text": "말하기가 재미있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-g03-example-01": {
+    "src": "audio/level1/l1-u06-g03-example-01.mp3",
+    "text": "쓰기가 어려워요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-g03-example-02": {
+    "src": "audio/level1/l1-u06-g03-example-02.mp3",
+    "text": "말하기가 재미있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-g04-example-01": {
+    "src": "audio/level1/l1-u06-g04-example-01.mp3",
+    "text": "수업에서 잘 들어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-g04-example-02": {
+    "src": "audio/level1/l1-u06-g04-example-02.mp3",
+    "text": "도서관에서 책을 읽어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-b01-audio": {
+    "src": "audio/level1/l1-u06-b01-audio.mp3",
+    "text": "저는 수업에서 잘 듣고, 집에서 매일 한국어 책을 읽어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
   }
 }
