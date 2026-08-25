@@ -14,8 +14,8 @@ const addExamples = (id, examples) => examples.forEach((example, index) => add(`
 const themes = [...context.globalThis.MalbitLevel1PartOne.themes, ...context.globalThis.MalbitLevel1PartTwo.themes];
 const usableDays=context.globalThis.MalbitLevel1Course.usableDays;
 const publishedDays = context.globalThis.MalbitLevel1Schedule.build(themes).slice(0, usableDays).filter(day => day.kind === 'lesson');
-assert.equal(usableDays,10);
-assert.equal(publishedDays.length,9,'all published days are lessons before the first checkpoint');
+assert.equal(usableDays,11);
+assert.equal(publishedDays.length,10,'checkpoint days do not require lesson audio');
 for (const {themeId, phase} of publishedDays) {
   const theme = themes.find(item => item.id === themeId);
   const day = theme[`${phase}Day`];
