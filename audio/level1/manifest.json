@@ -2458,5 +2458,257 @@
     "text": "산시는 겨울에 아주 추워요. 바다시는 겨울에도 날씨가 따뜻해요.",
     "lang": "ko",
     "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-input-article-01": {
+    "src": "audio/level1/l1-u06-input-article-01.mp3",
+    "text": "유진: 오늘 한국어 수업이 있어요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-input-article-02": {
+    "src": "audio/level1/l1-u06-input-article-02.mp3",
+    "text": "카이: 네, 열 시에 수업이 시작해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-input-article-03": {
+    "src": "audio/level1/l1-u06-input-article-03.mp3",
+    "text": "유진: 숙제가 많아요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-input-article-04": {
+    "src": "audio/level1/l1-u06-input-article-04.mp3",
+    "text": "카이: 아니요, 숙제는 적지만 시험이 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-input-article-05": {
+    "src": "audio/level1/l1-u06-input-article-05.mp3",
+    "text": "유진: 질문이 있으면 선생님께 물어보세요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-input-article-06": {
+    "src": "audio/level1/l1-u06-input-article-06.mp3",
+    "text": "카이: 네, 수업 후에 사무실에 갈게요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w01-ko": {
+    "src": "audio/level1/l1-u06-w01-ko.mp3",
+    "text": "수업",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w01-en": {
+    "src": "audio/level1/l1-u06-w01-en.mp3",
+    "text": "class",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w01-example": {
+    "src": "audio/level1/l1-u06-w01-example.mp3",
+    "text": "열 시에 수업이 시작해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w02-ko": {
+    "src": "audio/level1/l1-u06-w02-ko.mp3",
+    "text": "숙제",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w02-en": {
+    "src": "audio/level1/l1-u06-w02-en.mp3",
+    "text": "homework",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w02-example": {
+    "src": "audio/level1/l1-u06-w02-example.mp3",
+    "text": "오늘 숙제가 많아요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w03-ko": {
+    "src": "audio/level1/l1-u06-w03-ko.mp3",
+    "text": "시험",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w03-en": {
+    "src": "audio/level1/l1-u06-w03-en.mp3",
+    "text": "exam",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w03-example": {
+    "src": "audio/level1/l1-u06-w03-example.mp3",
+    "text": "금요일에 시험이 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w04-ko": {
+    "src": "audio/level1/l1-u06-w04-ko.mp3",
+    "text": "공부",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w04-en": {
+    "src": "audio/level1/l1-u06-w04-en.mp3",
+    "text": "study",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w04-example": {
+    "src": "audio/level1/l1-u06-w04-example.mp3",
+    "text": "도서관에서 공부해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w05-ko": {
+    "src": "audio/level1/l1-u06-w05-ko.mp3",
+    "text": "한국어",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w05-en": {
+    "src": "audio/level1/l1-u06-w05-en.mp3",
+    "text": "Korean",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w05-example": {
+    "src": "audio/level1/l1-u06-w05-example.mp3",
+    "text": "한국어 수업이 재미있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w06-ko": {
+    "src": "audio/level1/l1-u06-w06-ko.mp3",
+    "text": "전공",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w06-en": {
+    "src": "audio/level1/l1-u06-w06-en.mp3",
+    "text": "major",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w06-example": {
+    "src": "audio/level1/l1-u06-w06-example.mp3",
+    "text": "제 전공은 경제학이에요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w07-ko": {
+    "src": "audio/level1/l1-u06-w07-ko.mp3",
+    "text": "질문",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w07-en": {
+    "src": "audio/level1/l1-u06-w07-en.mp3",
+    "text": "question",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w07-example": {
+    "src": "audio/level1/l1-u06-w07-example.mp3",
+    "text": "질문이 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w08-ko": {
+    "src": "audio/level1/l1-u06-w08-ko.mp3",
+    "text": "대답",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w08-en": {
+    "src": "audio/level1/l1-u06-w08-en.mp3",
+    "text": "answer",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w08-example": {
+    "src": "audio/level1/l1-u06-w08-example.mp3",
+    "text": "학생이 대답해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w09-ko": {
+    "src": "audio/level1/l1-u06-w09-ko.mp3",
+    "text": "선생님",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w09-en": {
+    "src": "audio/level1/l1-u06-w09-en.mp3",
+    "text": "teacher",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w09-example": {
+    "src": "audio/level1/l1-u06-w09-example.mp3",
+    "text": "선생님께 질문해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w10-ko": {
+    "src": "audio/level1/l1-u06-w10-ko.mp3",
+    "text": "학생",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-w10-en": {
+    "src": "audio/level1/l1-u06-w10-en.mp3",
+    "text": "student",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u06-w10-example": {
+    "src": "audio/level1/l1-u06-w10-example.mp3",
+    "text": "학생들이 교실에 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-g01-example-01": {
+    "src": "audio/level1/l1-u06-g01-example-01.mp3",
+    "text": "열 시에 수업이 시작해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-g01-example-02": {
+    "src": "audio/level1/l1-u06-g01-example-02.mp3",
+    "text": "금요일에 시험이 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-g02-example-01": {
+    "src": "audio/level1/l1-u06-g02-example-01.mp3",
+    "text": "질문이 있으면 물어보세요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-g02-example-02": {
+    "src": "audio/level1/l1-u06-g02-example-02.mp3",
+    "text": "시간이 없으면 내일 해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-g02-example-03": {
+    "src": "audio/level1/l1-u06-g02-example-03.mp3",
+    "text": "멀면 버스를 타세요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u06-a01-audio": {
+    "src": "audio/level1/l1-u06-a01-audio.mp3",
+    "text": "오늘 한국어 수업은 열 시에 시작하고 열두 시에 끝나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
   }
 }
