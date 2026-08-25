@@ -1966,5 +1966,251 @@
     "text": "제 친구 민호는 학교 근처에 살아요. 요즘 바쁘지만 우리는 자주 만나요.",
     "lang": "ko",
     "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-input-article-01": {
+    "src": "audio/level1/l1-u05-input-article-01.mp3",
+    "text": "린: 제 고향은 작은 도시예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-input-article-02": {
+    "src": "audio/level1/l1-u05-input-article-02.mp3",
+    "text": "도시 뒤에는 산이 있고 앞에는 강이 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-input-article-03": {
+    "src": "audio/level1/l1-u05-input-article-03.mp3",
+    "text": "준서: 바다도 있어요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-input-article-04": {
+    "src": "audio/level1/l1-u05-input-article-04.mp3",
+    "text": "린: 아니요, 바다는 없어요. 하지만 공원이 많아요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-input-article-05": {
+    "src": "audio/level1/l1-u05-input-article-05.mp3",
+    "text": "준서: 시장은 어때요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-input-article-06": {
+    "src": "audio/level1/l1-u05-input-article-06.mp3",
+    "text": "린: 시장이 크고 아주 유명해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w01-ko": {
+    "src": "audio/level1/l1-u05-w01-ko.mp3",
+    "text": "고향",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w01-en": {
+    "src": "audio/level1/l1-u05-w01-en.mp3",
+    "text": "hometown",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u05-w01-example": {
+    "src": "audio/level1/l1-u05-w01-example.mp3",
+    "text": "제 고향은 작은 도시예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w02-ko": {
+    "src": "audio/level1/l1-u05-w02-ko.mp3",
+    "text": "나라",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w02-en": {
+    "src": "audio/level1/l1-u05-w02-en.mp3",
+    "text": "country",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u05-w02-example": {
+    "src": "audio/level1/l1-u05-w02-example.mp3",
+    "text": "우리 나라는 산이 많아요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w03-ko": {
+    "src": "audio/level1/l1-u05-w03-ko.mp3",
+    "text": "도시",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w03-en": {
+    "src": "audio/level1/l1-u05-w03-en.mp3",
+    "text": "city",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u05-w03-example": {
+    "src": "audio/level1/l1-u05-w03-example.mp3",
+    "text": "부산은 큰 도시예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w04-ko": {
+    "src": "audio/level1/l1-u05-w04-ko.mp3",
+    "text": "시골",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w04-en": {
+    "src": "audio/level1/l1-u05-w04-en.mp3",
+    "text": "countryside",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u05-w04-example": {
+    "src": "audio/level1/l1-u05-w04-example.mp3",
+    "text": "제 할머니는 시골에 살아요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w05-ko": {
+    "src": "audio/level1/l1-u05-w05-ko.mp3",
+    "text": "산",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w05-en": {
+    "src": "audio/level1/l1-u05-w05-en.mp3",
+    "text": "mountain",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u05-w05-example": {
+    "src": "audio/level1/l1-u05-w05-example.mp3",
+    "text": "도시 뒤에 산이 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w06-ko": {
+    "src": "audio/level1/l1-u05-w06-ko.mp3",
+    "text": "강",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w06-en": {
+    "src": "audio/level1/l1-u05-w06-en.mp3",
+    "text": "river",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u05-w06-example": {
+    "src": "audio/level1/l1-u05-w06-example.mp3",
+    "text": "공원 옆에 강이 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w07-ko": {
+    "src": "audio/level1/l1-u05-w07-ko.mp3",
+    "text": "바다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w07-en": {
+    "src": "audio/level1/l1-u05-w07-en.mp3",
+    "text": "sea",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u05-w07-example": {
+    "src": "audio/level1/l1-u05-w07-example.mp3",
+    "text": "제 고향에는 바다가 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w08-ko": {
+    "src": "audio/level1/l1-u05-w08-ko.mp3",
+    "text": "공원",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w08-en": {
+    "src": "audio/level1/l1-u05-w08-en.mp3",
+    "text": "park",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u05-w08-example": {
+    "src": "audio/level1/l1-u05-w08-example.mp3",
+    "text": "공원에서 산책해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w09-ko": {
+    "src": "audio/level1/l1-u05-w09-ko.mp3",
+    "text": "시장",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w09-en": {
+    "src": "audio/level1/l1-u05-w09-en.mp3",
+    "text": "market",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u05-w09-example": {
+    "src": "audio/level1/l1-u05-w09-example.mp3",
+    "text": "시장에서 과일을 사요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w10-ko": {
+    "src": "audio/level1/l1-u05-w10-ko.mp3",
+    "text": "유명하다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-w10-en": {
+    "src": "audio/level1/l1-u05-w10-en.mp3",
+    "text": "famous",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u05-w10-example": {
+    "src": "audio/level1/l1-u05-w10-example.mp3",
+    "text": "이 시장은 아주 유명해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-g01-example-01": {
+    "src": "audio/level1/l1-u05-g01-example-01.mp3",
+    "text": "고향에 산이 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-g01-example-02": {
+    "src": "audio/level1/l1-u05-g01-example-02.mp3",
+    "text": "바다는 없어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-g02-example-01": {
+    "src": "audio/level1/l1-u05-g02-example-01.mp3",
+    "text": "시장이 커요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-g02-example-02": {
+    "src": "audio/level1/l1-u05-g02-example-02.mp3",
+    "text": "공원이 작아요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u05-a01-audio": {
+    "src": "audio/level1/l1-u05-a01-audio.mp3",
+    "text": "제 고향 뒤에는 산이 있고 앞에는 강이 있어요. 바다는 없어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
   }
 }

@@ -3,7 +3,7 @@
   const days=root.MalbitLevel1Schedule?.build(themes)||[];
   const themeById=new Map(themes.map(theme=>[theme.id,theme]));
   const storeKey='malbit-level1-v26';
-  const usableDays=8;
+  const usableDays=9;
   let manifest={};
   let container=null;
   let openId=null;
@@ -301,7 +301,7 @@
   root.MalbitLevel1Course={mount,openDay,usableDays,loadState,saveState,homeSummary,directorySummary,lessonSummary,gradeAssessment,dailyReview,topikQuestions,nextLessonAfterPass,favoriteWords,mistakeView};
 
   if(typeof document!=='undefined'){
-    fetch('audio/level1/manifest.json?v=30').then(response=>response.ok?response.json():{}).then(data=>{manifest=data;if(openId)openDay(openId)}).catch(()=>{});
+    fetch('audio/level1/manifest.json?v=31').then(response=>response.ok?response.json():{}).then(data=>{manifest=data;if(openId)openDay(openId)}).catch(()=>{});
     mount();
     document.querySelector('[data-view-link="course"]')?.addEventListener('click',()=>setTimeout(renderDirectory));
     window.addEventListener('malbit-progress-changed',renderHomeSummary);
