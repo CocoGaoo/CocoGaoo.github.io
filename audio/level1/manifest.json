@@ -3448,5 +3448,251 @@
     "text": "불고기 일 인분하고 김치찌개 하나 주세요. 차도 한 잔 주세요.",
     "lang": "ko",
     "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-input-article-01": {
+    "src": "audio/level1/l1-u08-input-article-01.mp3",
+    "text": "지민: 아침에 몇 시에 일어나요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-input-article-02": {
+    "src": "audio/level1/l1-u08-input-article-02.mp3",
+    "text": "에바: 일곱 시에 일어나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-input-article-03": {
+    "src": "audio/level1/l1-u08-input-article-03.mp3",
+    "text": "지민: 일어나서 무엇을 해요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-input-article-04": {
+    "src": "audio/level1/l1-u08-input-article-04.mp3",
+    "text": "에바: 세수하고 아침을 먹어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-input-article-05": {
+    "src": "audio/level1/l1-u08-input-article-05.mp3",
+    "text": "지민: 학교에 몇 시에 가요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-input-article-06": {
+    "src": "audio/level1/l1-u08-input-article-06.mp3",
+    "text": "에바: 여덟 시 반에 집에서 나가요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w01-ko": {
+    "src": "audio/level1/l1-u08-w01-ko.mp3",
+    "text": "아침",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w01-en": {
+    "src": "audio/level1/l1-u08-w01-en.mp3",
+    "text": "morning",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u08-w01-example": {
+    "src": "audio/level1/l1-u08-w01-example.mp3",
+    "text": "아침에 일찍 일어나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w02-ko": {
+    "src": "audio/level1/l1-u08-w02-ko.mp3",
+    "text": "오후",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w02-en": {
+    "src": "audio/level1/l1-u08-w02-en.mp3",
+    "text": "afternoon",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u08-w02-example": {
+    "src": "audio/level1/l1-u08-w02-example.mp3",
+    "text": "오후에 수업이 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w03-ko": {
+    "src": "audio/level1/l1-u08-w03-ko.mp3",
+    "text": "저녁",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w03-en": {
+    "src": "audio/level1/l1-u08-w03-en.mp3",
+    "text": "evening",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u08-w03-example": {
+    "src": "audio/level1/l1-u08-w03-example.mp3",
+    "text": "저녁에 숙제를 해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w04-ko": {
+    "src": "audio/level1/l1-u08-w04-ko.mp3",
+    "text": "밤",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w04-en": {
+    "src": "audio/level1/l1-u08-w04-en.mp3",
+    "text": "night",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u08-w04-example": {
+    "src": "audio/level1/l1-u08-w04-example.mp3",
+    "text": "밤 열한 시에 자요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w05-ko": {
+    "src": "audio/level1/l1-u08-w05-ko.mp3",
+    "text": "오늘",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w05-en": {
+    "src": "audio/level1/l1-u08-w05-en.mp3",
+    "text": "today",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u08-w05-example": {
+    "src": "audio/level1/l1-u08-w05-example.mp3",
+    "text": "오늘 아주 바빠요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w06-ko": {
+    "src": "audio/level1/l1-u08-w06-ko.mp3",
+    "text": "지금",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w06-en": {
+    "src": "audio/level1/l1-u08-w06-en.mp3",
+    "text": "now",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u08-w06-example": {
+    "src": "audio/level1/l1-u08-w06-example.mp3",
+    "text": "지금 몇 시예요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w07-ko": {
+    "src": "audio/level1/l1-u08-w07-ko.mp3",
+    "text": "시간",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w07-en": {
+    "src": "audio/level1/l1-u08-w07-en.mp3",
+    "text": "time",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u08-w07-example": {
+    "src": "audio/level1/l1-u08-w07-example.mp3",
+    "text": "점심시간은 한 시예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w08-ko": {
+    "src": "audio/level1/l1-u08-w08-ko.mp3",
+    "text": "시",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w08-en": {
+    "src": "audio/level1/l1-u08-w08-en.mp3",
+    "text": "o’clock",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u08-w08-example": {
+    "src": "audio/level1/l1-u08-w08-example.mp3",
+    "text": "일곱 시에 일어나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w09-ko": {
+    "src": "audio/level1/l1-u08-w09-ko.mp3",
+    "text": "반",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w09-en": {
+    "src": "audio/level1/l1-u08-w09-en.mp3",
+    "text": "half",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u08-w09-example": {
+    "src": "audio/level1/l1-u08-w09-example.mp3",
+    "text": "여덟 시 반에 나가요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w10-ko": {
+    "src": "audio/level1/l1-u08-w10-ko.mp3",
+    "text": "일어나다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-w10-en": {
+    "src": "audio/level1/l1-u08-w10-en.mp3",
+    "text": "get up",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u08-w10-example": {
+    "src": "audio/level1/l1-u08-w10-example.mp3",
+    "text": "아침 일곱 시에 일어나요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-g01-example-01": {
+    "src": "audio/level1/l1-u08-g01-example-01.mp3",
+    "text": "몇 시에 일어나요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-g01-example-02": {
+    "src": "audio/level1/l1-u08-g01-example-02.mp3",
+    "text": "몇 시에 학교에 가요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-g02-example-01": {
+    "src": "audio/level1/l1-u08-g02-example-01.mp3",
+    "text": "세수하고 아침을 먹어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-g02-example-02": {
+    "src": "audio/level1/l1-u08-g02-example-02.mp3",
+    "text": "공부하고 운동해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u08-a01-audio": {
+    "src": "audio/level1/l1-u08-a01-audio.mp3",
+    "text": "일곱 시에 일어나요. 먼저 세수하고 아침을 먹어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
   }
 }
