@@ -13,7 +13,7 @@ for(const file of [
 ]) vm.runInNewContext(fs.readFileSync(file,'utf8'),context);
 
 const api=context.globalThis.MalbitLevel1Course;
-assert.equal(api.usableDays,21);
+assert.equal(api.usableDays,45);
 const plain=value=>JSON.parse(JSON.stringify(value));
 const state={version:26,currentDay:1,completedDays:[],themeScores:{},weakTags:[]};
 const view=api.homeSummary({currentDay:11,completedDays:[1,2,3,4,5,6,7,8,9,10]});
@@ -38,7 +38,7 @@ assert.equal(directory.days[15].status,'locked');
 assert.equal(directory.days[16].status,'locked');
 assert.equal(directory.days[17].status,'locked');
 assert.equal(directory.days[20].status,'locked');
-assert.equal(directory.days[21].status,'preview');
+assert.ok(directory.days.every(day=>day.status!=='preview'));
 assert.equal(directory.days[0].expectedDate,'08-13');
 assert.equal(directory.days[6].expectedDate,'08-19');
 assert.equal(directory.days[9].source,'阶段复习');
@@ -119,6 +119,13 @@ for(const dayId of [18,19,21]){
   assert.ok(added.assessment.every(item=>item.answer!=='开放作答'));
 }
 
+for(const dayId of directory.days.filter(day=>day.kind==='lesson').map(day=>day.id)){
+  const completeLesson=api.lessonSummary(dayId,manifest);
+  assert.ok(completeLesson.article.lines.every(line=>line.audio?.src));
+  assert.ok(completeLesson.words.every(word=>word.audio.ko?.src&&word.audio.en?.src));
+  assert.ok(completeLesson.assessment.every(item=>item.answer!=='开放作答'));
+}
+
 const answers=Object.fromEntries(lesson.assessment.map(item=>[item.id,item.options?.includes(item.answer)?item.answer:'已完成']));
 const passed=api.gradeAssessment(lesson.assessment,answers);
 assert.equal(passed.score,100);
@@ -150,7 +157,8 @@ assert.equal(api.nextLessonAfterPass(14,{passed:true}),15);
 assert.equal(api.nextLessonAfterPass(15,{passed:true}),16);
 assert.equal(api.nextLessonAfterPass(16,{passed:true}),17);
 assert.equal(api.nextLessonAfterPass(17,{passed:true}),18);
-assert.equal(api.nextLessonAfterPass(21,{passed:true}),null);
+assert.equal(api.nextLessonAfterPass(21,{passed:true}),22);
+assert.equal(api.nextLessonAfterPass(45,{passed:true}),null);
 assert.equal(api.nextLessonAfterPass(1,{passed:false}),null);
 
 const topik=api.topikQuestions({completedDays:[1,2]},manifest);
@@ -182,4 +190,11 @@ assert.equal(secondCheckpoint.id,20);
 assert.ok(secondCheckpoint.questions.length>=5);
 assert.ok(secondCheckpoint.questions.every(item=>item.dayId>=11&&item.dayId<=19));
 
-console.log('level one render model: twenty-one usable days and checkpoint-scoped reviews');
+for(const [checkpointId,from,to] of [[30,21,29],[40,31,39],[45,41,44]]){
+  const stage=api.checkpointSummary(checkpointId,manifest);
+  assert.equal(stage.id,checkpointId);
+  assert.ok(stage.questions.length>=5);
+  assert.ok(stage.questions.every(item=>item.dayId>=from&&item.dayId<=to));
+}
+
+console.log('level one render model: complete 45-day route and checkpoint-scoped reviews');

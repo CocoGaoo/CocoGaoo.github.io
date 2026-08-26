@@ -3,7 +3,7 @@
   const days=root.MalbitLevel1Schedule?.build(themes)||[];
   const themeById=new Map(themes.map(theme=>[theme.id,theme]));
   const storeKey='malbit-level1-v26';
-  const usableDays=21;
+  const usableDays=45;
   let manifest={};
   let container=null;
   let openId=null;
@@ -202,7 +202,7 @@
     const state=loadState(),model=directorySummary(state),current=Math.min(usableDays,state.currentDay||1);
     const groups=[[1,22,'延世 1-1 路线'],[23,45,'延世 1-2 路线']];
     const review=dailyReview(state,todayKey());
-    container.innerHTML=`<section class="l1-overview"><header><div><span>45 天路线 · 前 10 天可学习</span><h2>每天 55 分钟课程 + 20 分钟训练</h2><p>未来课程可预览目录；静态音频完成前不会使用系统语音替代。</p></div><button type="button" id="l1Continue">继续第 ${current} 天 →</button></header><section class="l1-daily-review"><div><span>每日记忆强化</span><h3>今日随机 5 句</h3><p>${review.length?'题目今天固定，明天自动更换。':'通过第一课后，从已学课文中生成。'}</p></div><button type="button" id="l1Review" ${review.length?'':'disabled'}>开始复习 →</button></section>${groups.map(([from,to,title])=>`<section class="l1-part"><div class="l1-part-title"><h3>${title}</h3><span>${from}–${to} 天</span></div><ol>${model.days.slice(from-1,to).map(day=>`<li class="${day.status}"><button type="button" data-l1-day="${day.id}" ${day.status==='locked'?'disabled':''}><b>${day.status==='done'?'✓':day.id}</b><span><strong>${esc(day.title)}</strong><small>${day.kind==='checkpoint'?'复习考核':day.phase==='input'?'A 日 · 输入':'B 日 · 输出'} · ${day.expectedDate}</small><em>${esc(day.source)}</em></span><i>${day.status==='done'?'已通过':day.status==='current'?'继续':day.status==='preview'?'预览 · 音频准备中':'未解锁'}</i></button></li>`).join('')}</ol></section>`).join('')}</section>`;
+    container.innerHTML=`<section class="l1-overview"><header><div><span>45 天完整路线 · 全部课程已就绪</span><h2>每天 55 分钟课程 + 20 分钟训练</h2><p>课程按考核进度逐日解锁，全部课程均使用已生成的静态音频。</p></div><button type="button" id="l1Continue">继续第 ${current} 天 →</button></header><section class="l1-daily-review"><div><span>每日记忆强化</span><h3>今日随机 5 句</h3><p>${review.length?'题目今天固定，明天自动更换。':'通过第一课后，从已学课文中生成。'}</p></div><button type="button" id="l1Review" ${review.length?'':'disabled'}>开始复习 →</button></section>${groups.map(([from,to,title])=>`<section class="l1-part"><div class="l1-part-title"><h3>${title}</h3><span>${from}–${to} 天</span></div><ol>${model.days.slice(from-1,to).map(day=>`<li class="${day.status}"><button type="button" data-l1-day="${day.id}" ${day.status==='locked'?'disabled':''}><b>${day.status==='done'?'✓':day.id}</b><span><strong>${esc(day.title)}</strong><small>${day.kind==='checkpoint'?'复习考核':day.phase==='input'?'A 日 · 输入':'B 日 · 输出'} · ${day.expectedDate}</small><em>${esc(day.source)}</em></span><i>${day.status==='done'?'已通过':day.status==='current'?'继续':day.status==='preview'?'预览 · 音频准备中':'未解锁'}</i></button></li>`).join('')}</ol></section>`).join('')}</section>`;
     container.querySelector('#l1Continue').onclick=()=>openDay(current);
     container.querySelector('#l1Review').onclick=()=>renderDailyReview(review);
     container.querySelectorAll('[data-l1-day]').forEach(button=>button.onclick=()=>openDay(Number(button.dataset.l1Day)));
@@ -344,7 +344,7 @@
   root.MalbitLevel1Course={mount,openDay,usableDays,loadState,saveState,homeSummary,directorySummary,lessonSummary,checkpointSummary,gradeAssessment,dailyReview,topikQuestions,nextLessonAfterPass,favoriteWords,mistakeView};
 
   if(typeof document!=='undefined'){
-    fetch('audio/level1/manifest.json?v=40').then(response=>response.ok?response.json():{}).then(data=>{manifest=data;if(openId)openDay(openId)}).catch(()=>{});
+    fetch('audio/level1/manifest.json?v=41').then(response=>response.ok?response.json():{}).then(data=>{manifest=data;if(openId)openDay(openId)}).catch(()=>{});
     mount();
     document.querySelector('[data-view-link="course"]')?.addEventListener('click',()=>setTimeout(renderDirectory));
     window.addEventListener('malbit-progress-changed',renderHomeSummary);
