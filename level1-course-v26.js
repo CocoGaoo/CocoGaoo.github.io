@@ -3,7 +3,7 @@
   const days=root.MalbitLevel1Schedule?.build(themes)||[];
   const themeById=new Map(themes.map(theme=>[theme.id,theme]));
   const storeKey='malbit-level1-v26';
-  const usableDays=17;
+  const usableDays=21;
   let manifest={};
   let container=null;
   let openId=null;
@@ -153,7 +153,8 @@
   function checkpointSummary(dayId,audioManifest=manifest){
     const checkpoint=days.find(day=>day.id===Number(dayId));
     if(!checkpoint||checkpoint.kind!=='checkpoint'||checkpoint.id>usableDays)return null;
-    const completedDays=days.filter(day=>day.kind==='lesson'&&day.id<checkpoint.id).map(day=>day.id);
+    const previousCheckpoint=days.filter(day=>day.kind==='checkpoint'&&day.id<checkpoint.id).at(-1)?.id||0;
+    const completedDays=days.filter(day=>day.kind==='lesson'&&day.id>previousCheckpoint&&day.id<checkpoint.id).map(day=>day.id);
     const questions=topikQuestions({completedDays},audioManifest).slice(0,10).map(item=>({...item,id:`checkpoint:${checkpoint.id}:${item.id}`,answer:item.options[item.answer],explanation:item.why}));
     return{id:checkpoint.id,title:checkpoint.title,questions};
   }
@@ -226,7 +227,7 @@
   }
 
   function renderCheckpoint(checkpoint){
-    container.innerHTML=`<section class="l1-preview l1-checkpoint"><button type="button" id="l1Back">← 返回 45 天目录</button><span>DAY ${checkpoint.id} · 阶段复习</span><h2>${esc(checkpoint.title)}</h2><p>从前 9 天已学内容中抽取选择题，达到 80 分即可进入下一阶段。</p><form id="l1CheckpointForm">${checkpoint.questions.map(assessmentField).join('')}<button class="l1-submit" type="submit">提交阶段考核</button><output id="l1Result"></output></form></section>`;
+    container.innerHTML=`<section class="l1-preview l1-checkpoint"><button type="button" id="l1Back">← 返回 45 天目录</button><span>DAY ${checkpoint.id} · 阶段复习</span><h2>${esc(checkpoint.title)}</h2><p>从上一阶段已学内容中抽取选择题，达到 80 分即可进入下一阶段。</p><form id="l1CheckpointForm">${checkpoint.questions.map(assessmentField).join('')}<button class="l1-submit" type="submit">提交阶段考核</button><output id="l1Result"></output></form></section>`;
     container.querySelector('#l1Back').onclick=renderDirectory;
     container.querySelectorAll('[data-l1-audio]').forEach(button=>button.onclick=()=>play(button.dataset.l1Audio));
     container.querySelector('#l1CheckpointForm').onsubmit=event=>{
@@ -343,7 +344,7 @@
   root.MalbitLevel1Course={mount,openDay,usableDays,loadState,saveState,homeSummary,directorySummary,lessonSummary,checkpointSummary,gradeAssessment,dailyReview,topikQuestions,nextLessonAfterPass,favoriteWords,mistakeView};
 
   if(typeof document!=='undefined'){
-    fetch('audio/level1/manifest.json?v=39').then(response=>response.ok?response.json():{}).then(data=>{manifest=data;if(openId)openDay(openId)}).catch(()=>{});
+    fetch('audio/level1/manifest.json?v=40').then(response=>response.ok?response.json():{}).then(data=>{manifest=data;if(openId)openDay(openId)}).catch(()=>{});
     mount();
     document.querySelector('[data-view-link="course"]')?.addEventListener('click',()=>setTimeout(renderDirectory));
     window.addEventListener('malbit-progress-changed',renderHomeSummary);

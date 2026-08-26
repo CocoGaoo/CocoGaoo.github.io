@@ -3940,5 +3940,755 @@
     "text": "오후에 수업을 들어요. 집에 와서 저녁을 먹고 운동해요. 밤 열두 시 전에 자요.",
     "lang": "ko",
     "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-input-article-01": {
+    "src": "audio/level1/l1-u09-input-article-01.mp3",
+    "text": "현우: 주말에 계획이 있어요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-input-article-02": {
+    "src": "audio/level1/l1-u09-input-article-02.mp3",
+    "text": "사라: 토요일에는 영화를 보고 쇼핑할 거예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-input-article-03": {
+    "src": "audio/level1/l1-u09-input-article-03.mp3",
+    "text": "현우: 일요일에는 뭐 해요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-input-article-04": {
+    "src": "audio/level1/l1-u09-input-article-04.mp3",
+    "text": "사라: 공원에서 산책하고 음악을 들을 거예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-input-article-05": {
+    "src": "audio/level1/l1-u09-input-article-05.mp3",
+    "text": "현우: 피크닉도 가요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-input-article-06": {
+    "src": "audio/level1/l1-u09-input-article-06.mp3",
+    "text": "사라: 날씨가 좋으면 친구들과 피크닉을 갈 거예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w01-ko": {
+    "src": "audio/level1/l1-u09-w01-ko.mp3",
+    "text": "주말",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w01-en": {
+    "src": "audio/level1/l1-u09-w01-en.mp3",
+    "text": "weekend",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w01-example": {
+    "src": "audio/level1/l1-u09-w01-example.mp3",
+    "text": "주말에 계획이 있어요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w02-ko": {
+    "src": "audio/level1/l1-u09-w02-ko.mp3",
+    "text": "토요일",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w02-en": {
+    "src": "audio/level1/l1-u09-w02-en.mp3",
+    "text": "Saturday",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w02-example": {
+    "src": "audio/level1/l1-u09-w02-example.mp3",
+    "text": "토요일에 영화를 봐요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w03-ko": {
+    "src": "audio/level1/l1-u09-w03-ko.mp3",
+    "text": "일요일",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w03-en": {
+    "src": "audio/level1/l1-u09-w03-en.mp3",
+    "text": "Sunday",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w03-example": {
+    "src": "audio/level1/l1-u09-w03-example.mp3",
+    "text": "일요일에는 집에서 쉬어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w04-ko": {
+    "src": "audio/level1/l1-u09-w04-ko.mp3",
+    "text": "계획",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w04-en": {
+    "src": "audio/level1/l1-u09-w04-en.mp3",
+    "text": "plan",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w04-example": {
+    "src": "audio/level1/l1-u09-w04-example.mp3",
+    "text": "주말 계획을 세워요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w05-ko": {
+    "src": "audio/level1/l1-u09-w05-ko.mp3",
+    "text": "영화",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w05-en": {
+    "src": "audio/level1/l1-u09-w05-en.mp3",
+    "text": "movie",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w05-example": {
+    "src": "audio/level1/l1-u09-w05-example.mp3",
+    "text": "친구와 영화를 봐요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w06-ko": {
+    "src": "audio/level1/l1-u09-w06-ko.mp3",
+    "text": "쇼핑",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w06-en": {
+    "src": "audio/level1/l1-u09-w06-en.mp3",
+    "text": "shopping",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w06-example": {
+    "src": "audio/level1/l1-u09-w06-example.mp3",
+    "text": "토요일에 쇼핑해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w07-ko": {
+    "src": "audio/level1/l1-u09-w07-ko.mp3",
+    "text": "산책",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w07-en": {
+    "src": "audio/level1/l1-u09-w07-en.mp3",
+    "text": "walk",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w07-example": {
+    "src": "audio/level1/l1-u09-w07-example.mp3",
+    "text": "공원에서 산책해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w08-ko": {
+    "src": "audio/level1/l1-u09-w08-ko.mp3",
+    "text": "피크닉",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w08-en": {
+    "src": "audio/level1/l1-u09-w08-en.mp3",
+    "text": "picnic",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w08-example": {
+    "src": "audio/level1/l1-u09-w08-example.mp3",
+    "text": "친구들과 피크닉을 가요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w09-ko": {
+    "src": "audio/level1/l1-u09-w09-ko.mp3",
+    "text": "음악",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w09-en": {
+    "src": "audio/level1/l1-u09-w09-en.mp3",
+    "text": "music",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w09-example": {
+    "src": "audio/level1/l1-u09-w09-example.mp3",
+    "text": "주말에 음악을 들어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w10-ko": {
+    "src": "audio/level1/l1-u09-w10-ko.mp3",
+    "text": "게임",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w10-en": {
+    "src": "audio/level1/l1-u09-w10-en.mp3",
+    "text": "game",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w10-example": {
+    "src": "audio/level1/l1-u09-w10-example.mp3",
+    "text": "동생하고 게임을 해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-g01-example-01": {
+    "src": "audio/level1/l1-u09-g01-example-01.mp3",
+    "text": "영화를 볼 거예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-g01-example-02": {
+    "src": "audio/level1/l1-u09-g01-example-02.mp3",
+    "text": "쇼핑할 거예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-g01-example-03": {
+    "src": "audio/level1/l1-u09-g01-example-03.mp3",
+    "text": "주말에 만들 거예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-g02-example-01": {
+    "src": "audio/level1/l1-u09-g02-example-01.mp3",
+    "text": "날씨가 좋으면 피크닉을 갈 거예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-g02-example-02": {
+    "src": "audio/level1/l1-u09-g02-example-02.mp3",
+    "text": "비가 오면 집에서 쉴 거예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-a01-audio": {
+    "src": "audio/level1/l1-u09-a01-audio.mp3",
+    "text": "토요일에는 영화를 보고 쇼핑할 거예요. 일요일에는 공원에서 산책할 거예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-output-article-01": {
+    "src": "audio/level1/l1-u09-output-article-01.mp3",
+    "text": "민지: 이번 주말에 같이 나갈까요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-output-article-02": {
+    "src": "audio/level1/l1-u09-output-article-02.mp3",
+    "text": "루카: 좋아요. 저는 전시회를 보고 싶어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-output-article-03": {
+    "src": "audio/level1/l1-u09-output-article-03.mp3",
+    "text": "민지: 그럼 오전에 전시회를 보고 오후에 장을 봐요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-output-article-04": {
+    "src": "audio/level1/l1-u09-output-article-04.mp3",
+    "text": "루카: 저녁에는 같이 요리할까요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-output-article-05": {
+    "src": "audio/level1/l1-u09-output-article-05.mp3",
+    "text": "민지: 좋아요. 사진도 많이 찍어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-output-article-06": {
+    "src": "audio/level1/l1-u09-output-article-06.mp3",
+    "text": "루카: 비가 오면 집에서 보드게임을 해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w11-ko": {
+    "src": "audio/level1/l1-u09-w11-ko.mp3",
+    "text": "요리",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w11-en": {
+    "src": "audio/level1/l1-u09-w11-en.mp3",
+    "text": "cooking",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w11-example": {
+    "src": "audio/level1/l1-u09-w11-example.mp3",
+    "text": "저녁에 친구와 요리해요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w12-ko": {
+    "src": "audio/level1/l1-u09-w12-ko.mp3",
+    "text": "보다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w12-en": {
+    "src": "audio/level1/l1-u09-w12-en.mp3",
+    "text": "see",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w12-example": {
+    "src": "audio/level1/l1-u09-w12-example.mp3",
+    "text": "전시회를 보고 싶어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w13-ko": {
+    "src": "audio/level1/l1-u09-w13-ko.mp3",
+    "text": "사다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w13-en": {
+    "src": "audio/level1/l1-u09-w13-en.mp3",
+    "text": "buy",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w13-example": {
+    "src": "audio/level1/l1-u09-w13-example.mp3",
+    "text": "시장에서 과일을 사요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w14-ko": {
+    "src": "audio/level1/l1-u09-w14-ko.mp3",
+    "text": "찍다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w14-en": {
+    "src": "audio/level1/l1-u09-w14-en.mp3",
+    "text": "take",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w14-example": {
+    "src": "audio/level1/l1-u09-w14-example.mp3",
+    "text": "사진을 많이 찍어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w15-ko": {
+    "src": "audio/level1/l1-u09-w15-ko.mp3",
+    "text": "만들다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w15-en": {
+    "src": "audio/level1/l1-u09-w15-en.mp3",
+    "text": "make",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w15-example": {
+    "src": "audio/level1/l1-u09-w15-example.mp3",
+    "text": "저녁을 같이 만들어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w16-ko": {
+    "src": "audio/level1/l1-u09-w16-ko.mp3",
+    "text": "나가다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w16-en": {
+    "src": "audio/level1/l1-u09-w16-en.mp3",
+    "text": "go out",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w16-example": {
+    "src": "audio/level1/l1-u09-w16-example.mp3",
+    "text": "주말에 같이 나가요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w17-ko": {
+    "src": "audio/level1/l1-u09-w17-ko.mp3",
+    "text": "집에 있다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w17-en": {
+    "src": "audio/level1/l1-u09-w17-en.mp3",
+    "text": "stay home",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w17-example": {
+    "src": "audio/level1/l1-u09-w17-example.mp3",
+    "text": "비가 오면 집에 있어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w18-ko": {
+    "src": "audio/level1/l1-u09-w18-ko.mp3",
+    "text": "같이",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w18-en": {
+    "src": "audio/level1/l1-u09-w18-en.mp3",
+    "text": "together",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w18-example": {
+    "src": "audio/level1/l1-u09-w18-example.mp3",
+    "text": "같이 요리할까요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w19-ko": {
+    "src": "audio/level1/l1-u09-w19-ko.mp3",
+    "text": "아마",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w19-en": {
+    "src": "audio/level1/l1-u09-w19-en.mp3",
+    "text": "perhaps",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w19-example": {
+    "src": "audio/level1/l1-u09-w19-example.mp3",
+    "text": "아마 비가 올 거예요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w20-ko": {
+    "src": "audio/level1/l1-u09-w20-ko.mp3",
+    "text": "싶다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-w20-en": {
+    "src": "audio/level1/l1-u09-w20-en.mp3",
+    "text": "want",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u09-w20-example": {
+    "src": "audio/level1/l1-u09-w20-example.mp3",
+    "text": "영화를 보고 싶어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-g03-example-01": {
+    "src": "audio/level1/l1-u09-g03-example-01.mp3",
+    "text": "전시회를 보고 싶어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-g03-example-02": {
+    "src": "audio/level1/l1-u09-g03-example-02.mp3",
+    "text": "친구를 만나고 싶어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-g04-example-01": {
+    "src": "audio/level1/l1-u09-g04-example-01.mp3",
+    "text": "같이 요리할까요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-g04-example-02": {
+    "src": "audio/level1/l1-u09-g04-example-02.mp3",
+    "text": "영화를 볼까요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-g04-example-03": {
+    "src": "audio/level1/l1-u09-g04-example-03.mp3",
+    "text": "저녁을 만들까요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u09-b01-audio": {
+    "src": "audio/level1/l1-u09-b01-audio.mp3",
+    "text": "날씨가 좋으면 공원에 가요. 비가 오면 집에서 보드게임을 할까요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-input-article-01": {
+    "src": "audio/level1/l1-u10-input-article-01.mp3",
+    "text": "하늘: 어제 뭐 했어요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-input-article-02": {
+    "src": "audio/level1/l1-u10-input-article-02.mp3",
+    "text": "유토: 오전에 도서관에 갔어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-input-article-03": {
+    "src": "audio/level1/l1-u10-input-article-03.mp3",
+    "text": "하늘: 누구를 만났어요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-input-article-04": {
+    "src": "audio/level1/l1-u10-input-article-04.mp3",
+    "text": "유토: 친구를 만나서 같이 점심을 먹었어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-input-article-05": {
+    "src": "audio/level1/l1-u10-input-article-05.mp3",
+    "text": "하늘: 오후에도 공부했어요?",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-input-article-06": {
+    "src": "audio/level1/l1-u10-input-article-06.mp3",
+    "text": "유토: 아니요, 영화를 봤어요. 영화가 아주 좋았어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w01-ko": {
+    "src": "audio/level1/l1-u10-w01-ko.mp3",
+    "text": "어제",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w01-en": {
+    "src": "audio/level1/l1-u10-w01-en.mp3",
+    "text": "yesterday",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u10-w01-example": {
+    "src": "audio/level1/l1-u10-w01-example.mp3",
+    "text": "어제 친구를 만났어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w02-ko": {
+    "src": "audio/level1/l1-u10-w02-ko.mp3",
+    "text": "지난주",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w02-en": {
+    "src": "audio/level1/l1-u10-w02-en.mp3",
+    "text": "last week",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u10-w02-example": {
+    "src": "audio/level1/l1-u10-w02-example.mp3",
+    "text": "지난주에 시험이 있었어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w03-ko": {
+    "src": "audio/level1/l1-u10-w03-ko.mp3",
+    "text": "지난달",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w03-en": {
+    "src": "audio/level1/l1-u10-w03-en.mp3",
+    "text": "last month",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u10-w03-example": {
+    "src": "audio/level1/l1-u10-w03-example.mp3",
+    "text": "지난달에 여행을 갔어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w04-ko": {
+    "src": "audio/level1/l1-u10-w04-ko.mp3",
+    "text": "전에",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w04-en": {
+    "src": "audio/level1/l1-u10-w04-en.mp3",
+    "text": "before",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u10-w04-example": {
+    "src": "audio/level1/l1-u10-w04-example.mp3",
+    "text": "수업 전에 커피를 마셨어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w05-ko": {
+    "src": "audio/level1/l1-u10-w05-ko.mp3",
+    "text": "그때",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w05-en": {
+    "src": "audio/level1/l1-u10-w05-en.mp3",
+    "text": "then",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u10-w05-example": {
+    "src": "audio/level1/l1-u10-w05-example.mp3",
+    "text": "그때 학생이었어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w06-ko": {
+    "src": "audio/level1/l1-u10-w06-ko.mp3",
+    "text": "먼저",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w06-en": {
+    "src": "audio/level1/l1-u10-w06-en.mp3",
+    "text": "first",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u10-w06-example": {
+    "src": "audio/level1/l1-u10-w06-example.mp3",
+    "text": "먼저 숙제를 했어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w07-ko": {
+    "src": "audio/level1/l1-u10-w07-ko.mp3",
+    "text": "나중에",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w07-en": {
+    "src": "audio/level1/l1-u10-w07-en.mp3",
+    "text": "later",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u10-w07-example": {
+    "src": "audio/level1/l1-u10-w07-example.mp3",
+    "text": "나중에 영화를 봤어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w08-ko": {
+    "src": "audio/level1/l1-u10-w08-ko.mp3",
+    "text": "가다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w08-en": {
+    "src": "audio/level1/l1-u10-w08-en.mp3",
+    "text": "go",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u10-w08-example": {
+    "src": "audio/level1/l1-u10-w08-example.mp3",
+    "text": "어제 학교에 갔어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w09-ko": {
+    "src": "audio/level1/l1-u10-w09-ko.mp3",
+    "text": "만나다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w09-en": {
+    "src": "audio/level1/l1-u10-w09-en.mp3",
+    "text": "meet",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u10-w09-example": {
+    "src": "audio/level1/l1-u10-w09-example.mp3",
+    "text": "친구를 만났어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w10-ko": {
+    "src": "audio/level1/l1-u10-w10-ko.mp3",
+    "text": "먹다",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-w10-en": {
+    "src": "audio/level1/l1-u10-w10-en.mp3",
+    "text": "eat",
+    "lang": "en",
+    "voice": "en-US-JennyNeural"
+  },
+  "l1-u10-w10-example": {
+    "src": "audio/level1/l1-u10-w10-example.mp3",
+    "text": "점심을 먹었어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-g01-example-01": {
+    "src": "audio/level1/l1-u10-g01-example-01.mp3",
+    "text": "친구를 만났어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-g01-example-02": {
+    "src": "audio/level1/l1-u10-g01-example-02.mp3",
+    "text": "점심을 먹었어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-g02-example-01": {
+    "src": "audio/level1/l1-u10-g02-example-01.mp3",
+    "text": "친구를 만나서 같이 먹었어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-g02-example-02": {
+    "src": "audio/level1/l1-u10-g02-example-02.mp3",
+    "text": "도서관에 가서 공부했어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  "l1-u10-a01-audio": {
+    "src": "audio/level1/l1-u10-a01-audio.mp3",
+    "text": "어제 먼저 도서관에 갔어요. 친구를 만나서 같이 점심을 먹었어요.",
+    "lang": "ko",
+    "voice": "ko-KR-SunHiNeural"
   }
 }
